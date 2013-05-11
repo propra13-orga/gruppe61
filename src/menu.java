@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class menu extends JFrame implements ActionListener{
+public class Menu extends JFrame implements ActionListener{
 
 	/**
 	 * 
@@ -18,7 +18,7 @@ public class menu extends JFrame implements ActionListener{
 	JButton start;
 	JButton end; 	
 	
-	public menu(){
+	public Menu(){
         this.setTitle("Menue");
         this.setSize(400, 200);
         panel = new JPanel();
@@ -67,7 +67,7 @@ public class menu extends JFrame implements ActionListener{
     {
         // Ein neues Objekt der Klasse BeispielListener wird erzeugt
         // und sichtbar gemacht
-        menu bl = new menu();
+        Menu bl = new Menu();
         bl.setVisible(true);
     }
 
