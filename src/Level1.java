@@ -84,7 +84,7 @@ public class Level1 {
                                    y_neu=y;
 
                                    //Prüfe ob neuer Punkt zulässig
-                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.55<=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
+                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.8>=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
                                    {
                                            if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich =>Bewegung möglich
                                            {
@@ -94,7 +94,7 @@ public class Level1 {
                                                    y=y_neu;
                                                    //Zeichne neue Figur
                                                    player(x,y);
-                                           } else {
+                                           } else {System.out.println("1");
                                            x_neu=x; //Keine Bewegung möglich
                                            }
                                    }
@@ -115,17 +115,17 @@ public class Level1 {
                                    x_neu = x+0.001;
                                    y_neu = y;
                                  //Prüfe ob neuer Punkt zulässig
-                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.55<=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
+                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.8>=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
                                    {
                                            if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich
-                                           {
+                                           {System.out.println("2");
                                                  //Übermale alte Figur
                                                    StdDraw.point(x, y);
                                                    x=x_neu;
                                                    y=y_neu;
                                                    //Zeichne neue Figur
                                                    player(x,y);
-                                           } else {
+                                           } else {System.out.println("2");
                                            x_neu=x; //Keine Bewegung möglich
                                            }
                                  } else{
@@ -142,8 +142,9 @@ public class Level1 {
                                    x_neu = x;
                                    y_neu = y+0.001;
                                  //Prüfe ob neuer Punkt zulässig
-                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.55<=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
-                                   {
+                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.8>=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
+                                   {System.out.println(x);
+                                   System.out.println(y);
                                            y_neu=y;
                                    } else{
                                  //Übermale alte Figur
@@ -161,8 +162,8 @@ public class Level1 {
                                    y_neu = y-0.001;
 
                                  //Prüfe ob neuer Punkt zulässig
-                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.55<=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
-                                   {
+                                   if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9)) || ( x_neu>=0.25 && x_neu<=0.35 && y<=0.85) || (0.70<=x_neu && x_neu<=0.8 && y>=0.15) || (0.45<=x_neu && 0.8>=x_neu && 0.15<=y && y<=0.25) || y_neu>0.95 || (0.25<=x_neu && x_neu<=0.55 && y_neu>=0.45 && y_neu<=0.55) || (0.45<=x_neu && x_neu<=0.75 && 0.15<=y_neu && y_neu<=0.25) || y_neu<=0.05) //Wand
+                                   {System.out.println("4");
                                            y_neu=y;
                                    } else{
                                  //Übermale alte Figur
@@ -183,6 +184,10 @@ public class Level1 {
                                    
                                    
 
+                           }
+                           if ((x>=0.95 && (y>=0.65 && y<=0.9)));
+                           {
+                        	   new Level2();
                            }
                           
                    }
