@@ -28,8 +28,8 @@ public class Level2 {
                 //Statischer Gegner/Falle
                 StdDraw.setPenColor(StdDraw.RED);
                 StdDraw.filledSquare(z, k, 0.01);
-                StdDraw.filledSquare(-z, k, 0.01);
-                StdDraw.filledSquare(z, -k, 0.01);
+                StdDraw.filledSquare(z+0.3, k, 0.01);
+                StdDraw.filledSquare(z-0.3, k, 0.01);
 
 
      }
@@ -83,7 +83,32 @@ public static void main(String[] args) {
 
                 while (x>=0.001 && x<=1 )
                  
-                {	
+                {	//damit das Feld nach der Falle wieder weiß wird
+                	StdDraw.setPenRadius(.06);
+                	StdDraw.setPenColor(Color.WHITE);
+                	StdDraw.filledSquare(z, k, 0.02);
+                	StdDraw.filledSquare(z+0.3, k, 0.02);
+                	StdDraw.filledSquare(z-0.3, k, 0.02);
+                	
+                	//damit die Falle nicht aus dem Feld läuft
+            	if((z<0.97 || k<0.97) && p==1){
+                	z_neu=z+0.001;
+                	k_neu=k+0.001;
+                	z=z_neu;
+                	k=k_neu;}
+                	else if((z>0.03 || k>0.03) &&p==0) {                	
+                	z_neu=z-0.001;
+                	k_neu=k-0.001;
+                	z=z_neu;
+                	k=k_neu;}
+                	else {
+                		if (p==1){p=0;}
+                		else {p=1;}
+                	}
+                		
+                	
+                	
+                	Fallen(z,k);
                    
                 		
                 	
@@ -94,29 +119,9 @@ public static void main(String[] args) {
 
                         if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                         {
-                        	StdDraw.setPenRadius(.07);
-                        	StdDraw.setPenColor(Color.WHITE);
-                        	StdDraw.filledSquare(z, k, 0.02);
-                    	if(z<0.97 && k<0.97 && p==1){
-                        	z_neu=z+0.001;
-                        	k_neu=k+0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else if(z>0.03 && k>0.03 &&p==0) {                	
-                        	z_neu=z-0.001;
-                        	k_neu=k-0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else {
-                        		if (p==1){p=0;}
-                        		else {p=1;}
-                        	}
-                        		
                         	
-                        	
-                        	Fallen(z,k);
                         	 //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                            StdDraw.setPenRadius(.07);
+                            StdDraw.setPenRadius(.06);
                             StdDraw.setPenColor(Color.WHITE);
                                 //Neue Koordinaten:
                                 x_neu = x-0.001;
@@ -137,29 +142,13 @@ public static void main(String[] args) {
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
                         {
-                        	StdDraw.setPenRadius(.07);
-                        	StdDraw.setPenColor(Color.WHITE);
-                        	StdDraw.filledSquare(z, k, 0.02);
-                    	if(z<0.97 && k<0.97 && p==1){
-                        	z_neu=z+0.001;
-                        	k_neu=k+0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else if(z>0.03 && k>0.03 &&p==0) {                	
-                        	z_neu=z-0.001;
-                        	k_neu=k-0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else {
-                        		if (p==1){p=0;}
-                        		else {p=1;}
-                        	}
+                        	
                         		
                         	
                         	
-                        	Fallen(z,k);
+                        	
                        	 //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                            StdDraw.setPenRadius(.07);
+                            StdDraw.setPenRadius(.06);
                             StdDraw.setPenColor(Color.WHITE);
                               //Neue Koordinaten:
                                 x_neu = x+0.001;
@@ -179,29 +168,13 @@ public static void main(String[] args) {
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
                         {	
-                        	StdDraw.setPenRadius(.07);
-                    		StdDraw.setPenColor(Color.WHITE);
-                        	StdDraw.filledSquare(z, k, 0.02);
-                    	if(z<0.97 && k<0.97 && p==1){
-                        	z_neu=z+0.001;
-                        	k_neu=k+0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else if(z>0.03 && k>0.03 &&p==0) {                	
-                        	z_neu=z-0.001;
-                        	k_neu=k-0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else {
-                        		if (p==1){p=0;}
-                        		else {p=1;}
-                        	}
+                        	
                         		
                         	
                         	
-                        	Fallen(z,k);
+                        	
                        	 //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                            StdDraw.setPenRadius(.07);
+                            StdDraw.setPenRadius(.06);
                             StdDraw.setPenColor(Color.WHITE);
                               //Neue Koordinaten:
                                 x_neu = x;
@@ -231,30 +204,13 @@ public static void main(String[] args) {
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
                         {	
-                        	StdDraw.setPenRadius(.07);
-                        	StdDraw.setPenColor(Color.WHITE);
-                        	StdDraw.filledSquare(z, k, 0.02);
-                        
-                    	if(z<0.97 && k<0.97 && p==1){
-                        	z_neu=z+0.001;
-                        	k_neu=k+0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else if(z>0.03 && k>0.03 &&p==0) {                	
-                        	z_neu=z-0.001;
-                        	k_neu=k-0.001;
-                        	z=z_neu;
-                        	k=k_neu;}
-                        	else {
-                        		if (p==1){p=0;}
-                        		else {p=1;}
-                        	}
+                        	
                         		
                         	
                         	
-                        	Fallen(z,k);
+                        	
                        	 //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                            StdDraw.setPenRadius(.07);
+                            StdDraw.setPenRadius(.06);
                             StdDraw.setPenColor(Color.WHITE);
                               //Neue Koordinaten:
                                 x_neu = x;
@@ -273,7 +229,7 @@ public static void main(String[] args) {
                                 }
                         }
                         //Teste ob Gegner/Falle berührt
-                        if (x<=z+0.02 && x>=z-0.02 && y<=k+0.02 && y>=k-0.02)
+                        if (x<=z+0.04 && x>=z-0.04 && y<=k+0.04 && y>=k-0.04)
                         {
                      	   
                      	    StdDraw.clear();
