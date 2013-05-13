@@ -70,7 +70,7 @@ public class Level1 {
                    double x_neu;
                    double y_neu;
 
-                   while (x>=0.001 && x<1 )
+                   while (x>=0.001 && x<=1 )
                    {
                            //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
                            StdDraw.setPenRadius(.07);
@@ -175,10 +175,16 @@ public class Level1 {
                            //Teste ob Gegner/Falle berührt
                            if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.65 >=y)|| 0.1<=x && x<=0.2 && 0.45<=y && y<=0.55)
                            {
-                                   //Tod
-                                   System.exit(0);
+                        	   
+                        	    StdDraw.clear();
+                                   Panel.main(args);//Das Fenster muss immer noch geschglossen werden 
+                                    
+                                   break;
+                                   
+                                   
 
                            }
+                          
                    }
 
 

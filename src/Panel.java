@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Panel extends JFrame implements ActionListener{
+public final class Panel extends JFrame implements ActionListener{
 
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class Panel extends JFrame implements ActionListener{
 	
 	public Panel(){
         this.setTitle("Menue");
-        this.setSize(400, 200);
+        this.setSize(512, 512);
         panel = new JPanel();
  
         // Leeres JLabel-Objekt wird erzeugt
@@ -48,7 +48,10 @@ public class Panel extends JFrame implements ActionListener{
 
 			@Override	// initiate the game
 			public void actionPerformed(ActionEvent arg0) {
-				//Dungeon.initGame();
+				Dungeon dug= new Dungeon();
+				dug.initGame();
+				
+				
 			}
 		});
         
