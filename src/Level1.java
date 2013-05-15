@@ -72,6 +72,7 @@ public class Level1 {
 
                    while (x>=0.001 && x<=1 )
                    {
+                	   StdDraw.show(0);
                            //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
                            StdDraw.setPenRadius(.053);
                            StdDraw.setPenColor(Color.WHITE);
