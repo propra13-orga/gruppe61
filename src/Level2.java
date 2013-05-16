@@ -326,8 +326,9 @@ public static void main(String[] args) {
                         {
                      	   
                      	    
-                                Panel.main(args);//Das Fenster muss immer noch geschglossen werden 
-                                 
+                        	//Tot -> Zurück ins Menü
+                    	   	StdDraw.clear();
+                            Menue.main(args);
                                 break;
                                 
                                 
@@ -335,7 +336,8 @@ public static void main(String[] args) {
                         }
                         if (y>1)
                         {
-                     	  new Level3();
+                     	  Level3 init =new Level3();
+                     	  init.main(args);
                      	  break;
                      	  
                      	   
