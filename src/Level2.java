@@ -336,8 +336,7 @@ public static void main(String[] args) {
                         }
                         if (y>1)
                         {
-                     	  Level3 init =new Level3();
-                     	  init.main(args);
+                     	  Level3.main(args);
                      	  break;
                      	  
                      	   
