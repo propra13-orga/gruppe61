@@ -29,9 +29,9 @@ public static void main(String[] args) {
                
                
                //Initialisiere Fallen auf dem Feld
-               Level2.Falle1(i,j);
-               Level2.Falle2(k,l);
-               //Falle3(n,m);
+               Level2.Falle(i,j);
+               Level2.Falle(k,l);
+               Level2.Falle(n,m);
                //Für die neuen Punkte der Falle
                double i_neu;
                double j_neu;
@@ -55,6 +55,9 @@ public static void main(String[] args) {
      	   		StdDraw.clear();
      	   		Level1.room();
      	   		Level1.player(x,y);
+     	   		Level2.Falle(i,j);
+     	   		Level2.Falle(k,l);
+     	   		Level2.Falle(n,m);
                                  
                  //damit die Falle nicht aus dem Feld läuft
                  if(i<0.97 && j<0.97 && p_1==1){
@@ -77,8 +80,7 @@ public static void main(String[] args) {
                  else {
                  p_1=1;}
                  }
-                
-                 Level2.Falle1(i,j);//Ende der ersten beweglichen Falle
+                //Ende der ersten beweglichen Falle
                 
                  if(k<0.96 && l<0.97 && p_2==1){
                  k_neu=k+0.005;
@@ -117,9 +119,7 @@ public static void main(String[] args) {
                  else{
                  p_2=1;}
                  }
-                
-
-                 Level2.Falle2(k,l); // Ende der zweiten beweglichen Falle
+                // Ende der zweiten beweglichen Falle
 
                  if(n<0.97 && m<0.97 && p_3==1){
                  n_neu=n+0.01;
@@ -141,7 +141,7 @@ public static void main(String[] args) {
                  else {
                  p_3=1;}
                  }
-                 Level2.Falle3(n,m); //Ende der dritten beweglichen Falle
+                 //Ende der dritten beweglichen Falle
               
 
                         if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left

@@ -23,26 +23,15 @@ public class Level2 {
 
                 StdDraw.text(.75, 1, "Ziel");
      }
-   static void Falle1(double i,double j){
+   static void Falle(double i,double j){
                 //bewegene Gegner/Falle
-                StdDraw.setPenColor(StdDraw.RED);
+                StdDraw.setPenColor(StdDraw.YELLOW);
                 StdDraw.filledSquare(i, j, 0.01);
+                StdDraw.setPenColor(StdDraw.BLACK);
+                StdDraw.square(i, j,0.01);
 
 
      }
-   static void Falle2(double k,double l){
-       //bewegene Gegner/Falle
-       StdDraw.setPenColor(StdDraw.RED);
-       StdDraw.filledSquare(k, l, 0.01);
-       
-   }
-   static void Falle3(double n,double m){
-       //bewegene Gegner/Falle
-       StdDraw.setPenColor(StdDraw.RED);
-       StdDraw.filledSquare(n, m, 0.01);
-
-
-   }
 
 
 public static void main(String[] args) {
@@ -72,9 +61,9 @@ public static void main(String[] args) {
                
                
                //Initialisiere Fallen auf dem Feld
-               Falle1(i,j);
-               Falle2(k,l);
-               //Falle3(n,m);
+               Falle(i,j);
+               Falle(k,l);
+               Falle(n,m);
                //Für die neuen Punkte der Falle
                double i_neu;
                double j_neu;
@@ -98,6 +87,9 @@ public static void main(String[] args) {
                 	StdDraw.clear();
                 	room();
                 	Level1.player(x,y);
+                	Falle(i,j);
+                    Falle(k,l);
+                    Falle(n,m);
                 	
                 	//damit die Falle nicht aus dem Feld läuft
                 	if(i<0.97 && j<0.97 && p_1==1){
@@ -121,7 +113,7 @@ public static void main(String[] args) {
                 			p_1=1;}
                 			}
                 	                	
-                	Falle1(i,j);//Ende der ersten beweglichen Falle
+                	//Ende der ersten beweglichen Falle
                 	
                 	if(k<0.96 && l<0.97 && p_2==1){
                 		k_neu=k+0.01;
@@ -160,9 +152,7 @@ public static void main(String[] args) {
                 		else{
                 			p_2=1;}
                 		}
-                			
-
-                	Falle2(k,l); // Ende der zweiten beweglichen Falle
+                	 // Ende der zweiten beweglichen Falle
 
                 	if(n<0.97 && m<0.97 && p_3==1){
                 		n_neu=n+0.01;
@@ -184,7 +174,7 @@ public static void main(String[] args) {
                 		else {
                 			p_3=1;}
                 			}
-                	Falle3(n,m); //Ende der dritten beweglichen Falle
+                	//Ende der dritten beweglichen Falle
                 	
 
 

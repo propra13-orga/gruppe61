@@ -8,7 +8,9 @@ public class Level1 {
                 //StdDraw.setCanvasSize(512,512);
 
                    StdDraw.setPenColor(StdDraw.BLACK);
-
+                   
+                   //Hintergrundbild:
+                   StdDraw.picture(.5, .5, "f95.png", 1, 1);
                    StdDraw.setPenRadius(0.01);
 
                    //Rand des Spielfelds:
@@ -29,9 +31,14 @@ public class Level1 {
                    StdDraw.text(1, 0.758, "Ziel");
 
                    //Statischer Gegner/Falle
-                   StdDraw.setPenColor(StdDraw.RED);
+                   //StdDraw.setPenColor(StdDraw.RED);
+                   StdDraw.setPenColor(StdDraw.YELLOW);
                    StdDraw.filledSquare(0.6, .6, 0.01);
                    StdDraw.filledSquare(0.15, .5, 0.01);
+                   StdDraw.setPenColor(StdDraw.BLACK);
+                   StdDraw.square(0.6, .6,0.01);
+                   StdDraw.square(0.15, .5,0.01);
+                   
 
 
         }
@@ -39,12 +46,12 @@ public class Level1 {
         static void player(double x,double y)
         {
 
-                //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
-                StdDraw.setPenColor(StdDraw.BLUE);
-                StdDraw.setPenRadius(0.05);
-                StdDraw.point(x, y);
-
-                   //}
+//                //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
+//                StdDraw.setPenColor(StdDraw.BLUE);
+//                StdDraw.setPenRadius(0.05);
+//                StdDraw.point(x, y);
+        	//Zeichne Spieler als Pi an Koordinate (x,y):
+                StdDraw.picture(x, y,"pi.png",.08,.08);
 
 
 
