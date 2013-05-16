@@ -118,7 +118,7 @@ public static void main(String[] args) {
                 while (x>=0.001 && x<=1 )
                  
                 {	
-                	StdDraw.show(0);
+                	StdDraw.show(1);
                 	//damit das Feld nach der Falle wieder weiß wird
                 	//Weissmacher(i,j,0,0);
                 	//Weissmacher(k,l,0,0);
