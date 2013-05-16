@@ -12,6 +12,7 @@ public class Menue {
 		
 		StdDraw.clear();
 		StdDraw.setPenRadius(.01);
+		StdDraw.setPenColor();
 		
 		double x=0.75;
 		double y=0.75;
