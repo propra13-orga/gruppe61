@@ -70,9 +70,9 @@ public class Level1 {
                    double x_neu;
                    double y_neu;
 
-                   while (x>=0.001 && x<=1 )
+                   while (true)
                    {
-                 StdDraw.show(0);
+                	   		StdDraw.show(0);
                            //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
                            StdDraw.setPenRadius(.053);
                            StdDraw.setPenColor(Color.WHITE);
@@ -164,8 +164,8 @@ public class Level1 {
                                    player(x,y);
                                    }
                            }
-                           //Teste ob Gegner/Falle berührt
-                           if ((0.57<=x && 0.63 >=x && 0.57<=y && 0.63 >=y)|| 0.12<=x && x<=0.18 && 0.47<=y && y<=0.53)
+                           //Teste, ob Gegner/Falle berührt
+                           if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                            {
                         	   	//Tot -> Zurück ins Menü
                         	   	StdDraw.clear();
@@ -176,11 +176,13 @@ public class Level1 {
                                    
 
                            }
-                           if ((x>=0.95 && (y>=0.7 && y<=0.85)));
-                           {
-                         new Level2();
-                        
-                           }
+                           //Teste, ob im Ziel:
+//                           if (y>1);
+//                           {
+//                        	   Level2.main(args);
+//                        	   break;
+//                        
+//                           }
                           
                    }
 
