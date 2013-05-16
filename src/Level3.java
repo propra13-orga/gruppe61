@@ -1,56 +1,6 @@
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 public class Level3 {
-//static void zwischenwaende()
-//{
-//StdDraw.setPenColor(StdDraw.BLACK);
-//StdDraw.setPenRadius(0.01);
-//StdDraw.line(0.3,0, 0.3, 0.8); //senkrechte Zwischenwand
-//StdDraw.line(0.75, 1, .75, .2); //senkrechte Zwishcenwand
-//StdDraw.line(0.3, .5, 0.5, .5); //waagerechte Zwischenwand
-//        StdDraw.line(0.75, 0.2, 0.5, 0.2); //waagerechte Zwischenwand
-//        
-//      //Statischer Gegner/Falle
-//        StdDraw.setPenColor(StdDraw.RED);
-//        StdDraw.filledSquare(0.6, .6, 0.01);
-//        StdDraw.filledSquare(0.15, .5, 0.01);
-//}
-   static void Falle1(double i,double j){
-                //bewegene Gegner/Falle
-                StdDraw.setPenColor(StdDraw.RED);
-                StdDraw.filledSquare(i, j, 0.01);
-
-
-     }
-   static void Falle2(double k,double l){
-       //bewegene Gegner/Falle
-       StdDraw.setPenColor(StdDraw.RED);
-       StdDraw.filledSquare(k, l, 0.01);
-       
-   }
-   static void Falle3(double n,double m){
-       //bewegene Gegner/Falle
-       StdDraw.setPenColor(StdDraw.RED);
-       StdDraw.filledSquare(n, m, 0.01);
-
-
-   }
-   
-
-     static void player(double x,double y)
-     {
-
-             //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
-             StdDraw.setPenColor(StdDraw.BLUE);
-             StdDraw.setPenRadius(0.05);
-             StdDraw.point(x, y);
-
-                //}
-
-
-
-     }
 
 public static void main(String[] args) {
         {
@@ -64,7 +14,7 @@ public static void main(String[] args) {
                double y=.15;
                
                //Initialisiere Spielfigur am Startpunkt
-               player(x,y);
+               Level1.player(x,y);
                //für die neuen Punkte der Spielfigur
                double x_neu;
                double y_neu;
@@ -79,8 +29,8 @@ public static void main(String[] args) {
                
                
                //Initialisiere Fallen auf dem Feld
-               Falle1(i,j);
-               Falle2(k,l);
+               Level2.Falle1(i,j);
+               Level2.Falle2(k,l);
                //Falle3(n,m);
                //Für die neuen Punkte der Falle
                double i_neu;
@@ -100,17 +50,12 @@ public static void main(String[] args) {
                  
                 {	
                  StdDraw.show(10);
-                 //damit das Feld nach der Falle wieder weiß wird
-                 //Weissmacher(i,j,0,0);
-                 //Weissmacher(k,l,0,0);
-                 //Weissmacher(n,m,0,0);
-                    StdDraw.setPenRadius(.06);
-                    StdDraw.setPenColor(Color.WHITE);
-                    StdDraw.filledSquare(i, j, 0.02);
-                    StdDraw.filledSquare(k, l, 0.02);
-                    StdDraw.filledSquare(n, m, 0.02);
-                    
-                
+                 
+               //Zeichne neu:
+     	   		StdDraw.clear();
+     	   		Level1.room();
+     	   		Level1.player(x,y);
+                                 
                  //damit die Falle nicht aus dem Feld läuft
                  if(i<0.97 && j<0.97 && p_1==1){
                  i_neu=i+0.005;
@@ -133,7 +78,7 @@ public static void main(String[] args) {
                  p_1=1;}
                  }
                 
-                 Falle1(i,j);//Ende der ersten beweglichen Falle
+                 Level2.Falle1(i,j);//Ende der ersten beweglichen Falle
                 
                  if(k<0.96 && l<0.97 && p_2==1){
                  k_neu=k+0.005;
@@ -174,7 +119,7 @@ public static void main(String[] args) {
                  }
                 
 
-                 Falle2(k,l); // Ende der zweiten beweglichen Falle
+                 Level2.Falle2(k,l); // Ende der zweiten beweglichen Falle
 
                  if(n<0.97 && m<0.97 && p_3==1){
                  n_neu=n+0.01;
@@ -196,17 +141,8 @@ public static void main(String[] args) {
                  else {
                  p_3=1;}
                  }
-                 Falle3(n,m); //Ende der dritten beweglichen Falle
-                
-
-                
-                
-                 Level1.room();
-                
-                        //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                 StdDraw.setPenRadius(.06);
-                 StdDraw.setPenColor(Color.WHITE);
-
+                 Level2.Falle3(n,m); //Ende der dritten beweglichen Falle
+              
 
                         if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                         {
@@ -224,13 +160,8 @@ public static void main(String[] args) {
                                     }
                             else
                                 {
-                                //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                //Zeichne neue Figur
-                                player(x,y);
                                 }
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
@@ -244,23 +175,15 @@ public static void main(String[] args) {
                                 {
                                         if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich
                                         {
-                                              //Übermale alte Figur
-                                                StdDraw.point(x, y);
                                                 x=x_neu;
                                                 y=y_neu;
-                                                //Zeichne neue Figur
-                                                player(x,y);
                                         } else {
                                         x_neu=x; //Keine Bewegung möglich
                                         }
                               }
                                 else{
-                              //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                player(x,y);
                               }
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
@@ -275,12 +198,8 @@ public static void main(String[] args) {
                                         y_neu=y;
                                 }
                                 else{
-                              //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                player(x,y);
                                 }
 
                         }
@@ -296,23 +215,17 @@ public static void main(String[] args) {
                                 {
                                         y_neu=y;
                                 } else{
-                              //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                player(x,y);
                                 }
                         }
                         //Teste ob Gegner/Falle berührt
                         if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
                         {
-                     
-                     
-                         //Tot -> Zurück ins Menü
-                     StdDraw.clear();
+                        	//Tot -> Zurück ins Menü
+                        	StdDraw.clear();
                             Menue.main(args);
-                                break;
+                            break;
                                 
                                 
 
@@ -320,11 +233,10 @@ public static void main(String[] args) {
                       //Teste, ob eine statische Falle berührt
                         if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                         {
-                      //Tot -> Zurück ins Menü
-                      StdDraw.clear();
-                             Menue.main(args);
-                                 
-                                break;
+                        	//Tot -> Zurück ins Menü
+                        	StdDraw.clear();
+                            Menue.main(args);
+                            break;
                                 
                                 
 
@@ -332,8 +244,8 @@ public static void main(String[] args) {
                         //Teste, ob im Ziel
                         if (x>1)
                         {
-                      Durchgezockt.main(args);
-                      break;
+                        	Durchgezockt.main(args);
+                        	break;
                      
                      
                         }

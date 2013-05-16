@@ -1,10 +1,9 @@
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 public class Level2 {
 	 static void room()
      {
-             StdDraw.setCanvasSize(512,512);
+             //StdDraw.setCanvasSize(512,512);
 
                 StdDraw.setPenColor(StdDraw.BLACK);
 
@@ -44,32 +43,6 @@ public class Level2 {
 
 
    }
-   
-
-     static void player(double x,double y)
-     {
-
-             //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
-             StdDraw.setPenColor(StdDraw.BLUE);
-             StdDraw.setPenRadius(0.05);
-             StdDraw.point(x, y);
-
-                //}
-
-
-
-     }
-     //static void Weissmacher(double z,double k,double x, double y){//macht alles Weiß und rein ;-)
-      //   StdDraw.setPenRadius(.06);
-       //  StdDraw.setPenColor(Color.WHITE);
-       //  if (z==0){	StdDraw.point(x, y);}
-       //  else {StdDraw.filledSquare(z, k, 0.02);}
-
-    	 
-     //}
-
-
-
 
 
 public static void main(String[] args) {
@@ -84,7 +57,7 @@ public static void main(String[] args) {
                double y=.051;
                
                //Initialisiere Spielfigur am Startpunkt
-               player(x,y);
+               Level1.player(x,y);
                //für die neuen Punkte der Spielfigur
                double x_neu;
                double y_neu;
@@ -118,18 +91,13 @@ public static void main(String[] args) {
 
                 while (x>=0.001 && x<=1 )
                  
-                {	
+                {	//Buffering:
                 	StdDraw.show(10);
-                	//damit das Feld nach der Falle wieder weiß wird
-                	//Weissmacher(i,j,0,0);
-                	//Weissmacher(k,l,0,0);
-                	//Weissmacher(n,m,0,0);
-                    StdDraw.setPenRadius(.06);
-                    StdDraw.setPenColor(Color.WHITE);
-                    StdDraw.filledSquare(i, j, 0.02);
-                    StdDraw.filledSquare(k, l, 0.02);
-                    StdDraw.filledSquare(n, m, 0.02);
-                    
+                	
+                	//Neu zeichnen:
+                	StdDraw.clear();
+                	room();
+                	Level1.player(x,y);
                 	
                 	//damit die Falle nicht aus dem Feld läuft
                 	if(i<0.97 && j<0.97 && p_1==1){
@@ -219,14 +187,6 @@ public static void main(String[] args) {
                 	Falle3(n,m); //Ende der dritten beweglichen Falle
                 	
 
-                		
-                	
-                	
-                	
-                        //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                		StdDraw.setPenRadius(.06);
-                		StdDraw.setPenColor(Color.WHITE);
-
 
                         if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                         {
@@ -242,13 +202,8 @@ public static void main(String[] args) {
                                 	x_neu=x;			}
                                 else
                                 {
-                                //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                //Zeichne neue Figur
-                                player(x,y);
                                 }
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
@@ -263,12 +218,8 @@ public static void main(String[] args) {
                                 } 
                                 
                                 else{
-                              //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                player(x,y);
                               }
                         }
                         else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
@@ -280,25 +231,20 @@ public static void main(String[] args) {
                               //Prüfe ob neuer Punkt zulässig
                                 if (y_neu>=0.95) //Wand
                                 {	
-                                	if(x_neu> 0.3 && x_neu< 0.4 &&y_neu<=0.05|| x_neu>0.7 && x_neu< 0.8){//Beim Start/Ziel nur nach oben erlauben
-                                		//Weissmacher(0,0,x,y);
-                                		StdDraw.point(x, y);
+                                	if(x_neu> 0.3 && x_neu< 0.4 &&y_neu<=0.05|| x_neu>0.7 && x_neu< 0.8)
+                                	{//Beim Start/Ziel nur nach oben erlauben
+                                		
                                         x=x_neu;
                                         y=y_neu;
-                                        player(x,y);
                                 	
-                                }
+                                	}
                                 	
                                 else{
                                         y_neu=y;}//Wenn wir nicht beim Start sind
                                 } 
                                 else{
-                              //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                player(x,y);
                                 }
 
                         }
@@ -314,12 +260,8 @@ public static void main(String[] args) {
                                 {
                                         y_neu=y;
                                 } else{
-                              //Übermale alte Figur
-                                //Weissmacher(0,0,x,y);
-                                StdDraw.point(x, y);
                                 x=x_neu;
                                 y=y_neu;
-                                player(x,y);
                                 }
                         }
                         //Teste ob Gegner/Falle berührt
