@@ -75,6 +75,7 @@ public class Level2 {
 public static void main(String[] args) {
         {
 
+        	StdDraw.clear();
                //Initialosiere Level
                room();
 
@@ -118,7 +119,7 @@ public static void main(String[] args) {
                 while (x>=0.001 && x<=1 )
                  
                 {	
-                	StdDraw.show(1);
+                	StdDraw.show(10);
                 	//damit das Feld nach der Falle wieder weiß wird
                 	//Weissmacher(i,j,0,0);
                 	//Weissmacher(k,l,0,0);
@@ -132,15 +133,15 @@ public static void main(String[] args) {
                 	
                 	//damit die Falle nicht aus dem Feld läuft
                 	if(i<0.97 && j<0.97 && p_1==1){
-                		i_neu=i+0.001;
-                		j_neu=j+0.001;
+                		i_neu=i+0.01;
+                		j_neu=j+0.01;
                 		i=i_neu;
                 		j=j_neu;
                 		
                 		}
                 	else if((i>0.03 || j>0.03) &&p_1==0) {                	
-                		i_neu=i-0.001;
-                		j_neu=j-0.001;
+                		i_neu=i-0.01;
+                		j_neu=j-0.01;
                 		i=i_neu;
                 		j=j_neu;
                 		}
@@ -155,28 +156,28 @@ public static void main(String[] args) {
                 	Falle1(i,j);//Ende der ersten beweglichen Falle
                 	
                 	if(k<0.96 && l<0.97 && p_2==1){
-                		k_neu=k+0.001;
-                		l_neu=l+0.001;
+                		k_neu=k+0.01;
+                		l_neu=l+0.01;
                 		k=k_neu;
                 		l=l_neu;
                 		
                 		}
                 	else if(k<0.97 && l<0.97 && p_2==2){
-                			k_neu=k-0.001;
-                			l_neu=l+0.001;
+                			k_neu=k-0.01;
+                			l_neu=l+0.01;
                 			k=k_neu;
                 			l=l_neu;
                 		
                 		}
                 	else if(k>0.03 && l>0.03 &&p_2==3) {                	
-                		k_neu=k-0.001;
-                		l_neu=l-0.001;
+                		k_neu=k-0.01;
+                		l_neu=l-0.01;
                 		k=k_neu;
                 		l=l_neu;
                 		}
                 	else if(k>0.02 && l>0.03 &&p_2==0) {                	
-                		k_neu=k+0.001;
-                		l_neu=l-0.001;
+                		k_neu=k+0.01;
+                		l_neu=l-0.01;
                 		k=k_neu;
                 		l=l_neu;
                 		}
@@ -196,13 +197,13 @@ public static void main(String[] args) {
                 	Falle2(k,l); // Ende der zweiten beweglichen Falle
 
                 	if(n<0.97 && m<0.97 && p_3==1){
-                		n_neu=n+0.001;
+                		n_neu=n+0.01;
                 		m_neu=3*n_neu*n_neu-3*n_neu+1;
                 		n=n_neu;
                 		m=m_neu;
                 		}
                 	else if(n>0.03 && m>0.03 &&p_3==0) {                	
-                		n_neu=n-0.001;
+                		n_neu=n-0.01;
                 		m_neu=3*n_neu*n_neu-3*n_neu+1;
                 		n=n_neu;
                 		m=m_neu;
@@ -233,7 +234,7 @@ public static void main(String[] args) {
                         	 
 
                                 //Neue Koordinaten:
-                                x_neu = x-0.001;
+                                x_neu = x-0.005;
                                 y_neu=y;
 
                                 //Prüfe ob neuer Punkt zulässig
@@ -254,7 +255,7 @@ public static void main(String[] args) {
                         {
 
                               //Neue Koordinaten:
-                                x_neu = x+0.001;
+                                x_neu = x+0.005;
                                 y_neu = y;
                               //Prüfe ob neuer Punkt zulässig
                                 if (x_neu >= 0.95|| y_neu>=0.95) //Wand
@@ -275,7 +276,7 @@ public static void main(String[] args) {
 
                               //Neue Koordinaten:
                                 x_neu = x;
-                                y_neu = y+0.001;
+                                y_neu = y+0.005;
                               //Prüfe ob neuer Punkt zulässig
                                 if (y_neu>=0.95) //Wand
                                 {	
@@ -306,7 +307,7 @@ public static void main(String[] args) {
 
                               //Neue Koordinaten:
                                 x_neu = x;
-                                y_neu = y-0.001;
+                                y_neu = y-0.005;
 
                               //Prüfe ob neuer Punkt zulässig
                                 if (y_neu<=0.05||y_neu>=0.95) //Wand

@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 public class Level1 {
         static void room()
         {
-                StdDraw.setCanvasSize(512,512);
+                //StdDraw.setCanvasSize(512,512);
 
                    StdDraw.setPenColor(StdDraw.BLACK);
 
@@ -58,6 +58,7 @@ public class Level1 {
    public static void main(String[] args) {
            {
 
+        	   StdDraw.clear();
                   //Initialosiere Level
                   room();
 
@@ -72,7 +73,7 @@ public class Level1 {
 
                    while (true)
                    {
-                	   		StdDraw.show(0);
+                	   		StdDraw.show(10);
                            //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
                            StdDraw.setPenRadius(.053);
                            StdDraw.setPenColor(Color.WHITE);
@@ -81,7 +82,7 @@ public class Level1 {
                            {
 
                                    //Neue Koordinaten:
-                                   x_neu = x-0.001;
+                                   x_neu = x-0.005;
                                    y_neu=y;
 
                                    //Prüfe ob neuer Punkt zulässig
@@ -104,7 +105,7 @@ public class Level1 {
                            {
 
                                  //Neue Koordinaten:
-                                   x_neu = x+0.001;
+                                   x_neu = x+0.005;
                                    y_neu = y;
                                  //Prüfe ob neuer Punkt zulässig
                                    if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
@@ -132,7 +133,7 @@ public class Level1 {
                            {
                                  //Neue Koordinaten:
                                    x_neu = x;
-                                   y_neu = y+0.001;
+                                   y_neu = y+0.005;
                                  //Prüfe ob neuer Punkt zulässig
                                    if (y_neu>=0.95|| x_neu<=0.05|| x_neu>=0.95 || y_neu<=0.55 && y_neu>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15|| x_neu<=0.8 && x_neu>=0.7 && y_neu<=0.95 &&y_neu>= 0.15 ) //Wand
                                    {
@@ -150,7 +151,7 @@ public class Level1 {
                            {
                                  //Neue Koordinaten:
                                    x_neu = x;
-                                   y_neu = y-0.001;
+                                   y_neu = y-0.005;
 
                                  //Prüfe ob neuer Punkt zulässig
                                    if (y_neu<=0.05|| x_neu<=0.05 || x_neu>=0.95 || y_neu<=0.55 && y>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15||x_neu<=0.35 && x_neu>=0.25 && y_neu <= 0.85 && y_neu>=0.05) //Wand

@@ -2,15 +2,20 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 public class Level3 {
-	static void zwischenwaende()
-	{
-		StdDraw.setPenColor(StdDraw.BLACK);
-		StdDraw.setPenRadius(0.01);
-		StdDraw.line(0.3,0, 0.3, 0.8); //senkrechte Zwischenwand
-        StdDraw.line(0.75, 1, .75, .2); //senkrechte Zwishcenwand
-        StdDraw.line(0.3, .5, 0.5, .5); //waagerechte Zwischenwand
-        StdDraw.line(0.75, 0.2, 0.5, 0.2); //waagerechte Zwischenwand
-	}
+//static void zwischenwaende()
+//{
+//StdDraw.setPenColor(StdDraw.BLACK);
+//StdDraw.setPenRadius(0.01);
+//StdDraw.line(0.3,0, 0.3, 0.8); //senkrechte Zwischenwand
+//StdDraw.line(0.75, 1, .75, .2); //senkrechte Zwishcenwand
+//StdDraw.line(0.3, .5, 0.5, .5); //waagerechte Zwischenwand
+//        StdDraw.line(0.75, 0.2, 0.5, 0.2); //waagerechte Zwischenwand
+//        
+//      //Statischer Gegner/Falle
+//        StdDraw.setPenColor(StdDraw.RED);
+//        StdDraw.filledSquare(0.6, .6, 0.01);
+//        StdDraw.filledSquare(0.15, .5, 0.01);
+//}
    static void Falle1(double i,double j){
                 //bewegene Gegner/Falle
                 StdDraw.setPenColor(StdDraw.RED);
@@ -50,6 +55,7 @@ public class Level3 {
 public static void main(String[] args) {
         {
 
+        	StdDraw.clear();
                //Initialosiere Level
                Level1.room();
 
@@ -93,128 +99,130 @@ public static void main(String[] args) {
                 while (true)
                  
                 {	
-                	StdDraw.show(1);
-                	//damit das Feld nach der Falle wieder weiß wird
-                	//Weissmacher(i,j,0,0);
-                	//Weissmacher(k,l,0,0);
-                	//Weissmacher(n,m,0,0);
+                 StdDraw.show(10);
+                 //damit das Feld nach der Falle wieder weiß wird
+                 //Weissmacher(i,j,0,0);
+                 //Weissmacher(k,l,0,0);
+                 //Weissmacher(n,m,0,0);
                     StdDraw.setPenRadius(.06);
                     StdDraw.setPenColor(Color.WHITE);
                     StdDraw.filledSquare(i, j, 0.02);
                     StdDraw.filledSquare(k, l, 0.02);
                     StdDraw.filledSquare(n, m, 0.02);
                     
-                	
-                	//damit die Falle nicht aus dem Feld läuft
-                	if(i<0.97 && j<0.97 && p_1==1){
-                		i_neu=i+0.001;
-                		j_neu=j+0.001;
-                		i=i_neu;
-                		j=j_neu;
-                		
-                		}
-                	else if((i>0.03 || j>0.03) &&p_1==0) {                	
-                		i_neu=i-0.001;
-                		j_neu=j-0.001;
-                		i=i_neu;
-                		j=j_neu;
-                		}
-                	else {
-                		if (p_1==1){
-                			p_1=0;}
-                		
-                		else {
-                			p_1=1;}
-                			}
-                	                	
-                	Falle1(i,j);//Ende der ersten beweglichen Falle
-                	
-                	if(k<0.96 && l<0.97 && p_2==1){
-                		k_neu=k+0.001;
-                		l_neu=l+0.001;
-                		k=k_neu;
-                		l=l_neu;
-                		
-                		}
-                	else if(k<0.97 && l<0.97 && p_2==2){
-                			k_neu=k-0.001;
-                			l_neu=l+0.001;
-                			k=k_neu;
-                			l=l_neu;
-                		
-                		}
-                	else if(k>0.03 && l>0.03 &&p_2==3) {                	
-                		k_neu=k-0.001;
-                		l_neu=l-0.001;
-                		k=k_neu;
-                		l=l_neu;
-                		}
-                	else if(k>0.02 && l>0.03 &&p_2==0) {                	
-                		k_neu=k+0.001;
-                		l_neu=l-0.001;
-                		k=k_neu;
-                		l=l_neu;
-                		}
-                	else {
-                		if (p_2==1){
-                			p_2=2;}
-                		
-                		else if(p_2==2) {
-                			p_2=3;}
-                		else if (p_2==3){
-                			p_2=0;}
-                		else{
-                			p_2=1;}
-                		}
-                			
+                
+                 //damit die Falle nicht aus dem Feld läuft
+                 if(i<0.97 && j<0.97 && p_1==1){
+                 i_neu=i+0.005;
+                 j_neu=j+0.005;
+                 i=i_neu;
+                 j=j_neu;
+                
+                 }
+                 else if((i>0.03 || j>0.03) &&p_1==0) {
+                 i_neu=i-0.005;
+                 j_neu=j-0.005;
+                 i=i_neu;
+                 j=j_neu;
+                 }
+                 else {
+                 if (p_1==1){
+                 p_1=0;}
+                
+                 else {
+                 p_1=1;}
+                 }
+                
+                 Falle1(i,j);//Ende der ersten beweglichen Falle
+                
+                 if(k<0.96 && l<0.97 && p_2==1){
+                 k_neu=k+0.005;
+                 l_neu=l+0.005;
+                 k=k_neu;
+                 l=l_neu;
+                
+                 }
+                 else if(k<0.97 && l<0.97 && p_2==2){
+                 k_neu=k-0.005;
+                 l_neu=l+0.005;
+                 k=k_neu;
+                 l=l_neu;
+                
+                 }
+                 else if(k>0.03 && l>0.03 &&p_2==3) {
+                 k_neu=k-0.005;
+                 l_neu=l-0.005;
+                 k=k_neu;
+                 l=l_neu;
+                 }
+                 else if(k>0.02 && l>0.03 &&p_2==0) {
+                 k_neu=k+0.005;
+                 l_neu=l-0.005;
+                 k=k_neu;
+                 l=l_neu;
+                 }
+                 else {
+                 if (p_2==1){
+                 p_2=2;}
+                
+                 else if(p_2==2) {
+                 p_2=3;}
+                 else if (p_2==3){
+                 p_2=0;}
+                 else{
+                 p_2=1;}
+                 }
+                
 
-                	Falle2(k,l); // Ende der zweiten beweglichen Falle
+                 Falle2(k,l); // Ende der zweiten beweglichen Falle
 
-                	if(n<0.97 && m<0.97 && p_3==1){
-                		n_neu=n+0.001;
-                		m_neu=3*n_neu*n_neu-3*n_neu+1;
-                		n=n_neu;
-                		m=m_neu;
-                		}
-                	else if(n>0.03 && m>0.03 &&p_3==0) {                	
-                		n_neu=n-0.001;
-                		m_neu=3*n_neu*n_neu-3*n_neu+1;
-                		n=n_neu;
-                		m=m_neu;
-                		}
-                	
-                	else {
-                		if (p_3==1){
-                			p_3=0;}
-                		
-                		else {
-                			p_3=1;}
-                			}
-                	Falle3(n,m); //Ende der dritten beweglichen Falle
-                	
+                 if(n<0.97 && m<0.97 && p_3==1){
+                 n_neu=n+0.01;
+                 m_neu=3*n_neu*n_neu-3*n_neu+1;
+                 n=n_neu;
+                 m=m_neu;
+                 }
+                 else if(n>0.03 && m>0.03 &&p_3==0) {
+                 n_neu=n-0.001;
+                 m_neu=3*n_neu*n_neu-3*n_neu+1;
+                 n=n_neu;
+                 m=m_neu;
+                 }
+                
+                 else {
+                 if (p_3==1){
+                 p_3=0;}
+                
+                 else {
+                 p_3=1;}
+                 }
+                 Falle3(n,m); //Ende der dritten beweglichen Falle
+                
 
-                		
-                	
-                	zwischenwaende();
-                	
+                
+                
+                 Level1.room();
+                
                         //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                		StdDraw.setPenRadius(.06);
-                		StdDraw.setPenColor(Color.WHITE);
+                 StdDraw.setPenRadius(.06);
+                 StdDraw.setPenColor(Color.WHITE);
 
 
                         if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                         {
-                        	
-                        	 
+                        
+                        
 
                                 //Neue Koordinaten:
-                                x_neu = x-0.001;
+                                x_neu = x-0.005;
                                 y_neu=y;
 
                                 //Prüfe ob neuer Punkt zulässig
-                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
-                                {	x_neu=x;			}
-                                else
+                                if (x_neu <= 0.05 || y_neu>=0.05 && y_neu<= 0.85 && x_neu<=0.35 && x_neu>=0.25|| y_neu<=0.55 && y_neu>=0.45 && x_neu<=0.55 && x_neu>=0.25 || y_neu<=0.95 && y_neu>=0.15 && x_neu<=0.8 && x_neu>=0.7 ){
+                                    
+                                    x_neu=x; //Keine Bewegung möglich
+                                    }
+                            else
                                 {
                                 //Übermale alte Figur
                                 //Weissmacher(0,0,x,y);
@@ -229,13 +237,23 @@ public static void main(String[] args) {
                         {
 
                               //Neue Koordinaten:
-                                x_neu = x+0.001;
+                                x_neu = x+0.005;
                                 y_neu = y;
                               //Prüfe ob neuer Punkt zulässig
                                 if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
-                                { x_neu=x; 
-                                } 
-                                
+                                {
+                                        if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich
+                                        {
+                                              //Übermale alte Figur
+                                                StdDraw.point(x, y);
+                                                x=x_neu;
+                                                y=y_neu;
+                                                //Zeichne neue Figur
+                                                player(x,y);
+                                        } else {
+                                        x_neu=x; //Keine Bewegung möglich
+                                        }
+                              }
                                 else{
                               //Übermale alte Figur
                                 //Weissmacher(0,0,x,y);
@@ -250,22 +268,12 @@ public static void main(String[] args) {
 
                               //Neue Koordinaten:
                                 x_neu = x;
-                                y_neu = y+0.001;
+                                y_neu = y+0.005;
                               //Prüfe ob neuer Punkt zulässig
-                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
-                                {	
-                                	if(x_neu> 0.3 && x_neu< 0.4 &&y_neu<=0.05|| x_neu>0.7 && x_neu< 0.8){//Beim Start/Ziel nur nach oben erlauben
-                                		//Weissmacher(0,0,x,y);
-                                		StdDraw.point(x, y);
-                                        x=x_neu;
-                                        y=y_neu;
-                                        player(x,y);
-                                	
+                                if (y_neu>=0.95|| x_neu<=0.05|| x_neu>=0.95 || y_neu<=0.55 && y_neu>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15|| x_neu<=0.8 && x_neu>=0.7 && y_neu<=0.95 &&y_neu>= 0.15 ) //Wand
+                                {
+                                        y_neu=y;
                                 }
-                                	
-                                else{
-                                        y_neu=y;}//Wenn wir nicht beim Start sind
-                                } 
                                 else{
                               //Übermale alte Figur
                                 //Weissmacher(0,0,x,y);
@@ -281,10 +289,10 @@ public static void main(String[] args) {
 
                               //Neue Koordinaten:
                                 x_neu = x;
-                                y_neu = y-0.001;
+                                y_neu = y-0.005;
 
                               //Prüfe ob neuer Punkt zulässig
-                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
+                                if (y_neu<=0.05|| x_neu<=0.05 || x_neu>=0.95 || y_neu<=0.55 && y>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15||x_neu<=0.35 && x_neu>=0.25 && y_neu <= 0.85 && y_neu>=0.05) //Wand
                                 {
                                         y_neu=y;
                                 } else{
@@ -299,10 +307,10 @@ public static void main(String[] args) {
                         //Teste ob Gegner/Falle berührt
                         if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
                         {
-                     	   
-                     	    
-                        	//Tot -> Zurück ins Menü
-                    	   	StdDraw.clear();
+                     
+                     
+                         //Tot -> Zurück ins Menü
+                     StdDraw.clear();
                             Menue.main(args);
                                 break;
                                 
@@ -312,8 +320,8 @@ public static void main(String[] args) {
                       //Teste, ob eine statische Falle berührt
                         if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                         {
-                     	   	//Tot -> Zurück ins Menü
-                     	   	StdDraw.clear();
+                      //Tot -> Zurück ins Menü
+                      StdDraw.clear();
                              Menue.main(args);
                                  
                                 break;
@@ -321,13 +329,14 @@ public static void main(String[] args) {
                                 
 
                         }
-                        if (y>1)
+                        //Teste, ob im Ziel
+                        if (x>1)
                         {
-                     	  Level3.main(args);
-                     	  break;
-                     	  
-                     	   
-                        }  
+                      Durchgezockt.main(args);
+                      break;
+                     
+                     
+                        }
                 }
 
 
