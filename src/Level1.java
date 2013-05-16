@@ -177,12 +177,12 @@ public class Level1 {
 
                            }
                            //Teste, ob im Ziel:
-//                           if (y>1);
-//                           {
-//                        	   Level2.main(args);
-//                        	   break;
-//                        
-//                           }
+                           if (x>=1)
+                           {
+                        	   Level2.main(args);
+                        	   break;
+                        
+                           }
                           
                    }
 
