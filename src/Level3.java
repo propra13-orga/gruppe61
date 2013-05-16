@@ -1,217 +1,338 @@
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+
 public class Level3 {
-	 public static double Start_x=.25;
-	static public double Start_y=1;
-	static public double Finish_x=.75;
-	static public double Finish_y=0;
-	
-	static public double Waag1_x1=0;
-	static public double Waag1_x2=.35;
-	static public double Waag1_y=.5;
-	static public double Waag2_x1=.55;
-	static public double Waag2_x2=1;
-	static public double Waag2_y=.5;
-	
-	static public double Enemy1_x=0.45;
-	static public double Enemy1_y=.5;
-	static public double Enemy2_x=0.5;
-	static public double Enemy2_y=0.7;
-	
-	
-	static void room()
-    {
-		StdDraw.setCanvasSize(512,512);
-
-		   StdDraw.setPenColor(StdDraw.BLACK);
-		  
-		   StdDraw.setPenRadius(0.01);
-		   
-		   //Rand des Spielfelds:
-		   StdDraw.line(0, 0, 0, 1);
-		   StdDraw.line(0, 0, 1,0);
-		   StdDraw.line(1, 1,1 , 0);
-		   StdDraw.line(1, 1, 0, 1);
-		   
-		   //Start & Zielbereich weiß:
-		   StdDraw.setPenColor(StdDraw.WHITE);
-		   StdDraw.filledSquare(Start_x, Start_y, 0.05); //Start
-		   StdDraw.filledSquare(Finish_x, Finish_y, 0.05); //Ziel
-		   
-		   //Zwischenwände:
-		   StdDraw.setPenColor(StdDraw.BLACK);
-//		   StdDraw.line(Senk1_x,Senk1_y1, Senk1_x, Senk1_y2); //senkrechte Zwischenwand
-//		   StdDraw.line(Senk2_x, Senk2_y1, Senk2_x,Senk2_y2); //senkrechte Zwishcenwand
-		   StdDraw.line(Waag1_x1,Waag1_y, Waag1_x2, Waag1_y); //waagerechte Zwischenwand
-		   StdDraw.line(Waag2_x1, Waag2_y, Waag2_x2, Waag2_y); //waagerechte Zwischenwand
-		   
-		   	  
-	}
-	public static int isvalid(double x, double y)
+	static void zwischenwaende()
 	{
-		if (x<=.5 || x>=.95 || y<=0.5 || y>=.95)
-		{
-			if (x>=0.95 && Math.abs(y-Finish_y)<=0.6 )
-			{
-				return 1; //Ziel
-			}
-			else if (x<=0.5 && y-Start_y<=.6 || Start_y-y>=0.6) {
-				return 2; //Start
-			}
-			else return 3; //Wall
-		}
-			else if (Math.abs(y-Waag1_y)<=0.5 && Math.abs((Waag1_x1+Waag1_x1)/2-x) <= Math.abs((Waag1_x1+Waag1_x1)/2-Waag1_x1)+0.5) //Waag1
-			{
-				return 3; //Wall ->invalid Move
-			}
-			else if (Math.abs(y-Waag2_y)<=0.5 && Math.abs((Waag2_x1+Waag2_x1)/2-x) <= Math.abs((Waag2_x1+Waag2_x1)/2-Waag2_x1)+0.5) //Waag2
-			{
-				return 3; //Wall ->invalid Move
-			}
-			else if (Math.abs(x-Enemy1_x)<=0.5 && Math.abs(y-Enemy1_y)<=0.5)
-			{
-				return 4; //Enemy1 -> Death
-			}
-			else if (Math.abs(x-Enemy2_x)<=0.5 && Math.abs(y-Enemy2_y)<=0.5)
-			{
-				return 4; //Enemy -> Death
-			}
-			else {
-				return 0; //Move is valid
-			}
-		}
-	static void enemy(double x,double y) //Gegner Einzeichnen
-{
-	StdDraw.setPenColor(StdDraw.RED);
-	StdDraw.filledSquare(x, y, 0.03);
-}
-	static void player(double x,double y) //Spieler einzeichnen
-    {
+		StdDraw.setPenColor(StdDraw.BLACK);
+		StdDraw.setPenRadius(0.01);
+		StdDraw.line(0.3,0, 0.3, 0.8); //senkrechte Zwischenwand
+        StdDraw.line(0.75, 1, .75, .2); //senkrechte Zwishcenwand
+        StdDraw.line(0.3, .5, 0.5, .5); //waagerechte Zwischenwand
+        StdDraw.line(0.75, 0.2, 0.5, 0.2); //waagerechte Zwischenwand
+	}
+   static void Falle1(double i,double j){
+                //bewegene Gegner/Falle
+                StdDraw.setPenColor(StdDraw.RED);
+                StdDraw.filledSquare(i, j, 0.01);
 
-            //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
-            StdDraw.setPenColor(StdDraw.BLUE);
-            StdDraw.setPenRadius(0.05);
-            StdDraw.point(x, y);
-    }
 
-	public static void main(String[] args) 
+     }
+   static void Falle2(double k,double l){
+       //bewegene Gegner/Falle
+       StdDraw.setPenColor(StdDraw.RED);
+       StdDraw.filledSquare(k, l, 0.01);
+       
+   }
+   static void Falle3(double n,double m){
+       //bewegene Gegner/Falle
+       StdDraw.setPenColor(StdDraw.RED);
+       StdDraw.filledSquare(n, m, 0.01);
+
+
+   }
+   
+
+     static void player(double x,double y)
+     {
+
+             //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
+             StdDraw.setPenColor(StdDraw.BLUE);
+             StdDraw.setPenRadius(0.05);
+             StdDraw.point(x, y);
+
+                //}
+
+
+
+     }
+
+public static void main(String[] args) {
         {
 
-               //Initialisiere Level
-               room();
-               double x=Start_x;
-               double y=Start_y;
+               //Initialosiere Level
+               Level1.room();
+
+               //Startpunkt
+               double x=0;
+               double y=.15;
                
+               //Initialisiere Spielfigur am Startpunkt
+               player(x,y);
+               //für die neuen Punkte der Spielfigur
                double x_neu;
                double y_neu;
                
-               player(x,y);
-               enemy(Enemy1_x,Enemy1_y);
-               enemy(Enemy2_x,Enemy2_y);
-               byte direction=1;
+               //Fallen Startpunkte
+               double i=0.5;
+               double j=0.5;
+               double k=0.7;
+               double l=0.2;
+               double n=0.1;
+               double m=0.82;
                
                
-               while (x>=0 && x<=1)
-               {
-            	 //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-    			StdDraw.setPenRadius(.07);
-    			StdDraw.setPenColor(StdDraw.WHITE);
-    			
-    			//Übermale alte Gegner
-    			StdDraw.filledSquare(Enemy1_x, Enemy1_y,0.05);
-    			StdDraw.filledSquare(Enemy2_x, Enemy2_y,0.05);
-            	 
-            	 //Position des Beweglichen Feindes:
-       			if (Enemy1_y>=0.95)
-       			{
-       				direction=-1;
-       				Enemy1_y=0.94;
-       				Enemy2_x=0.94;
-       			}
-       			else if (Enemy1_y<=0.5)
-       			{
-       				direction=1;
-       				Enemy1_y=.06;
-       				Enemy2_x=0.06;
-       			}
-       			else
-       			{
-       				Enemy1_y=Enemy1_y+direction*0.01;
-       				Enemy2_x=Enemy2_x+direction*0.01;
-       			}
-       			
-       			//Zeichne neue Gegner
-       			enemy(Enemy1_x,Enemy1_y);
-       			enemy(Enemy2_x,Enemy2_y);
-       		  
-    			
-    			//Tastatureingabe auslesen
-    			if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
-    			{
-    				//Neue Koordinaten:
-    				   x_neu = x-0.001;
-    				   y_neu=y;
-    			}
-    			else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
-    			{
-    				//Neue Koordinaten:
-    				   x_neu = x+0.001;
-    				   y_neu=y;
-    			}
-    			 else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
-    			   {
-    				 //Neue Koordinaten:
-    				   x_neu = x;
-    				   y_neu = y+0.001;
-    			   }
-    			 else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
-    			   {
-    				 //Neue Koordinaten:
-    				   x_neu = x;
-    				   y_neu = y-0.001;
-    			   }
-    			 else 
-    			 	{
-    				 x_neu=x; 
-    				 y_neu=y;
-    				}
-    			if (isvalid(x_neu,y_neu)==4)
-    			{
-    				//Gegner Berührt -> Tot
-    				Panel.main(null);
-    				break;
-    			}
-    			else if (isvalid(x_neu,y_neu)==1)
-    			{
-    				//Ziel erreicht
-    				StdDraw.clear();
-    				StdDraw.text(0.5, 0.5, "Herzlichen Glückwunsch! Alle Level geschafft");
-    				break;
-    			}
-    			else if (isvalid(x_neu,y_neu)==2)
-    			{
-    				//Start-Bereich -> Level zurück
-    				new Level2();
-    				break;
-    			}
-    			else if (isvalid(x_neu,y_neu)==5)
-    			{
-    				//Alles ok
-    				
-    				//Übermale alte Figur
-                    StdDraw.point(x, y);
-    				x=x_neu;
-    				y=y_neu;
-    				
-    				//Zeichne neue Figur
-                    player(x,y);
-    			}
-    			
-    			
-    			
+               //Initialisiere Fallen auf dem Feld
+               Falle1(i,j);
+               Falle2(k,l);
+               //Falle3(n,m);
+               //Für die neuen Punkte der Falle
+               double i_neu;
+               double j_neu;
+               double k_neu;
+               double l_neu;
+               double n_neu;
+               double m_neu;
+               
+               
+               int p_1 =1;
+               int p_2 =1;
+               int p_3 =1;
 
-       			
-               }
+
+                while (true)
+                 
+                {	
+                	StdDraw.show(1);
+                	//damit das Feld nach der Falle wieder weiß wird
+                	//Weissmacher(i,j,0,0);
+                	//Weissmacher(k,l,0,0);
+                	//Weissmacher(n,m,0,0);
+                    StdDraw.setPenRadius(.06);
+                    StdDraw.setPenColor(Color.WHITE);
+                    StdDraw.filledSquare(i, j, 0.02);
+                    StdDraw.filledSquare(k, l, 0.02);
+                    StdDraw.filledSquare(n, m, 0.02);
+                    
+                	
+                	//damit die Falle nicht aus dem Feld läuft
+                	if(i<0.97 && j<0.97 && p_1==1){
+                		i_neu=i+0.001;
+                		j_neu=j+0.001;
+                		i=i_neu;
+                		j=j_neu;
+                		
+                		}
+                	else if((i>0.03 || j>0.03) &&p_1==0) {                	
+                		i_neu=i-0.001;
+                		j_neu=j-0.001;
+                		i=i_neu;
+                		j=j_neu;
+                		}
+                	else {
+                		if (p_1==1){
+                			p_1=0;}
+                		
+                		else {
+                			p_1=1;}
+                			}
+                	                	
+                	Falle1(i,j);//Ende der ersten beweglichen Falle
+                	
+                	if(k<0.96 && l<0.97 && p_2==1){
+                		k_neu=k+0.001;
+                		l_neu=l+0.001;
+                		k=k_neu;
+                		l=l_neu;
+                		
+                		}
+                	else if(k<0.97 && l<0.97 && p_2==2){
+                			k_neu=k-0.001;
+                			l_neu=l+0.001;
+                			k=k_neu;
+                			l=l_neu;
+                		
+                		}
+                	else if(k>0.03 && l>0.03 &&p_2==3) {                	
+                		k_neu=k-0.001;
+                		l_neu=l-0.001;
+                		k=k_neu;
+                		l=l_neu;
+                		}
+                	else if(k>0.02 && l>0.03 &&p_2==0) {                	
+                		k_neu=k+0.001;
+                		l_neu=l-0.001;
+                		k=k_neu;
+                		l=l_neu;
+                		}
+                	else {
+                		if (p_2==1){
+                			p_2=2;}
+                		
+                		else if(p_2==2) {
+                			p_2=3;}
+                		else if (p_2==3){
+                			p_2=0;}
+                		else{
+                			p_2=1;}
+                		}
+                			
+
+                	Falle2(k,l); // Ende der zweiten beweglichen Falle
+
+                	if(n<0.97 && m<0.97 && p_3==1){
+                		n_neu=n+0.001;
+                		m_neu=3*n_neu*n_neu-3*n_neu+1;
+                		n=n_neu;
+                		m=m_neu;
+                		}
+                	else if(n>0.03 && m>0.03 &&p_3==0) {                	
+                		n_neu=n-0.001;
+                		m_neu=3*n_neu*n_neu-3*n_neu+1;
+                		n=n_neu;
+                		m=m_neu;
+                		}
+                	
+                	else {
+                		if (p_3==1){
+                			p_3=0;}
+                		
+                		else {
+                			p_3=1;}
+                			}
+                	Falle3(n,m); //Ende der dritten beweglichen Falle
+                	
+
+                		
+                	
+                	zwischenwaende();
+                	
+                        //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
+                		StdDraw.setPenRadius(.06);
+                		StdDraw.setPenColor(Color.WHITE);
+
+
+                        if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
+                        {
+                        	
+                        	 
+
+                                //Neue Koordinaten:
+                                x_neu = x-0.001;
+                                y_neu=y;
+
+                                //Prüfe ob neuer Punkt zulässig
+                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
+                                {	x_neu=x;			}
+                                else
+                                {
+                                //Übermale alte Figur
+                                //Weissmacher(0,0,x,y);
+                                StdDraw.point(x, y);
+                                x=x_neu;
+                                y=y_neu;
+                                //Zeichne neue Figur
+                                player(x,y);
+                                }
+                        }
+                        else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
+                        {
+
+                              //Neue Koordinaten:
+                                x_neu = x+0.001;
+                                y_neu = y;
+                              //Prüfe ob neuer Punkt zulässig
+                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
+                                { x_neu=x; 
+                                } 
+                                
+                                else{
+                              //Übermale alte Figur
+                                //Weissmacher(0,0,x,y);
+                                StdDraw.point(x, y);
+                                x=x_neu;
+                                y=y_neu;
+                                player(x,y);
+                              }
+                        }
+                        else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
+                        {	
+
+                              //Neue Koordinaten:
+                                x_neu = x;
+                                y_neu = y+0.001;
+                              //Prüfe ob neuer Punkt zulässig
+                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
+                                {	
+                                	if(x_neu> 0.3 && x_neu< 0.4 &&y_neu<=0.05|| x_neu>0.7 && x_neu< 0.8){//Beim Start/Ziel nur nach oben erlauben
+                                		//Weissmacher(0,0,x,y);
+                                		StdDraw.point(x, y);
+                                        x=x_neu;
+                                        y=y_neu;
+                                        player(x,y);
+                                	
+                                }
+                                	
+                                else{
+                                        y_neu=y;}//Wenn wir nicht beim Start sind
+                                } 
+                                else{
+                              //Übermale alte Figur
+                                //Weissmacher(0,0,x,y);
+                                StdDraw.point(x, y);
+                                x=x_neu;
+                                y=y_neu;
+                                player(x,y);
+                                }
+
+                        }
+                        else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
+                        {	
+
+                              //Neue Koordinaten:
+                                x_neu = x;
+                                y_neu = y-0.001;
+
+                              //Prüfe ob neuer Punkt zulässig
+                                if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
+                                {
+                                        y_neu=y;
+                                } else{
+                              //Übermale alte Figur
+                                //Weissmacher(0,0,x,y);
+                                StdDraw.point(x, y);
+                                x=x_neu;
+                                y=y_neu;
+                                player(x,y);
+                                }
+                        }
+                        //Teste ob Gegner/Falle berührt
+                        if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
+                        {
+                     	   
+                     	    
+                        	//Tot -> Zurück ins Menü
+                    	   	StdDraw.clear();
+                            Menue.main(args);
+                                break;
+                                
+                                
+
+                        }
+                      //Teste, ob eine statische Falle berührt
+                        if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
+                        {
+                     	   	//Tot -> Zurück ins Menü
+                     	   	StdDraw.clear();
+                             Menue.main(args);
+                                 
+                                break;
+                                
+                                
+
+                        }
+                        if (y>1)
+                        {
+                     	  Level3.main(args);
+                     	  break;
+                     	  
+                     	   
+                        }  
+                }
+
+
+
         }
-	
+
+}
 }
