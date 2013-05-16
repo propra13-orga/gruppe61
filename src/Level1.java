@@ -72,7 +72,7 @@ public class Level1 {
 
                    while (x>=0.001 && x<=1 )
                    {
-                	   StdDraw.show(0);
+                 StdDraw.show(0);
                            //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
                            StdDraw.setPenRadius(.053);
                            StdDraw.setPenColor(Color.WHITE);
@@ -134,7 +134,7 @@ public class Level1 {
                                    x_neu = x;
                                    y_neu = y+0.001;
                                  //Prüfe ob neuer Punkt zulässig
-                                   if (y_neu>=0.95|| x_neu<=0.05|| x_neu>=0.95  || y_neu<=0.55 && y_neu>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15|| x_neu<=0.8 && x_neu>=0.7 && y_neu<=0.95 &&y_neu>= 0.15  ) //Wand
+                                   if (y_neu>=0.95|| x_neu<=0.05|| x_neu>=0.95 || y_neu<=0.55 && y_neu>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15|| x_neu<=0.8 && x_neu>=0.7 && y_neu<=0.95 &&y_neu>= 0.15 ) //Wand
                                    {
                                            y_neu=y;
                                    } else{
@@ -167,9 +167,9 @@ public class Level1 {
                            //Teste ob Gegner/Falle berührt
                            if ((0.57<=x && 0.63 >=x && 0.57<=y && 0.63 >=y)|| 0.12<=x && x<=0.18 && 0.47<=y && y<=0.53)
                            {
-                        	   
-                        	    StdDraw.clear();
-                                   Panel.main(args);//Das Fenster muss immer noch geschglossen werden 
+                        	   	//Tot -> Zurück ins Menü
+                        	   	StdDraw.clear();
+                                Menue.main(args);
                                     
                                    break;
                                    
@@ -178,8 +178,8 @@ public class Level1 {
                            }
                            if ((x>=0.95 && (y>=0.7 && y<=0.85)));
                            {
-                        	   new Level2();
-                        	   
+                         new Level2();
+                        
                            }
                           
                    }
@@ -193,8 +193,8 @@ public class Level1 {
 
 
         /**
-         * @param args
-         */
+* @param args
+*/
 
 
 }
