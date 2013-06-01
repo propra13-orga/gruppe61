@@ -29,14 +29,15 @@ public class Menue {
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (y>0.5) //Start gedrückt
 				{
-					//Start game
-					Level1.main(args);
-					
 					//Initialize variables with their defaults:
 					Globals.health=100;
 					Globals.life=3;
 					Globals.magician=0;
 					Globals.money=0;
+					//Start game
+					Level1.main(args);
+					
+					
 					
 					/*
 					//Saving checkpoints:
