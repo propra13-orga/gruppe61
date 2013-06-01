@@ -1,17 +1,17 @@
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 
 
-public class Level1 {
+public class Test {
         static void room()
         {
                 //StdDraw.setCanvasSize(512,512);
 
                    StdDraw.setPenColor(StdDraw.BLACK);
-                   
-                   //Hintergrundbild:
-                   StdDraw.picture(.5, .5, "f95.png", 1, 1);
+
                    StdDraw.setPenRadius(0.01);
+                   StdDraw.picture(.5, .5, "f95.png", 1, 1);
 
                    //Rand des Spielfelds:
                    StdDraw.line(0.0, 0.0, 0.0, 0.10);
@@ -31,30 +31,24 @@ public class Level1 {
                    StdDraw.text(1, 0.758, "Ziel");
 
                    //Statischer Gegner/Falle
-                   //StdDraw.setPenColor(StdDraw.RED);
-                   StdDraw.setPenColor(StdDraw.YELLOW);
+                   StdDraw.setPenColor(StdDraw.PINK);
                    StdDraw.filledSquare(0.6, .6, 0.01);
                    StdDraw.filledSquare(0.15, .5, 0.01);
-                   StdDraw.setPenColor(StdDraw.BLACK);
-                   StdDraw.square(0.6, .6,0.01);
-                   StdDraw.square(0.15, .5,0.01);
-                   
-                   //InformationBar
-                   InformationBar.main(null);
-               
 
+                   InformationBar.main(null);
 
         }
 
         static void player(double x,double y)
         {
 
-//                //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
+                //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
 //                StdDraw.setPenColor(StdDraw.BLUE);
 //                StdDraw.setPenRadius(0.05);
 //                StdDraw.point(x, y);
-        	//Zeichne Spieler als Pi an Koordinate (x,y):
+                //StdDraw.picture(x, y,"Fortuna_Duesseldorf.png",.08,.08);
                 StdDraw.picture(x, y,"pi.png",.08,.08);
+                   //}
 
 
 
@@ -83,12 +77,11 @@ public class Level1 {
                    while (true)
                    {
                 	   		StdDraw.show(10);
-                	   		
-                	   		//Zeichne neu:
-                	   		StdDraw.clear();
-                	   		room();
-                	   		player(x,y);
-                	   		
+                           //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
+                           StdDraw.setPenRadius(.083);
+                           StdDraw.setPenColor(Color.WHITE);
+                           
+
                            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                            {
 
@@ -97,16 +90,19 @@ public class Level1 {
                                    y_neu=y;
 
                                    //Prüfe ob neuer Punkt zulässig
-                                   if (x_neu <= 0.05 || y_neu>=0.05 && y_neu<= 0.85 && x_neu<=0.35 && x_neu>=0.25|| y_neu<=0.55 && y_neu>=0.45 && x_neu<=0.55 && x_neu>=0.25 || y_neu<=0.95 && y_neu>=0.15 && x_neu<=0.8 && x_neu>=0.7 )
-                                   {
+                                   if (x_neu <= 0.05 || y_neu>=0.05 && y_neu<= 0.85 && x_neu<=0.35 && x_neu>=0.25|| y_neu<=0.55 && y_neu>=0.45 && x_neu<=0.55 && x_neu>=0.25 || y_neu<=0.95 && y_neu>=0.15 && x_neu<=0.8 && x_neu>=0.7 ){
                                            
                                            x_neu=x; //Keine Bewegung möglich
                                            }
                                    
                                    else
                                    {
+                                   //Übermale alte Figur
+                                   //StdDraw.point(x, y);
                                    x=x_neu;
                                    y=y_neu;
+                                   //Zeichne neue Figur
+                                   //player(x,y);
                                    }
                            }
                            else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
@@ -120,14 +116,21 @@ public class Level1 {
                                    {
                                            if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich
                                            {
+                                                 //Übermale alte Figur
+                                                   StdDraw.point(x, y);
                                                    x=x_neu;
                                                    y=y_neu;
+                                                   //Zeichne neue Figur
+                                                   //player(x,y);
                                            } else {
                                            x_neu=x; //Keine Bewegung möglich
                                            }
                                  } else{
+                                 //Übermale alte Figur
+                                   //StdDraw.point(x, y);
                                    x=x_neu;
                                    y=y_neu;
+                                   //player(x,y);
                                  }
                            }
                            else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
@@ -140,8 +143,11 @@ public class Level1 {
                                    {
                                            y_neu=y;
                                    } else{
+                                 //Übermale alte Figur
+                                   //StdDraw.point(x, y);
                                    x=x_neu;
                                    y=y_neu;
+                                   //player(x,y);
                                    }
 
                            }
@@ -156,26 +162,27 @@ public class Level1 {
                                    {
                                            y_neu=y;
                                    } else{
+                                 //Übermale alte Figur
+                                   //StdDraw.point(x, y);
                                    x=x_neu;
                                    y=y_neu;
+                                   //player(x,y);
                                    }
-                           }                           
+                           }
                            //Teste, ob Gegner/Falle berührt
                            if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                            {
                         	   Globals.life--;
-                        	   if (Globals.life<=0)
+                        	   if (Globals.life<0)
                         	   {
                         		   //Tot -> Zurück ins Menü
                         	   	StdDraw.clear();
-                                Start.main(args);
+                                Menue.main(args);
                                     
                                    break;
                         	   }
-                        	 //Zurück zu letzten Checkpoint
-                        	   x=0.01;
-                        	   y=.15;
-                        			   
+                        	   
+                                   
                                    
 
                            }
@@ -186,8 +193,23 @@ public class Level1 {
                         	   break;
                         
                            }
-                   
+                           room();
+                           player(x,y);
+                          
                    }
+
+
+
            }
-   }
+
+
+
+
+
+        /**
+* @param args
+*/
+
+
+}
 }

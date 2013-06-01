@@ -8,6 +8,7 @@ public class Level2 {
                 StdDraw.setPenColor(StdDraw.BLACK);
 
                 StdDraw.setPenRadius(0.01);
+                StdDraw.picture(.5, .5, "f95.png", 1, 1);
 
                 //Rand des Spielfelds:
                 StdDraw.line(.0, .0, .0, 1);
@@ -22,6 +23,9 @@ public class Level2 {
                 StdDraw.text(0.35, 0, "Start");
 
                 StdDraw.text(.75, 1, "Ziel");
+                
+              //InformationBar
+                InformationBar.main(null);
      }
    static void Falle(double i,double j){
                 //bewegene Gegner/Falle
@@ -258,13 +262,18 @@ public static void main(String[] args) {
                         if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
                         {
                      	   
-                     	    
-                        	//Tot -> Zurück ins Menü
-                    	   	StdDraw.clear();
-                            Menue.main(args);
+                        	Globals.life--;
+                     	   if (Globals.life<=0)
+                     	   {
+                     		   //Tot -> Zurück ins Menü
+                     	   	StdDraw.clear();
+                             Start.main(args);
+                                 
                                 break;
-                                
-                                
+                     	   }
+                     	//Zurück zu letzten Checkpoint
+                     	   x=0.35;
+                     	   y=.051;
 
                         }
                         if (y>1)
