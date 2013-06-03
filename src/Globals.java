@@ -8,5 +8,7 @@ public class Globals {
 		public static int money;
 		public static int level;
 		public static int room;
+		public static boolean shot;
+		public static int weapon;
 
 }

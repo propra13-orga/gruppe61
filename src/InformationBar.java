@@ -14,8 +14,11 @@ public class  InformationBar {
 		StdDraw.picture(0.35, -0.03, "magician.png",0.05,0.05);
 		StdDraw.textLeft(0.38,-0.03, ""+Globals.magician);
 		
-		StdDraw.picture(0.5, -0.03, "money.png", 0.05,0.05);
-		StdDraw.textLeft(0.53, -0.03, ""+Globals.money);
+		StdDraw.picture(0.5, -0.03, "bomb.png", 0.05,0.05);
+		StdDraw.textLeft(0.53, -0.03, ""+Globals.weapon);
+		
+		StdDraw.picture(0.65, -0.03, "money.png", 0.05,0.05);
+		StdDraw.textLeft(0.68, -0.03, ""+Globals.money);
 	}
 
 }
