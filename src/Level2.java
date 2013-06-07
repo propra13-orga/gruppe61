@@ -261,16 +261,9 @@ public static void main(String[] args) {
                         //Teste ob Gegner/Falle berührt
                         if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
                         {
-                     	   
-                        	Globals.life--;
-                     	   if (Globals.life<=0)
-                     	   {
-                     		   //Tot -> Zurück ins Menü
-                     	   	StdDraw.clear();
-                             Start.main(args);
-                                 
-                                break;
-                     	   }
+                        	
+                        	Damages.setDamages();
+                        	
                      	//Zurück zu letzten Checkpoint
                      	   x=0.35;
                      	   y=.051;

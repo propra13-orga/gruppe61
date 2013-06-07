@@ -66,6 +66,11 @@ public class Level1 {
 
    public static void main(String[] args) {
            {
+        	   
+        	   Globals.health=100;
+          	   Globals.life=3;
+          	   Globals.magician=0;
+          	   Globals.money=0;
 
         	   StdDraw.clear();
                   //Initialosiere Level
@@ -163,15 +168,9 @@ public class Level1 {
                            //Teste, ob Gegner/Falle berührt
                            if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                            {
-                        	   Globals.life--;
-                        	   if (Globals.life<=0)
-                        	   {
-                        		   //Tot -> Zurück ins Menü
-                        	   	StdDraw.clear();
-                                Start.main(args);
-                                    
-                                   break;
-                        	   }
+                        	  
+                        	   Damages.setDamages();
+                        	   
                         	 //Zurück zu letzten Checkpoint
                         	   x=0.01;
                         	   y=.15;
