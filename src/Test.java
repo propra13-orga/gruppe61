@@ -1,9 +1,9 @@
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-
-
 public class Test {
+	
+	
+	
         static void room()
         {
                 //StdDraw.setCanvasSize(512,512);
@@ -13,190 +13,144 @@ public class Test {
                    StdDraw.setPenRadius(0.01);
                    StdDraw.picture(.5, .5, "f95.png", 1, 1);
 
-                   //Rand des Spielfelds:
-                   StdDraw.line(0.0, 0.0, 0.0, 0.10);
-                   StdDraw.line(0.0, 0.20, 0.0,1);
-                   StdDraw.line(0, 0,1 , 0);
-                   //StdDraw.line(1,0,1,1);
-                   StdDraw.line(1,0,1,0.7);
-                   StdDraw.line(1, 0.85, 1, 1);
-                   StdDraw.line(1, 1, 0, 1);
-
-                   //Wände:
-                   StdDraw.text(0, .15, "Start");
-                   StdDraw.line(0.3,0, 0.3, 0.8); //senkrechte Zwischenwand
-                   StdDraw.line(0.75, 1, .75, .2); //senkrechte Zwishcenwand
-                   StdDraw.line(0.3, .5, 0.5, .5); //waagerechte Zwischenwand
-                   StdDraw.line(0.75, 0.2, 0.5, 0.2); //waagerechte Zwischenwand
-                   StdDraw.text(1, 0.758, "Ziel");
-
-                   //Statischer Gegner/Falle
-                   StdDraw.setPenColor(StdDraw.PINK);
-                   StdDraw.filledSquare(0.6, .6, 0.01);
-                   StdDraw.filledSquare(0.15, .5, 0.01);
-
+                   //Paint walls:
+                   StdDraw.line(0, 0, 0, 1);
+                   StdDraw.line(0, 0,1,0);
+                   StdDraw.line(0,1,1,1);
+                   StdDraw.line(1,0,1,1);
+                   
+                   //Paint InformationBar
                    InformationBar.main(null);
 
         }
 
-        static void player(double x,double y)
+        static void player()
         {
-
-                //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
-//                StdDraw.setPenColor(StdDraw.BLUE);
-//                StdDraw.setPenRadius(0.05);
-//                StdDraw.point(x, y);
-                //StdDraw.picture(x, y,"Fortuna_Duesseldorf.png",.08,.08);
-                StdDraw.picture(x, y,"pi.png",.08,.08);
-                   //}
-
-
-
+        	//Paint player at his position
+        	StdDraw.picture(Globals.player.x, Globals.player.y,"pi.png",.08,.08);
+        }
+        
+        static void enemy()
+        {
+        	//Paint enemy at his position
+        	StdDraw.setPenColor(StdDraw.YELLOW);
+            StdDraw.filledSquare(Globals.enemy.x, Globals.enemy.y,0.01);
+            StdDraw.setPenColor(StdDraw.BLACK);
+            StdDraw.square(Globals.enemy.x, Globals.enemy.y,0.01);
+        	
+        }
+        
+        
+        static void isvalid(double x, double y){
+        	//check out if new position (x,y) is valid, i.e. is wall or enemy touched
+        	
+        	//checkout wall:
+        	if (x<=0.05 || y<=0.05 || x>=0.95 || y>=0.95)
+        	{
+        		//no move possible -> nothing to update
+        		StdDraw.filledCircle(1, 1, 0.05);
+        	}
+        	
+        	//checkout enemy:
+        	else if(Math.abs(x-Globals.enemy.x)<=0.05 && Math.abs(y-Globals.enemy.y)<=0.05) 
+        	{
+        		//enemy touched
+        		Damages.setDamages();
+        		Globals.player.x=0.2;
+        		Globals.player.y=0.2;
+        		
+        	}
+        	else {
+        		//update position
+        		Globals.player.x= x;
+        		Globals.player.y= y;
+        	}
         }
 
+        
 
-
-
-
-   public static void main(String[] args) {
+   public static void main(String[] args) throws InterruptedException{
            {
 
+        	   Initialize.main(null);
         	   StdDraw.clear();
-                  //Initialosiere Level
+                  //Paint room
                   room();
 
-                  //Startpunkt
-                  double x=0.01;
-                  double y=.15;
-
-                  //Initialisiere Spielfigur am Startpunkt
-                   player(x,y);
-                   double x_neu;
-                   double y_neu;
+                  //Paint player&enemy
+                   player();
+                   enemy();
+                   
+                  //Variable for checking new position
+                  double x_neu=Globals.player.x;
+                  double y_neu=Globals.player.y;
 
                    while (true)
                    {
-                	   		StdDraw.show(10);
-                           //Ändere Stiftfarbe und Größe, um Spielfigur zu übermalen:
-                           StdDraw.setPenRadius(.083);
-                           StdDraw.setPenColor(Color.WHITE);
-                           
+                	   //Buffering:	
+                	   StdDraw.show(10);
+                             
+                	   
 
+                	   //Move Player:
                            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                            {
 
-                                   //Neue Koordinaten:
-                                   x_neu = x-0.005;
-                                   y_neu=y;
+                                   //New position:
+                                   x_neu = Globals.player.x-Globals.player.step;
+                                   y_neu=Globals.player.y;
 
-                                   //Prüfe ob neuer Punkt zulässig
-                                   if (x_neu <= 0.05 || y_neu>=0.05 && y_neu<= 0.85 && x_neu<=0.35 && x_neu>=0.25|| y_neu<=0.55 && y_neu>=0.45 && x_neu<=0.55 && x_neu>=0.25 || y_neu<=0.95 && y_neu>=0.15 && x_neu<=0.8 && x_neu>=0.7 ){
-                                           
-                                           x_neu=x; //Keine Bewegung möglich
-                                           }
                                    
-                                   else
-                                   {
-                                   //Übermale alte Figur
-                                   //StdDraw.point(x, y);
-                                   x=x_neu;
-                                   y=y_neu;
-                                   //Zeichne neue Figur
-                                   //player(x,y);
-                                   }
                            }
                            else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
                            {
 
-                                 //Neue Koordinaten:
-                                   x_neu = x+0.005;
-                                   y_neu = y;
-                                 //Prüfe ob neuer Punkt zulässig
-                                   if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
-                                   {
-                                           if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich
-                                           {
-                                                 //Übermale alte Figur
-                                                   StdDraw.point(x, y);
-                                                   x=x_neu;
-                                                   y=y_neu;
-                                                   //Zeichne neue Figur
-                                                   //player(x,y);
-                                           } else {
-                                           x_neu=x; //Keine Bewegung möglich
-                                           }
-                                 } else{
-                                 //Übermale alte Figur
-                                   //StdDraw.point(x, y);
-                                   x=x_neu;
-                                   y=y_neu;
-                                   //player(x,y);
-                                 }
+                                 //new position:
+                                   x_neu = Globals.player.x+Globals.player.step;
+                                   y_neu = Globals.player.y;
+                                 
                            }
                            else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
                            {
-                                 //Neue Koordinaten:
-                                   x_neu = x;
-                                   y_neu = y+0.005;
-                                 //Prüfe ob neuer Punkt zulässig
-                                   if (y_neu>=0.95|| x_neu<=0.05|| x_neu>=0.95 || y_neu<=0.55 && y_neu>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15|| x_neu<=0.8 && x_neu>=0.7 && y_neu<=0.95 &&y_neu>= 0.15 ) //Wand
-                                   {
-                                           y_neu=y;
-                                   } else{
-                                 //Übermale alte Figur
-                                   //StdDraw.point(x, y);
-                                   x=x_neu;
-                                   y=y_neu;
-                                   //player(x,y);
-                                   }
-
+                                 //new position:
+                                   x_neu = Globals.player.x;
+                                   y_neu = Globals.player.y+Globals.player.step;
+                                
                            }
                            else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
                            {
-                                 //Neue Koordinaten:
-                                   x_neu = x;
-                                   y_neu = y-0.005;
-
-                                 //Prüfe ob neuer Punkt zulässig
-                                   if (y_neu<=0.05|| x_neu<=0.05 || x_neu>=0.95 || y_neu<=0.55 && y>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15||x_neu<=0.35 && x_neu>=0.25 && y_neu <= 0.85 && y_neu>=0.05) //Wand
-                                   {
-                                           y_neu=y;
-                                   } else{
-                                 //Übermale alte Figur
-                                   //StdDraw.point(x, y);
-                                   x=x_neu;
-                                   y=y_neu;
-                                   //player(x,y);
-                                   }
-                           }
-                           //Teste, ob Gegner/Falle berührt
-                           if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
-                           {
-                        	   Globals.life--;
-                        	   if (Globals.life<0)
-                        	   {
-                        		   //Tot -> Zurück ins Menü
-                        	   	StdDraw.clear();
-                                Menue.main(args);
-                                    
-                                   break;
-                        	   }
-                        	   
-                                   
-                                   
+                                 //new position:
+                                   x_neu = Globals.player.x;
+                                   y_neu = Globals.player.y-Globals.player.step;
 
                            }
-                           //Teste, ob im Ziel:
-                           if (x>=1)
+                           if(StdDraw.isKeyPressed(KeyEvent.VK_S)) 
                            {
-                        	   Level2.main(args);
-                        	   break;
-                        
+                        	   Stop.main(null);
+                        	   Thread.sleep(100);
+                        	  
+                        	  
                            }
-                           room();
-                           player(x,y);
+                           
+                           //checkout if move is valid
+                           isvalid(x_neu,y_neu);
                           
-                   }
+                           //move enemy:
+                           if (Globals.enemy.move)
+                           {
+                        	   Globals.enemy.x=(Globals.enemy.x+Globals.enemy.step)%1;
+                           }
+                           
+                           //repaint
+                           StdDraw.clear();
+                           room();
+                           player();
+                           enemy();
+                          
+                   
+                	   }
+                   
+                   
 
 
 
