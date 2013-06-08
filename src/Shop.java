@@ -33,6 +33,10 @@ public class Shop {
 		StdDraw.text(0.5,.3,""+Globals.magician);
 		StdDraw.text(0.8, .3, ""+price+" Münzen");
 		
+		StdDraw.picture(.2, .2, "stop.png",.1,.1);
+		StdDraw.text(0.5, 0.2, ""+Globals.stop);
+		StdDraw.text(0.8, 0.2, ""+price+" Münzen");
+		
 		//Option to leave the shop
 		StdDraw.textLeft(.2, 0.02, "Genug Shopping für heute, ich will weiter zocken!");
 	
@@ -44,18 +48,22 @@ public class Shop {
 		//Counting the height modulo #Options 
 		//height=height%4;
 		
-		if (height%4==1)
+		if (height%5==1)
 		{
 			//Life is chosen
 			StdDraw.picture(0.05, .5, "pfeil_rechts.png",.1,.1);
 		}
-		else if (height%4==2) {
+		else if (height%5==2) {
 			//Health is chosen
 			StdDraw.picture(0.05, .4, "pfeil_rechts.png",.1,.1);
 		}
-		else if (height%4==3) {
+		else if (height%5==3) {
 			//Magician is chosen
 			StdDraw.picture(0.05, .3, "pfeil_rechts.png",.1,.1);
+		}
+		else if (height%5==4) {
+			//Stop is choosen
+			StdDraw.picture(0.05, .2, "pfeil_rechts.png",.1,.1);
 		}
 		else StdDraw.picture(0.05, .002, "pfeil_rechts.png",.1,.1);
 		
