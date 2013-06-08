@@ -11,7 +11,7 @@ public class Initialize {
 		Globals.health=100;
 		Globals.life=3;
 		Globals.magician=0;
-		Globals.money=0;
+		Globals.money=20;
 		Globals.stop=30;
 		
 		//Initialize enemy

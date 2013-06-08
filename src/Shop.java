@@ -62,7 +62,7 @@ public class Shop {
 			StdDraw.picture(0.05, .3, "pfeil_rechts.png",.1,.1);
 		}
 		else if (height%5==4) {
-			//Stop is choosen
+			//Stop is chosen
 			StdDraw.picture(0.05, .2, "pfeil_rechts.png",.1,.1);
 		}
 		else StdDraw.picture(0.05, .002, "pfeil_rechts.png",.1,.1);
@@ -76,6 +76,8 @@ public class Shop {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
+		
+		
 		while (true){
 			//Buffering:
 			StdDraw.show(10);
@@ -85,12 +87,12 @@ public class Shop {
 			arrow(height);
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 				//Checkout the height to checkout the chosen option
-				if (height%4==0){
+				if (height%5==0){
 					//return to game
-					Level1.main(null);
+					Test.main(null);
 					break;
 				}
-				else if(height==1){
+				else if(height%5==1){
 					//Life is chosen
 					if (Globals.money>=price){
 						//Enough money to buy in
@@ -99,7 +101,7 @@ public class Shop {
 					}
 					
 				}
-				else if (height==2){
+				else if (height%5==2){
 					//Health is chosen
 					if (Globals.money>=price && Globals.health<100){
 						//Enough money to buy in and not complete healthful
@@ -107,7 +109,7 @@ public class Shop {
 						Globals.money=Globals.money-price;
 					}				
 				}
-				else if (height%4==3){
+				else if (height%5==3){
 					//Magician is chosen
 					if (Globals.money>=price ){
 						//Enough money to buy in
@@ -115,6 +117,15 @@ public class Shop {
 						Globals.money=Globals.money-price;
 					}	
 				}
+				else if (height%5==4){
+					//Stop is chosen
+					if (Globals.money>=price ){
+						//Enough money to buy in
+						Globals.stop++;
+						Globals.money=Globals.money-price;
+					}	
+				}
+				
 			}
 				
 			if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){

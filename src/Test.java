@@ -2,7 +2,8 @@ import java.awt.event.KeyEvent;
 
 public class Test {
 	
-	
+	static double shop_x=0.8;
+        	   static double shop_y=0.8;
 	
         static void room()
         {
@@ -18,6 +19,9 @@ public class Test {
                    StdDraw.line(0, 0,1,0);
                    StdDraw.line(0,1,1,1);
                    StdDraw.line(1,0,1,1);
+                   
+                   //paint shop symbol
+                   StdDraw.picture(shop_x, shop_y, "shop.png",.05,.05);
                    
                    //Paint InformationBar
                    InformationBar.main(null);
@@ -41,7 +45,7 @@ public class Test {
         }
         
         
-        static void isvalid(double x, double y){
+        static void isvalid(double x, double y) throws InterruptedException{
         	//check out if new position (x,y) is valid, i.e. is wall or enemy touched
         	
         	//checkout wall:
@@ -60,6 +64,13 @@ public class Test {
         		Globals.player.y=0.2;
         		
         	}
+        	
+        	//checkout shop:
+        	else if(Math.abs(x-shop_x)<=0.05 && Math.abs(y-shop_y)<=0.05)
+        	{
+        		Shop.main(null);
+        	}
+        	
         	else {
         		//update position
         		Globals.player.x= x;
@@ -68,11 +79,12 @@ public class Test {
         }
 
         
+        
 
-   public static void main(String[] args) throws InterruptedException{
+   public static void main(String[] args) throws InterruptedException {
            {
 
-        	   Initialize.main(null);
+        	   
         	   StdDraw.clear();
                   //Paint room
                   room();
