@@ -30,10 +30,7 @@ public class Menue {
 				if (y>0.5) //Start gedrückt
 				{
 					//Initialize variables with their defaults:
-					Globals.health=100;
-					Globals.life=3;
-					Globals.magician=0;
-					Globals.money=0;
+					Initialize.main(null);
 					//Start game
 					Level1.main(args);
 					
