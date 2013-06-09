@@ -46,7 +46,7 @@ public class Damages {
 		
 	}
 		
-		if (Globals.weapon != 0){
+		/* if (Globals.weapon != 0){
 			
 			for(int i = 0; i < Globals.weapon ; i++){
 				
@@ -75,7 +75,7 @@ public class Damages {
 
 
 	}
-		
+		*/
 		
 	}
 

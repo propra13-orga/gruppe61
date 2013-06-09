@@ -1,5 +1,7 @@
 import java.awt.event.KeyEvent;
 
+import javax.swing.JOptionPane;
+
 
 public class Shop {
 	static int price=5;
@@ -99,15 +101,27 @@ public class Shop {
 						Globals.life++;
 						Globals.money=Globals.money-price;
 					}
+					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
 					
 				}
 				else if (height%5==2){
 					//Health is chosen
-					if (Globals.money>=price && Globals.health<100){
+					if (Globals.health<100){
+						if (Globals.money>=price){
+							Globals.health=Math.min(100, Globals.health+20) ; //100% is the max
+							Globals.money=Globals.money-price;
+						}
+						else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
+					}
+					else JOptionPane.showMessageDialog(null, "Du hast genug Gesundheit.");
+					
+					
+				/*	if (Globals.money>=price && Globals.health<100){
 						//Enough money to buy in and not complete healthful
 						Globals.health=Math.min(100, Globals.health+20) ; //100% is the max
 						Globals.money=Globals.money-price;
-					}				
+					}	
+					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld oder genug Gesundheit.");*/
 				}
 				else if (height%5==3){
 					//Magician is chosen
@@ -115,7 +129,8 @@ public class Shop {
 						//Enough money to buy in
 						Globals.magician++;
 						Globals.money=Globals.money-price;
-					}	
+					}
+					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
 				}
 				else if (height%5==4){
 					//Stop is chosen
@@ -123,7 +138,8 @@ public class Shop {
 						//Enough money to buy in
 						Globals.stop++;
 						Globals.money=Globals.money-price;
-					}	
+					}
+					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
 				}
 				
 			}

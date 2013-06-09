@@ -25,7 +25,7 @@ public class Initialize {
 		Globals.player.y=0.2;
 		Globals.player.step=0.005;
 		
-		StdDraw.setCanvasSize(800, 800);
+		StdDraw.setCanvasSize(600, 600);
 		
 		
 	
