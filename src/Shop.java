@@ -35,9 +35,13 @@ public class Shop {
 		StdDraw.text(0.5,.3,""+Globals.magician);
 		StdDraw.text(0.8, .3, ""+price+" Münzen");
 		
-		StdDraw.picture(.2, .2, "stop.png",.1,.1);
-		StdDraw.text(0.5, 0.2, ""+Globals.stop);
-		StdDraw.text(0.8, 0.2, ""+price+" Münzen");
+		StdDraw.picture(.2, .2, "bomb.png",0.1,.1);
+		StdDraw.text(0.5,.2,""+Globals.weapon);
+		StdDraw.text(0.8, .2, ""+price+" Münzen");
+		
+		StdDraw.picture(.2, .1, "stop.png",.1,.1);
+		StdDraw.text(0.5, 0.1, ""+Globals.stop);
+		StdDraw.text(0.8, 0.1, ""+price+" Münzen");
 		
 		//Option to leave the shop
 		StdDraw.textLeft(.2, 0.02, "Genug Shopping für heute, ich will weiter zocken!");
@@ -50,22 +54,26 @@ public class Shop {
 		//Counting the height modulo #Options 
 		//height=height%4;
 		
-		if (height%5==1)
+		if (height%6==1)
 		{
 			//Life is chosen
 			StdDraw.picture(0.05, .5, "pfeil_rechts.png",.1,.1);
 		}
-		else if (height%5==2) {
+		else if (height%6==2) {
 			//Health is chosen
 			StdDraw.picture(0.05, .4, "pfeil_rechts.png",.1,.1);
 		}
-		else if (height%5==3) {
+		else if (height%6==3) {
 			//Magician is chosen
 			StdDraw.picture(0.05, .3, "pfeil_rechts.png",.1,.1);
 		}
-		else if (height%5==4) {
+		else if (height%6==4) {
 			//Stop is chosen
 			StdDraw.picture(0.05, .2, "pfeil_rechts.png",.1,.1);
+		}
+		else if (height%6==5) {
+			//Stop is chosen
+			StdDraw.picture(0.05, .1, "pfeil_rechts.png",.1,.1);
 		}
 		else StdDraw.picture(0.05, .002, "pfeil_rechts.png",.1,.1);
 		
@@ -89,12 +97,12 @@ public class Shop {
 			arrow(height);
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 				//Checkout the height to checkout the chosen option
-				if (height%5==0){
+				if (height%6==0){
 					//return to game
 					Test.main(null);
 					break;
 				}
-				else if(height%5==1){
+				else if(height%6==1){
 					//Life is chosen
 					if (Globals.money>=price){
 						//Enough money to buy in
@@ -104,7 +112,7 @@ public class Shop {
 					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
 					
 				}
-				else if (height%5==2){
+				else if (height%6==2){
 					//Health is chosen
 					if (Globals.health<100){
 						if (Globals.money>=price){
@@ -115,15 +123,8 @@ public class Shop {
 					}
 					else JOptionPane.showMessageDialog(null, "Du hast genug Gesundheit.");
 					
-					
-				/*	if (Globals.money>=price && Globals.health<100){
-						//Enough money to buy in and not complete healthful
-						Globals.health=Math.min(100, Globals.health+20) ; //100% is the max
-						Globals.money=Globals.money-price;
-					}	
-					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld oder genug Gesundheit.");*/
 				}
-				else if (height%5==3){
+				else if (height%6==3){
 					//Magician is chosen
 					if (Globals.money>=price ){
 						//Enough money to buy in
@@ -132,7 +133,16 @@ public class Shop {
 					}
 					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
 				}
-				else if (height%5==4){
+				else if (height%6==4){
+					//Weapon is chosen
+					if (Globals.money>=price ){
+						//Enough money to buy in
+						Globals.weapon++;
+						Globals.money=Globals.money-price;
+					}
+					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
+				}
+				else if (height%6==5){
 					//Stop is chosen
 					if (Globals.money>=price ){
 						//Enough money to buy in
