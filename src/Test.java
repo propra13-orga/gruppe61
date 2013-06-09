@@ -3,7 +3,12 @@ import java.awt.event.KeyEvent;
 public class Test {
 	
 	static double shop_x=0.8;
-        	   static double shop_y=0.8;
+    static double shop_y=0.8;
+    
+    static double weapon_x=0.3;
+    static double weapon_y=0.7;
+    
+    static boolean draw_weapon = true;
 	
         static void room()
         {
@@ -22,6 +27,9 @@ public class Test {
                    
                    //paint shop symbol
                    StdDraw.picture(shop_x, shop_y, "shop.png",.05,.05);
+                   
+                   //paint weapon symbol
+                   if (draw_weapon == true) StdDraw.picture(weapon_x, weapon_y, "bomb.png", .05,.05);
                    
                    //Paint InformationBar
                    InformationBar.main(null);
@@ -69,6 +77,14 @@ public class Test {
         	else if(Math.abs(x-shop_x)<=0.05 && Math.abs(y-shop_y)<=0.05)
         	{
         		Shop.main(null);
+        	}
+        	
+        	else if(Math.abs(x-weapon_x)<=0.05 && Math.abs(y-weapon_y)<=0.05)
+        	{
+        		if (draw_weapon == true) Globals.weapon++;
+        		draw_weapon = false;
+        		Globals.player.x= x;
+        		Globals.player.y= y;
         	}
         	
         	else {
