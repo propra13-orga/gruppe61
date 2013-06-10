@@ -14,7 +14,7 @@ public class GetRoom {
 		
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
-	    String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test";
+	    String fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1";
 	    FileReader fr = new FileReader(fileName);
 	    int ch;
 	    int j=0;
