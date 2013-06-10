@@ -58,12 +58,5 @@ public class GetRoom {
 	    
 	    array[10]=n;
 	    this.arraylokal = array;
-<<<<<<< HEAD
 	    fr.close();}
-=======
-	    
-	  fr.close();
-	  
-	  }
->>>>>>> c7cd4b13df7b9d5edacf0a42f3ac244a5e661b44
 }
