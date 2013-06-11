@@ -11,6 +11,10 @@ public class Globals {
 		public static boolean shot;
 		public static int weapon;
 		public static int stop;
+		public static double x;
+		public static double y;
+		public static double xneu;
+		public static double yneu;
 		
 		//saving enemy's options:
 		static public class enemy{

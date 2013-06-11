@@ -1,3 +1,4 @@
+
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -5,7 +6,7 @@ import java.io.IOException;
 public class GetRoom {
 
 	 public int[] arraylokal;
-	  public void room(String[] args) throws IOException
+	  public void room(String fileName) throws IOException
 	  {
 		  int[] array = new int [11];
 
@@ -14,7 +15,7 @@ public class GetRoom {
 		
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
-	    String fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1.txt";
+	    //String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
 	    FileReader fr = new FileReader(fileName);
 	    int ch;
 	    int j=0;

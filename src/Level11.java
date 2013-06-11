@@ -1,30 +1,36 @@
-
-
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 
 public class Level11 {
 	public static void main(String[] args) throws IOException{
+		int r=1;
+		String fileName;
+		while (r<=3){
 		GetRoom test = new GetRoom();
-		room(test);
+		if(r==1){
+			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1.txt";}
+		else if(r==2)
+		{
+			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum2";}
+		else  {
+			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum3";}
+		
+		test.room(fileName);
 		intplayer(test);
 		intenemy(test);
-		
+		InformationBar.main(null);
 		Globals.health=100;
      	Globals.life=3;
      	Globals.magician=0;
      	Globals.money=0;
      	
-		double x;
-		double y;
-		double x_neu;
-		double y_neu;
-		x=test.arraylokal[0];
-		y=test.arraylokal[1];
+
+		Globals.x=test.arraylokal[0]*0.05;
+		Globals.y=1-test.arraylokal[1]*0.05;
+
 	
-		x=0.05*x;
-		y=1-0.05*y;
+
      	
      	
      	while (true)
@@ -33,96 +39,64 @@ public class Level11 {
      	   		
      	   		//Zeichne neu:
      	   		StdDraw.clear();
-     	   		room(test);
+     	   		test.room(fileName);
      	   		intenemy(test);
-     	   		player(x,y);
+     	   		player(Globals.x,Globals.y);
      	   		
                 if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
-                {
+                {	
 
                         //Neue Koordinaten:
-                        x_neu = x-0.005;
-                        y_neu=y;
+                        Globals.xneu = Globals.x-0.005;
+                        Globals.yneu=Globals.y;
 
-                        //Prüfe ob neuer Punkt zulässig
-                        if (x_neu <= 0.05 || y_neu>=0.05 && y_neu<= 0.85 && x_neu<=0.35 && x_neu>=0.25|| y_neu<=0.55 && y_neu>=0.45 && x_neu<=0.55 && x_neu>=0.25 || y_neu<=0.95 && y_neu>=0.15 && x_neu<=0.8 && x_neu>=0.7 )
-                        {
-                                
-                                x_neu=x; //Keine Bewegung möglich
-                                }
+                        Controller.check(fileName);
                         
-                        else
-                        {
-                        x=x_neu;
-                        y=y_neu;
-                        }
                 }
                 else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
                 {
 
                       //Neue Koordinaten:
-                        x_neu = x+0.005;
-                        y_neu = y;
+                        Globals.xneu = Globals.x+0.005;
+                        Globals.yneu = Globals.y;
+                        
                       //Prüfe ob neuer Punkt zulässig
-                        if (x_neu>=0.95|| x_neu<=0.35 && x_neu>=0.25 && y_neu>=0.05 && y_neu<0.85 || x<= 0.8 && x_neu>=0.7 && y_neu<=0.95 && y_neu>=0.25 ||x_neu<=0.8 && x_neu>=0.45 && y_neu<=0.25 && y_neu>0.15 ) //Wand
-                        {
-                                if ((x_neu<=0.05 && 0.1<=y && y<=0.25) || (x_neu>=0.95 && (y>=0.65 && y<=0.9))) //Start oder Zielbereich
-                                {
-                                        x=x_neu;
-                                        y=y_neu;
-                                } else {
-                                x_neu=x; //Keine Bewegung möglich
-                                }
-                      } else{
-                        x=x_neu;
-                        y=y_neu;
-                      }
+                        Controller.check(fileName);
+                        
+                  
                 }
                 else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
                 {
                       //Neue Koordinaten:
-                        x_neu = x;
-                        y_neu = y+0.005;
-                      //Prüfe ob neuer Punkt zulässig
-                        if (y_neu>=0.95|| x_neu<=0.05|| x_neu>=0.95 || y_neu<=0.55 && y_neu>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15|| x_neu<=0.8 && x_neu>=0.7 && y_neu<=0.95 &&y_neu>= 0.15 ) //Wand
-                        {
-                                y_neu=y;
-                        } else{
-                        x=x_neu;
-                        y=y_neu;
-                        }
+                		Globals.xneu = Globals.x;
+                        Globals.yneu = Globals.y+0.005;
+                        Controller.check(fileName);
 
                 }
                 else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
                 {
                       //Neue Koordinaten:
-                        x_neu = x;
-                        y_neu = y-0.005;
+                		Globals.xneu = Globals.x;
+                        Globals.yneu = Globals.y-0.005;
 
                       //Prüfe ob neuer Punkt zulässig
-                        if (y_neu<=0.05|| x_neu<=0.05 || x_neu>=0.95 || y_neu<=0.55 && y>=0.45 && x_neu>=0.25 &&x_neu<=0.55 || x_neu>=0.45 && x_neu<=0.7 && y_neu<=0.25 && y_neu>=0.15||x_neu<=0.35 && x_neu>=0.25 && y_neu <= 0.85 && y_neu>=0.05) //Wand
-                        {
-                                y_neu=y;
-                        } else{
-                        x=x_neu;
-                        y=y_neu;
-                        }
+                        Controller.check(fileName);
                 }                           
                 //Teste, ob Gegner/Falle berührt
-                if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
+                if ((0.55<=Globals.x && 0.65 >=Globals.x && 0.55<=Globals.y && 0.66 >=Globals.y)|| 0.10<=Globals.x && Globals.x<=0.2 && 0.45<=Globals.y && Globals.y<=0.55)
                 {
              	  
              	   //Damages.setDamages();
              	   
              	 //Zurück zu letzten Checkpoint
-             	   x=0.01;
-             	   y=.15;
+             	  // x=0.01;
+             	  // y=.15;
              			   
                         
 
                 }
                 //Teste, ob im Ziel:
-                if (x>=1)
+                if (Globals.x>=1)
                 {
              	   //Level2.main(args);
              	   break;
@@ -130,6 +104,7 @@ public class Level11 {
                 }
         
         }
+		r++;}
 	}
 
 	private static void intenemy(GetRoom array) {
@@ -186,11 +161,8 @@ public class Level11 {
 }
 	private static void room(GetRoom test) throws IOException {
 		 
-		 
-		 test.room(null);
+		String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
+		 test.room(fileName);
 	}
 
 }
-
-
-
