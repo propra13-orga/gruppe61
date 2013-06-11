@@ -9,12 +9,12 @@ public class Level11 {
 		while (r<=3){
 		GetRoom test = new GetRoom();
 		if(r==1){
-			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1.txt";}
+			 fileName="src/Raum1.txt";}
 		else if(r==2)
 		{
-			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum2";}
+			 fileName="src/Raum2";}
 		else  {
-			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum3";}
+			 fileName="src/Raum3";}
 		
 		test.room(fileName);
 		intplayer(test);
@@ -161,7 +161,7 @@ public class Level11 {
 }
 	private static void room(GetRoom test) throws IOException {
 		 
-		String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
+		String fileName="src/Test.txt";
 		 test.room(fileName);
 	}
 
