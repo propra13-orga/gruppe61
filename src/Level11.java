@@ -12,9 +12,9 @@ public class Level11 {
 			 fileName="src/Raum1.txt";}
 		else if(r==2)
 		{
-			 fileName="src/Raum2";}
+			 fileName="src/Raum2.txt";}
 		else  {
-			 fileName="src/Raum3";}
+			 fileName="src/Raum3.txt";}
 		
 		test.room(fileName);
 		intplayer(test);
@@ -161,7 +161,7 @@ public class Level11 {
 }
 	private static void room(GetRoom test) throws IOException {
 		 
-		String fileName="src/Test.txt";
+	 String fileName="src/Test.txt";
 		 test.room(fileName);
 	}
 
