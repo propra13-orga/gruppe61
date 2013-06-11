@@ -15,17 +15,8 @@ public class Damages {
 	public static void setDamages(){
 		
 		
-		//if (Globals.health == 0) Globals.life--;
 		
 		if ( Globals.life > 0 ){
-			
-			/*for(int i = Globals.life; i > 0 ; i--){
-				
-				Globals.health = Globals.health - 20; //every death -20%
-				
-				if(Globals.health == 0) Globals.life--;
-				
-			}*/
 			
 			Globals.health = Globals.health - 50;
 			
