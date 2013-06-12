@@ -16,6 +16,24 @@ public class Globals {
 		public static double xneu;
 		public static double yneu;
 		
+		public static double[] arraylokal;// Speichert Position von den Fallen.
+		public static int anzahlfallen;
+		public static double[] falleneu;
+		public static int[] richtung;
+		
+		
+		public static double startx; // Speichert Startpunkt
+		public static double starty;
+		public static double zielx; 	//Speichert Zielpunkt
+		public static double ziely;
+		public static String fileName;	//File Name für den Raum
+		
+		
+		
+		
+		
+		
+		
 		//saving enemy's options:
 		static public class enemy{
 			//position:

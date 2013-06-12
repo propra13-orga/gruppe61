@@ -1,49 +1,71 @@
-import java.io.FileReader;
 import java.io.IOException;
+
+
 
 
 public class Controller {
 
-	public static void check(String fileName) throws IOException{
+	public static void playerleft() {
+        Globals.xneu = Globals.x-0.005;
+        Globals.yneu=Globals.y;
 		
-		StdDraw.setPenColor(StdDraw.BLACK);
-		StdDraw.setPenRadius(0.01);
-	    //String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
-	    FileReader fr = new FileReader(fileName);
-	    int ch;
-	    int j=0;
-	    int k=0;
-	    double x=Globals.xneu;
-	    double y=Globals.yneu;
-	    double s;
-	    double t;
-	   
-	    while( j<21 ){
-	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzelt aus und speicher in Variable ch
-	    		
-	    	
-	    	
-	    	if (ch==120){//Erstelle einen Raum durch Textdatei
-	    		s=k*0.05;
-	    		t=1-j*0.05;
+	}
 
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){
-	    			j=21;
-	    			break;	
-	    		}
-	    		
-	    			    }
+	public static void playerright() {
+        Globals.xneu = Globals.x+0.005;
+        Globals.yneu = Globals.y;
 		
-	    			k++;}
-	    	
-	    		j++;
-	    		if (j==21){
-	    			Globals.x=Globals.xneu;
-	    			Globals.y=Globals.yneu;
-	    			
-	    		}
-	    		}
-	fr.close();}	
+	}
+
+	public static void playerup() {
+		Globals.xneu = Globals.x;
+        Globals.yneu = Globals.y+0.005;
+		
+	}
+
+	public static void playerdown() {
+		Globals.xneu = Globals.x;
+        Globals.yneu = Globals.y-0.005;
+		
+	}
+
+	public static void Falle(int i)throws IOException {// i gibt hier auch jeder Falle eine Nummer		 
+		
+		double[] array = new double [2];
+		
+		int k=Globals.richtung[i];
+		if (k==1){
+			array[0]=Globals.arraylokal[0+2*i]+0.01;
+			array[1]=Globals.arraylokal[1+2*i]+0.01;
+			System.out.println(Globals.arraylokal[1+2*i]);
+			Globals.falleneu=array;
+			Wall.checkf(i);
+		}
+		else if(k==2){
+			array[0]=Globals.arraylokal[0+2*i]+0.01;
+			array[1]=Globals.arraylokal[1+2*i]-0.01;
+			Globals.falleneu=array;
+			Wall.checkf(i);
+		}
+		else if(k==3){
+			array[0]=Globals.arraylokal[0+2*i]-0.01;
+			array[1]=Globals.arraylokal[1+2*i]+0.01;
+			Globals.falleneu=array;
+			Wall.checkf(i);
+		}
+		else {
+			array[0]=Globals.arraylokal[0+2*i]+0.01;
+			array[1]=Globals.arraylokal[1+2*i]+0.01;
+			Globals.falleneu=array;
+			Wall.checkf(i);
+		}
+		
+
+		
+				
+		
+		
+	}
+	
 
 }

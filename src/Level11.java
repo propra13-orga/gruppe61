@@ -5,20 +5,21 @@ import java.io.IOException;
 public class Level11 {
 	public static void main(String[] args) throws IOException{
 		int r=1;
-		String fileName;
+		
 		while (r<=3){
-		GetRoom test = new GetRoom();
+		
 		if(r==1){
-			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1.txt";}
+			 Globals.fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1.txt";}
 		else if(r==2)
 		{
-			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum2";}
+			 Globals.fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum2";}
 		else  {
-			 fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum3";}
+			 Globals.fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum3";}
 		
-		test.room(fileName);
-		intplayer(test);
-		intenemy(test);
+		GetRoom.room();
+		intplayer();
+
+		intenemy();
 		InformationBar.main(null);
 		Globals.health=100;
      	Globals.life=3;
@@ -26,8 +27,8 @@ public class Level11 {
      	Globals.money=0;
      	
 
-		Globals.x=test.arraylokal[0]*0.05;
-		Globals.y=1-test.arraylokal[1]*0.05;
+		Globals.x=Globals.startx;
+		Globals.y=Globals.starty;
 
 	
 
@@ -39,48 +40,55 @@ public class Level11 {
      	   		
      	   		//Zeichne neu:
      	   		StdDraw.clear();
-     	   		test.room(fileName);
-     	   		intenemy(test);
+     	   		
+     	   		GetRoom.room();
+     	   		int i=0;
+     	   		while (i<Globals.anzahlfallen){
+     				
+     	   		Controller.Falle(i);
+     	   		i++;
+     	   		}
+     	   		intenemy();
+     	   		
      	   		player(Globals.x,Globals.y);
      	   		
                 if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                 {	
 
                         //Neue Koordinaten:
-                        Globals.xneu = Globals.x-0.005;
-                        Globals.yneu=Globals.y;
-
-                        Controller.check(fileName);
+                		Controller.playerleft();
+                		
+                		//Prüfe ob der neuer Punkt zulässig
+                        Wall.checkp();
                         
                 }
                 else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
                 {
 
                       //Neue Koordinaten:
-                        Globals.xneu = Globals.x+0.005;
-                        Globals.yneu = Globals.y;
-                        
+                		Controller.playerright();
+                	
                       //Prüfe ob neuer Punkt zulässig
-                        Controller.check(fileName);
+                        Wall.checkp();
                         
                   
                 }
                 else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
                 {
-                      //Neue Koordinaten:
-                		Globals.xneu = Globals.x;
-                        Globals.yneu = Globals.y+0.005;
-                        Controller.check(fileName);
+                      	//Neue Koordinaten:
+                		  Controller.playerup();
+                		
+                		//Prüfe ob neuer Punkt zulässig
+                          Wall.checkp();
 
                 }
                 else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
                 {
                       //Neue Koordinaten:
-                		Globals.xneu = Globals.x;
-                        Globals.yneu = Globals.y-0.005;
+                		Controller.playerdown();
 
                       //Prüfe ob neuer Punkt zulässig
-                        Controller.check(fileName);
+                        Wall.checkp();
                 }                           
                 //Teste, ob Gegner/Falle berührt
                 if ((0.55<=Globals.x && 0.65 >=Globals.x && 0.55<=Globals.y && 0.66 >=Globals.y)|| 0.10<=Globals.x && Globals.x<=0.2 && 0.45<=Globals.y && Globals.y<=0.55)
@@ -107,33 +115,22 @@ public class Level11 {
 		r++;}
 	}
 
-	private static void intenemy(GetRoom array) {
-		double x;
-		double y;
-		int n=array.arraylokal[10];
+	private static void intenemy() {
+		
+		int n=Globals.anzahlfallen;
 		int i=0;
 		while (i<n){
-			x=array.arraylokal[4+2*i];
-			y=array.arraylokal[5+2*i];
-			
-			x=0.05*x;
-			y=1-0.05*y;	
-			
-			Falle(x,y);
+
+
+			Falle(Globals.arraylokal[0+2*i],Globals.arraylokal[1+2*i]);
 			i++;
 				}
 		}	
 
-	private static void intplayer(GetRoom array) {
-		double x;
-		double y;
-		x=array.arraylokal[0];
-		y=array.arraylokal[1];
-	
-		x=0.05*x;
-		y=1-0.05*y;	
+	private static void intplayer() {
 
-		player(x,y);	
+
+		player(Globals.startx,Globals.starty);	
 
 		}
 
@@ -159,10 +156,6 @@ public class Level11 {
 
 
 }
-	private static void room(GetRoom test) throws IOException {
-		 
-		String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
-		 test.room(fileName);
-	}
+	
 
 }
