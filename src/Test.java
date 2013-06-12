@@ -9,6 +9,7 @@ public class Test {
     static double weapon_y=0.7;
     
     static boolean draw_weapon = true;
+ 
 	
         static void room()
         {
@@ -55,6 +56,7 @@ public class Test {
         
         static void isvalid(double x, double y) throws InterruptedException{
         	//check out if new position (x,y) is valid, i.e. is wall or enemy touched
+        
         	
         	//checkout wall:
         	if (x<=0.05 || y<=0.05 || x>=0.95 || y>=0.95)
@@ -67,11 +69,15 @@ public class Test {
         	else if(Math.abs(x-Globals.enemy.x)<=0.05 && Math.abs(y-Globals.enemy.y)<=0.05) 
         	{
         		//enemy touched
-        		Damages.setDamages();
+        		//Damages.setDamages();
+	
         		Globals.player.x=0.2;
         		Globals.player.y=0.2;
+        		  		
         		
+
         	}
+        	
         	
         	//checkout shop:
         	else if(Math.abs(x-shop_x)<=0.05 && Math.abs(y-shop_y)<=0.05)
@@ -92,6 +98,8 @@ public class Test {
         		Globals.player.x= x;
         		Globals.player.y= y;
         	}
+
+        	
         }
 
         
@@ -112,6 +120,7 @@ public class Test {
                   //Variable for checking new position
                   double x_neu=Globals.player.x;
                   double y_neu=Globals.player.y;
+                  
 
                    while (true)
                    {
@@ -162,7 +171,8 @@ public class Test {
                            
                            //checkout if move is valid
                            isvalid(x_neu,y_neu);
-                          
+                           
+                           
                            //move enemy:
                            if (Globals.enemy.move)
                            {

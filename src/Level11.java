@@ -9,12 +9,14 @@ public class Level11 {
 		while (r<=3){
 		
 		if(r==1){
-			 Globals.fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum1.txt";}
+
+			 Globals.fileName="src/Raum1.txt";}
 		else if(r==2)
 		{
-			 Globals.fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum2";}
+			 Globals.fileName="src/Raum2.txt";}
 		else  {
-			 Globals.fileName="C:/Users/Nuck/workspace/gruppe61/src/Raum3";}
+			 Globals.fileName="src/Raum3.txt";}
+
 		
 		GetRoom.room();
 		intplayer();
@@ -156,6 +158,6 @@ public class Level11 {
 
 
 }
-	
+
 
 }
