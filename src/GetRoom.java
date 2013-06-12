@@ -62,7 +62,7 @@ public class GetRoom {
 	    		Globals.shopx=k*0.05;	//Koordinaten für den Shop
 	    		Globals.shopy=1-j*0.05;
 	    		}
-	    	else if(ch==66 && i==0){
+	    	else if(ch==66 && i==0){		//Koordinaten für den Boss
 	    		boss[0+2*m]=k*0.05;
 	    		boss[1+2*m]=1-j*0.05;
 	    		m++;

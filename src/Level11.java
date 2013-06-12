@@ -93,17 +93,19 @@ public class Level11 {
                         Wall.checkp();
                 }                           
                 //Teste, ob Gegner/Falle berührt
-                if ((0.55<=Globals.x && 0.65 >=Globals.x && 0.55<=Globals.y && 0.66 >=Globals.y)|| 0.10<=Globals.x && Globals.x<=0.2 && 0.45<=Globals.y && Globals.y<=0.55)
-                {
-             	  
-             	   //Damages.setDamages();
+                int j=0;
+                while (j<Globals.anzahlfallen){
+                	
+                if (Globals.arraylokal[0+2*j]-0.05< Globals.x && Globals.x<Globals.arraylokal[0+2*j] +0.05 && Globals.arraylokal[1+2*j]-0.05<Globals.y && Globals.arraylokal[1+2*j]+0.05>Globals.y)
+                		{
+             	   Damages.setDamages();
              	   
              	 //Zurück zu letzten Checkpoint
-             	  // x=0.01;
-             	  // y=.15;
-             			   
-                        
-
+             	   Globals.x=0.01;
+             	   Globals.y=.15;
+  
+                		}
+                j++;
                 }
                 //Teste, ob im Ziel:
                 if (Globals.x>=1)
