@@ -71,15 +71,17 @@ public class Wall {
 
 	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){
 	    			if(Globals.richtung[i]==1){
-	    				Globals.richtung[i]=2;
+	    				Globals.richtung[i]=3;
 	    			}
 	    			else if(Globals.richtung[i]==2){
-	    				Globals.richtung[i]=3;
+	    				Globals.richtung[i]=1;
 	    			}
 	    			else if(Globals.richtung[i]==3){
 	    				Globals.richtung[i]=4;
 	    			}
-	    			else{Globals.richtung[i]=1;}
+	    			else if(Globals.richtung[i]==4){
+	    				Globals.richtung[i]=2;
+	    				}
 	    			j=21;
 	    			break;	
 	    		}

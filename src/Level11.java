@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Level11 {
 	public static void main(String[] args) throws IOException{
 		int r=1;
-		
+		int p=0;
 		while (r<=3){
 		
 		if(r==1){
@@ -18,7 +18,7 @@ public class Level11 {
 			 Globals.fileName="src/Raum3.txt";}
 
 		
-		GetRoom.room();
+		GetRoom.room(p);
 		intplayer();
 
 		intenemy();
@@ -37,16 +37,17 @@ public class Level11 {
      	
      	
      	while (true)
-        {
+        {		p=1;
      	   		StdDraw.show(10);
      	   		
      	   		//Zeichne neu:
      	   		StdDraw.clear();
-     	   		
-     	   		GetRoom.room();
+     	   	
+     	   		GetRoom.room(p);
      	   		int i=0;
+     	   	System.out.println(i);
      	   		while (i<Globals.anzahlfallen){
-     				
+     	   		
      	   		Controller.Falle(i);
      	   		i++;
      	   		}

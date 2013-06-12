@@ -6,7 +6,7 @@ import java.io.IOException;
 public class GetRoom {
 
 	 
-	  public static void room() throws IOException
+	  public static void room(int i) throws IOException
 	  {
 		  double[] array = new double [11];
 		  int[] richtung= new int [5];
@@ -48,19 +48,22 @@ public class GetRoom {
 	    		StdDraw.text(0.05*k,1- 0.05*j, "Ziel");
 	    		StdDraw.setPenColor(StdDraw.BLACK);
 	    		}
-	    	else if(ch==101){
+	    	else if(ch==101 && i==0){
 	    		richtung[n]=1;	//Richtung in die sich die Falle bewegt (ändert sich in Wall)
 	    		array[0+2*n]=k*0.05;	//Speichert die Koordinaten von den Gegnern
-	    		array[1+2*n]=1-j*0.05;
-	    			
+	    		array[1+2*n]=1-j*0.05;	
 	    		n++;
+	    		Globals.anzahlfallen=n;
+	    	    Globals.arraylokal = array;
+	    	    Globals.richtung=richtung;
 	    	}
 	    	k++;
 	    	}
 	    j++;}
 	    
-	    Globals.anzahlfallen=n;
-	    Globals.arraylokal = array;
-	    Globals.richtung=richtung;
+	    
+
 	    fr.close();}
+
+
 }

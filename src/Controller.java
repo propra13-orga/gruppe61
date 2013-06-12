@@ -37,7 +37,7 @@ public class Controller {
 		if (k==1){
 			array[0]=Globals.arraylokal[0+2*i]+0.01;
 			array[1]=Globals.arraylokal[1+2*i]+0.01;
-			System.out.println(Globals.arraylokal[1+2*i]);
+			
 			Globals.falleneu=array;
 			Wall.checkf(i);
 		}
@@ -53,9 +53,9 @@ public class Controller {
 			Globals.falleneu=array;
 			Wall.checkf(i);
 		}
-		else {
-			array[0]=Globals.arraylokal[0+2*i]+0.01;
-			array[1]=Globals.arraylokal[1+2*i]+0.01;
+		else if(k==4) {
+			array[0]=Globals.arraylokal[0+2*i]-0.01;
+			array[1]=Globals.arraylokal[1+2*i]-0.01;
 			Globals.falleneu=array;
 			Wall.checkf(i);
 		}
