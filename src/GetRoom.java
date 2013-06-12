@@ -60,7 +60,7 @@ public class GetRoom {
 	    		}
 	    	else if(ch==83 && i==0){
 	    		Globals.shopx=k*0.05;	//Koordinaten für den Shop
-	    		Globals.shopy=k*0.05;
+	    		Globals.shopy=1-j*0.05;
 	    		}
 	    	else if(ch==66 && i==0){
 	    		boss[0+2*m]=k*0.05;
