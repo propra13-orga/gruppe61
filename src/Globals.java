@@ -11,6 +11,7 @@ public class Globals {
 		public static boolean shot;
 		public static int weapon;
 		public static int stop;
+		
 		public static double x;
 		public static double y;
 		public static double xneu;
@@ -21,12 +22,18 @@ public class Globals {
 		public static double[] falleneu;
 		public static int[] richtung;
 		
+		public static int anzahlboss;
+		public static double[] boss;
 		
-		public static double startx; // Speichert Startpunkt
+		public static double startx; 	// Speichert Startpunkt
 		public static double starty;
 		public static double zielx; 	//Speichert Zielpunkt
 		public static double ziely;
 		public static String fileName;	//File Name für den Raum
+		
+		public static double shopx;
+		public static double shopy;
+
 		
 		
 		

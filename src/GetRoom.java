@@ -10,7 +10,7 @@ public class GetRoom {
 	  {
 		  double[] array = new double [11];
 		  int[] richtung= new int [5];
-		  
+		  double[] boss= new double [10];
 	    
 		
 		StdDraw.setPenColor(StdDraw.BLACK);
@@ -21,6 +21,7 @@ public class GetRoom {
 	    int j=0;
 	    int k=0;
 	    int n=0;
+	    int m=0;
 	    while( j<21 ){
 	    	k=0;
 	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzelt aus und speicher in Variable ch
@@ -56,7 +57,18 @@ public class GetRoom {
 	    		Globals.anzahlfallen=n;
 	    	    Globals.arraylokal = array;
 	    	    Globals.richtung=richtung;
-	    	}
+	    		}
+	    	else if(ch==83 && i==0){
+	    		Globals.shopx=k*0.05;	//Koordinaten für den Shop
+	    		Globals.shopy=k*0.05;
+	    		}
+	    	else if(ch==66 && i==0){
+	    		boss[0+2*m]=k*0.05;
+	    		boss[1+2*m]=1-j*0.05;
+	    		m++;
+	    		Globals.anzahlboss=m;
+	    		Globals.boss=boss;
+	    		}
 	    	k++;
 	    	}
 	    j++;}

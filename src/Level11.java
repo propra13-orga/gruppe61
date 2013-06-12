@@ -44,10 +44,9 @@ public class Level11 {
      	   		StdDraw.clear();
      	   	
      	   		GetRoom.room(p);
-     	   		int i=0;
-     	   	System.out.println(i);
-     	   		while (i<Globals.anzahlfallen){
      	   		
+     	   		int i=0;
+     	   		while (i<Globals.anzahlfallen){
      	   		Controller.Falle(i);
      	   		i++;
      	   		}

@@ -1,9 +1,9 @@
 xxxxxxxxxxxxxxxxxxxxx
 x              x    x
 x              x    x
-x              x    x
+x          S   x    x
 x     x        x     
-x     x        x    z
+x     x        x  B z
 x     x        x     
 x     x        x    x
 x     x     e  x    x
@@ -23,4 +23,6 @@ xxxxxxxxxxxxxxxxxxxxx
 x= Wand
 s= Start
 z= Ziel
+B= Boss
+S= Shop
 Format: 21x21
