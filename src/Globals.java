@@ -12,26 +12,27 @@ public class Globals {
 		public static int weapon;
 		public static int stop;
 		
-		public static double x;
+		public static double x;		//Speichert Position vom Spieler
 		public static double y;
-		public static double xneu;
+		public static double xneu;	//Speichert neue Position vom Spieler für die Bewegung
 		public static double yneu;
 		
-		public static double[] arraylokal;// Speichert Position von den Fallen.
+		public static double[] fallen;// Speichert Position von den Fallen.so wie die neuen Position wenn die Fallen sich bewegen.
 		public static int anzahlfallen;
 		public static double[] falleneu;
-		public static int[] richtung;
+		public static int[] richtung;	// gibt eine Richtung an in die sich die Falle bewegt.
 		
-		public static int anzahlboss;
+		public static int anzahlboss;	// Speichert Position vom Boss
 		public static double[] boss;
 		
 		public static double startx; 	// Speichert Startpunkt
 		public static double starty;
 		public static double zielx; 	//Speichert Zielpunkt
 		public static double ziely;
+		
 		public static String fileName;	//File Name für den Raum
 		
-		public static double shopx;
+		public static double shopx;		// Speichert Position vom Shop
 		public static double shopy;
 
 		
