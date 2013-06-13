@@ -5,8 +5,8 @@ import java.io.IOException;
 public class Level11 {
 	public static void main(String[] args) throws IOException{
 		int r=1;
-		int p;
-		while (r<=3){
+		int p;				// Laufvariable damit in GetRoom nicht immer die Fallen und so mehrfach ausgelesen werden und die Koordinaten in Globals verändert werden.
+		while (r<=3){		//Auswahl vom Raum.
 		
 		if(r==1){
 
@@ -18,10 +18,10 @@ public class Level11 {
 			 Globals.fileName="src/Raum3.txt";}
 
 		p=0;
-		GetRoom.room(p);
-		intplayer();
+		GetRoom.room(p);	// Hier sollte p=0 sein alle Daten in GetROom gelesen werden.
+		intplayer();		// Initialisiere Player 
 		
-		intenemy();
+		intenemy();			// Initialisiere Fallen und zeichne hiermit auch immer wieder die neue Position
 		/*
 		InformationBar.main(null);
 		Globals.health=100;
@@ -30,8 +30,8 @@ public class Level11 {
      	Globals.money=0;
      	*/
 
-		Globals.x=Globals.startx;
-		Globals.y=Globals.starty;
+		Globals.x=Globals.startx;	// Übergabe von den Startkoordinaten
+		Globals.y=Globals.starty;	
 
 	
 
@@ -45,7 +45,7 @@ public class Level11 {
      	   		//Zeichne neu:
      	   		StdDraw.clear();
      	   	
-     	   		GetRoom.room(p);
+     	   		GetRoom.room(p);		//Hier sollte p irgendwas ungleich 0 sein damit das array in dem die Fallen gespeichert sind nicht überschrieben wird.
      	   		
      	   		InformationBar.main(null);
      	   		
@@ -54,9 +54,9 @@ public class Level11 {
      	   		Controller.Falle(i);
      	   		i++;
      	   		}
-     	   		intenemy();
+     	   		intenemy();	//siehe oben
      	   		
-     	   		Paint.player(Globals.x,Globals.y);
+     	   		Paint.player(Globals.x,Globals.y);	// Zeichnet den Spieler.
      	   		
                 if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                 {	
@@ -125,7 +125,7 @@ public class Level11 {
 
 	private static void intenemy() {
 		
-		int n=Globals.anzahlfallen;
+		int n=Globals.anzahlfallen;	//Gehe alle Fallen durch und zeichne sie mit Hilfe der Globalen Variablen.
 		int i=0;
 		while (i<n){
 
