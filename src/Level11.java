@@ -100,7 +100,7 @@ public class Level11 {
                 int j=0;
                 while (j<Globals.anzahlfallen){
                 	
-                if (Globals.arraylokal[0+2*j]-0.05< Globals.x && Globals.x<Globals.arraylokal[0+2*j] +0.05 && Globals.arraylokal[1+2*j]-0.05<Globals.y && Globals.arraylokal[1+2*j]+0.05>Globals.y)
+                if (Globals.fallen[0+2*j]-0.05< Globals.x && Globals.x<Globals.fallen[0+2*j] +0.05 && Globals.fallen[1+2*j]-0.05<Globals.y && Globals.fallen[1+2*j]+0.05>Globals.y)
                 		{
              	   Damages.setDamages();
              	   
@@ -130,7 +130,7 @@ public class Level11 {
 		while (i<n){
 
 
-			Paint.Falle(Globals.arraylokal[0+2*i],Globals.arraylokal[1+2*i]);
+			Paint.Falle(Globals.fallen[0+2*i],Globals.fallen[1+2*i]);
 			i++;
 				}
 		}	

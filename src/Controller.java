@@ -35,27 +35,27 @@ public class Controller {
 		
 		int k=Globals.richtung[i];
 		if (k==1){
-			array[0]=Globals.fallen[0+2*i]+0.01;	//Bewegungsrichtung 1 schräg nach oben	Richtung (1,1)
-			array[1]=Globals.fallen[1+2*i]+0.01;
+			array[0]=Globals.fallen[0+2*i]+0.003;	//Bewegungsrichtung 1 schräg nach oben	Richtung (1,1)
+			array[1]=Globals.fallen[1+2*i]+0.003;
 			
 			Globals.falleneu=array;
 			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
 		}
 		else if(k==2){
-			array[0]=Globals.fallen[0+2*i]+0.01;	//Bewegungsrichtung 2 schräg nach oben	Richtung	(1,0)
-			array[1]=Globals.fallen[1+2*i]-0.01;
+			array[0]=Globals.fallen[0+2*i]+0.003;	//Bewegungsrichtung 2 schräg nach oben	Richtung	(1,0)
+			array[1]=Globals.fallen[1+2*i]-0.003;
 			Globals.falleneu=array;
 			Wall.checkf(i);							//Überprüfe ob Wand erreicht.	
 		}
 		else if(k==3){
-			array[0]=Globals.fallen[0+2*i]-0.01;	//Bewegungsrichtung 3 schräg nach unten	Richtung	(0,1)
-			array[1]=Globals.fallen[1+2*i]+0.01;
+			array[0]=Globals.fallen[0+2*i]-0.003;	//Bewegungsrichtung 3 schräg nach unten	Richtung	(0,1)
+			array[1]=Globals.fallen[1+2*i]+0.003;
 			Globals.falleneu=array;
 			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
 		}
 		else if(k==4) {
-			array[0]=Globals.fallen[0+2*i]-0.01;	//Bewegungsrichtung 4 schräg nach unten Richtung (0,0)
-			array[1]=Globals.fallen[1+2*i]-0.01;
+			array[0]=Globals.fallen[0+2*i]-0.003;	//Bewegungsrichtung 4 schräg nach unten Richtung (0,0)
+			array[1]=Globals.fallen[1+2*i]-0.003;
 			Globals.falleneu=array;
 			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
 		}
