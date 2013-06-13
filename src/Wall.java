@@ -19,7 +19,7 @@ public class Wall {
 	   
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzelt aus und speicher in Variable ch
+	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzeln aus und speicher in Variable ch
 	    		
 	    	
 	    	

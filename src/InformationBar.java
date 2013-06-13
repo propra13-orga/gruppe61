@@ -3,7 +3,11 @@ public class  InformationBar {
 
 	public static void main(String[] args) {
 		
-		StdDraw.setPenColor(StdDraw.BLACK);
+		StdDraw.setPenColor(StdDraw.WHITE);
+		
+		StdDraw.filledRectangle(0.5, -.03,0.6 , 0.03);
+		
+		StdDraw.setPenColor();
 
 		StdDraw.picture(0, -0.03, "heart.png",0.05,0.05);
 		StdDraw.textLeft(0.05,-0.03, ""+Globals.life);

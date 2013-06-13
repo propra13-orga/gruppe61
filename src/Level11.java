@@ -45,6 +45,8 @@ public class Level11 {
      	   	
      	   		GetRoom.room(p);
      	   		
+     	   		InformationBar.main(null);
+     	   		
      	   		int i=0;
      	   		while (i<Globals.anzahlfallen){
      	   		Controller.Falle(i);
