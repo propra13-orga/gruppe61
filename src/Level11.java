@@ -112,14 +112,14 @@ public class Level11 {
                 j++;
                 }
                 //Teste, ob im Ziel:
-                if (Globals.x>=1)
+                if (0.005> Globals.x || Globals.x>0.995 || 0.005>Globals.y || 0.995<Globals.y)
                 {
              	   //Level2.main(args);
              	   break;
              
                 }
         
-        }
+        	}
 		r++;}
 	}
 

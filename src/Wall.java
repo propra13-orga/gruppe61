@@ -27,7 +27,7 @@ public class Wall {
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
+	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>1.0 || x<0.0 || y<0.0 || y>1.0  ){	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
 	    			j=21;												// Weil sonst nur die 2 Schleife beendet wird
 	    			break;	
 	    		}
@@ -68,20 +68,9 @@ public class Wall {
 	    	if (ch==120){
 	    		s=k*0.05;
 	    		t=1-j*0.05;
-	    		int r = (int) (Math.random()*4+1);
+	    		int r = (int) (Math.random()*8+1);
 	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
-	    			if(Globals.richtung[i]==1){
-	    				Globals.richtung[i]=r;
-	    			}
-	    			else if(Globals.richtung[i]==2){
-	    				Globals.richtung[i]=r;
-	    			}
-	    			else if(Globals.richtung[i]==3){
-	    				Globals.richtung[i]=r;
-	    			}
-	    			else if(Globals.richtung[i]==4){
-	    				Globals.richtung[i]=r;
-	    				}
+	    			Globals.richtung[i]=r;
 	    			j=21;
 	    			break;	
 	    		}

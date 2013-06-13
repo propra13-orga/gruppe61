@@ -59,9 +59,30 @@ public class Controller {
 			Globals.falleneu=array;
 			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
 		}
-		
-
-		
+		else if(k==5) {
+			array[0]=Globals.fallen[0+2*i]-0.003;	//Bewegungsrichtung 5 nach links Richtung (0,.)
+			array[1]=Globals.fallen[1+2*i];
+			Globals.falleneu=array;
+			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
+		}
+		else if(k==6) {
+			array[0]=Globals.fallen[0+2*i]+0.003;	//Bewegungsrichtung 6 nach rechts Richtung (1,.)
+			array[1]=Globals.fallen[1+2*i];
+			Globals.falleneu=array;
+			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
+		}
+		else if(k==7) {
+			array[0]=Globals.fallen[0+2*i];	//Bewegungsrichtung 7 nach unten Richtung (.,0)
+			array[1]=Globals.fallen[1+2*i]-0.003;
+			Globals.falleneu=array;
+			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
+		}
+		else if(k==8) {
+			array[0]=Globals.fallen[0+2*i];	//Bewegungsrichtung 8 nach oben Richtung (.,1)
+			array[1]=Globals.fallen[1+2*i]+0.003;
+			Globals.falleneu=array;
+			Wall.checkf(i);							//Überprüfe ob Wand erreicht.
+		}
 				
 		
 		
