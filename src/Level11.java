@@ -22,12 +22,13 @@ public class Level11 {
 		intplayer();
 
 		intenemy();
+		/*
 		InformationBar.main(null);
 		Globals.health=100;
      	Globals.life=3;
      	Globals.magician=0;
      	Globals.money=0;
-     	
+     	*/
 
 		Globals.x=Globals.startx;
 		Globals.y=Globals.starty;
@@ -38,6 +39,7 @@ public class Level11 {
      	
      	while (true)
         {		p=1;
+        		intenemy();
      	   		StdDraw.show(10);
      	   		
      	   		//Zeichne neu:

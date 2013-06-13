@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class Level2 {
 	 static void room()
@@ -38,7 +39,7 @@ public class Level2 {
      }
 
 
-public static void main(String[] args) {
+public static void main(String[] args) throws IOException {
         {
 
         	StdDraw.clear();

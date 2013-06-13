@@ -1,8 +1,9 @@
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class Level3 {
 
-public static void main(String[] args) {
+public static void main(String[] args) throws IOException {
         {
 
         	StdDraw.clear();

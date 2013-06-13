@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 
 public class Damages {
 
@@ -12,7 +14,7 @@ public class Damages {
 	}
 		
 		
-	public static void setDamages(){
+	public static void setDamages() throws IOException{
 		
 		
 		
