@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Level11 {
 	public static void main(String[] args) throws IOException{
 		int r=1;
-		int p=0;
+		int p;
 		while (r<=3){
 		
 		if(r==1){
@@ -17,10 +17,10 @@ public class Level11 {
 		else  {
 			 Globals.fileName="src/Raum3.txt";}
 
-		
+		p=0;
 		GetRoom.room(p);
 		intplayer();
-
+		
 		intenemy();
 		/*
 		InformationBar.main(null);
@@ -39,7 +39,7 @@ public class Level11 {
      	
      	while (true)
         {		p=1;
-        		intenemy();
+        		
      	   		StdDraw.show(10);
      	   		
      	   		//Zeichne neu:
@@ -56,7 +56,7 @@ public class Level11 {
      	   		}
      	   		intenemy();
      	   		
-     	   		player(Globals.x,Globals.y);
+     	   		Paint.player(Globals.x,Globals.y);
      	   		
                 if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
                 {	
@@ -130,7 +130,7 @@ public class Level11 {
 		while (i<n){
 
 
-			Falle(Globals.arraylokal[0+2*i],Globals.arraylokal[1+2*i]);
+			Paint.Falle(Globals.arraylokal[0+2*i],Globals.arraylokal[1+2*i]);
 			i++;
 				}
 		}	
@@ -138,32 +138,12 @@ public class Level11 {
 	private static void intplayer() {
 
 
-		player(Globals.startx,Globals.starty);	
+		Paint.player(Globals.startx,Globals.starty);	
 
 		}
 
-	static void player(double x,double y)
-    {
-
-        //Initialisiere Spielfigur als Punkt an der Koordinate (x,y):
-		// StdDraw.setPenColor(StdDraw.BLUE);
-		//StdDraw.setPenRadius(0.05);
-		//StdDraw.point(x, y);
-    	//Zeichne Spieler als Pi an Koordinate (x,y):
-            StdDraw.picture(x, y,"pi.png",.05,.05);
 
 
-
-    }
-	   static void Falle(double i,double j){
-           //bewegene Gegner/Falle
-           StdDraw.setPenColor(StdDraw.YELLOW);
-           StdDraw.filledSquare(i, j, 0.01);
-           StdDraw.setPenColor(StdDraw.BLACK);
-           StdDraw.square(i, j,0.01);
-
-
-}
 
 
 }

@@ -12,7 +12,7 @@ public class GetRoom {
 		  int[] richtung= new int [5];
 		  double[] boss= new double [10];
 	    
-		
+		  
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
 	    //String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
