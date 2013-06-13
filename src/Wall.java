@@ -7,7 +7,7 @@ public class Wall {
 	public static void checkp() throws IOException{
 		
 
-	    //String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
+	    // Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
 	    FileReader fr = new FileReader(Globals.fileName);
 	    int ch;
 	    int j=0;
@@ -19,16 +19,16 @@ public class Wall {
 	   
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzeln aus und speicher in Variable ch
+	    	while ((ch=fr.read()) != -1 &&k<22){
 	    		
 	    	
 	    	
-	    	if (ch==120){//Erstelle einen Raum durch Textdatei
+	    	if (ch==120){
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){
-	    			j=21;
+	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
+	    			j=21;												// Weil sonst nur die 2 Schleife beendet wird
 	    			break;	
 	    		}
 	    		
@@ -37,7 +37,7 @@ public class Wall {
 	    			k++;}
 	    	
 	    		j++;
-	    		if (j==21){
+	    		if (j==21){		//sollte keine Wand im Weg stehen speicher die neue Position, die später gezeichnet wird.
 	    			Globals.x=Globals.xneu;
 	    			Globals.y=Globals.yneu;
 	    			
@@ -48,7 +48,7 @@ public class Wall {
 	public static void checkf(int i) throws IOException{
 		
 
-	    //String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
+		// Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
 	    FileReader fr = new FileReader(Globals.fileName);
 	    int ch;
 	    int j=0;
@@ -61,15 +61,15 @@ public class Wall {
 	   
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzelt aus und speicher in Variable ch
+	    	while ((ch=fr.read()) != -1 &&k<22){
 	    		
 	    	
 	    	
-	    	if (ch==120){//Erstelle einen Raum durch Textdatei
+	    	if (ch==120){
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){
+	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y  ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
 	    			if(Globals.richtung[i]==1){
 	    				Globals.richtung[i]=3;
 	    			}
@@ -93,8 +93,8 @@ public class Wall {
 	    		j++;
 	    		if (j==21){
 	    			
-	    			Globals.arraylokal[0+2*i]=Globals.falleneu[0];
-	    			Globals.arraylokal[1+2*i]=Globals.falleneu[1];
+	    			Globals.fallen[0+2*i]=Globals.falleneu[0];		// wenn die Falle in keiner Wand landet ändert sich die Richtung nicht und die neue Position wird gespeichert und später gezeichnet.
+	    			Globals.fallen[1+2*i]=Globals.falleneu[1];
 	    			
 	    			
 	    		}
