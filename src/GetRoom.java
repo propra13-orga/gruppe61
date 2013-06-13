@@ -8,16 +8,15 @@ public class GetRoom {
 	 
 	  public static void room(int i) throws IOException
 	  {
-		  double[] array = new double [11];
+		  double[] fallen = new double [11];
 		  int[] richtung= new int [5];
 		  double[] boss= new double [10];
 	    
 		  
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
-	    //String fileName="C:/Users/Nuck/workspace/TestRealm/src/Test.txt";
 	    FileReader fr = new FileReader(Globals.fileName);
-	    int ch;
+	    int ch;		
 	    int j=0;
 	    int k=0;
 	    int n=0;
@@ -28,11 +27,11 @@ public class GetRoom {
 	    		
 	    	
 	    	
-	    	if (ch==120){//Erstelle einen Raum durch Textdatei
+	    	if (ch==120){//Erstelle Hier eine Wand weil char(ch)=x 
 
 	    		StdDraw.filledSquare(0.05*k,1- 0.05*j, 0.026);
 	    			    		}
-	    	else if(ch==115){
+	    	else if(ch==115){	//Erstelle Start char(115)=s
 	    		Globals.startx=k*0.05;//Speicher Startkoordinaten (Spieler Start)
 	    		Globals.starty=1-j*0.05;
 
@@ -49,25 +48,25 @@ public class GetRoom {
 	    		StdDraw.text(0.05*k,1- 0.05*j, "Ziel");
 	    		StdDraw.setPenColor(StdDraw.BLACK);
 	    		}
-	    	else if(ch==101 && i==0){
+	    	else if(ch==101 && i==0){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		richtung[n]=1;	//Richtung in die sich die Falle bewegt (ändert sich in Wall)
-	    		array[0+2*n]=k*0.05;	//Speichert die Koordinaten von den Gegnern
-	    		array[1+2*n]=1-j*0.05;	
+	    		fallen[0+2*n]=k*0.05;	//Speichert die Koordinaten von den Gegnern
+	    		fallen[1+2*n]=1-j*0.05;	
 	    		n++;
-	    		Globals.anzahlfallen=n;
-	    	    Globals.arraylokal = array;
-	    	    Globals.richtung=richtung;
+	    		Globals.anzahlfallen=n;		
+	    	    Globals.fallen = fallen;	//Speicher Koordinaten Fallen
+	    	    Globals.richtung=richtung;	// Speicher Richtung
 	    		}
-	    	else if(ch==83 && i==0){
+	    	else if(ch==83 && i==0){	//Damit nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		Globals.shopx=k*0.05;	//Koordinaten für den Shop
 	    		Globals.shopy=1-j*0.05;
 	    		}
-	    	else if(ch==66 && i==0){		//Koordinaten für den Boss
+	    	else if(ch==66 && i==0){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		boss[0+2*m]=k*0.05;
 	    		boss[1+2*m]=1-j*0.05;
 	    		m++;
-	    		Globals.anzahlboss=m;
-	    		Globals.boss=boss;
+	    		Globals.anzahlboss=m;		
+	    		Globals.boss=boss;			//Speicher Koordinanten Boss
 	    		}
 	    	k++;
 	    	}
