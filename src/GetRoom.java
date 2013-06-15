@@ -16,7 +16,7 @@ public class GetRoom {
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
 	    //FileReader fr = new FileReader(Globals.fileName);
-		FileReader fr = new FileReader("src/Raum" + Globals.room + ".txt");
+		FileReader fr = new FileReader("src/Raum" + Globals.level + "-" + Globals.room + ".txt");
 		int ch;		
 	    int j=0;
 	    int k=0;

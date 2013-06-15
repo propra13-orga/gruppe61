@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 public class Test {
 	
@@ -8,7 +9,7 @@ public class Test {
     static double weapon_x=0.3;
     static double weapon_y=0.7;
     
-    static boolean draw_weapon = true;
+    static boolean draw_package = true;
  
 	
         static void room()
@@ -30,11 +31,16 @@ public class Test {
                    StdDraw.picture(shop_x, shop_y, "shop.png",.05,.05);
                    
                    //paint weapon symbol
-                   if (draw_weapon == true) StdDraw.picture(weapon_x, weapon_y, "bomb.png", .05,.05);
+                   if (draw_package == true) StdDraw.picture(weapon_x, weapon_y, "package.png", .05,.05);
                    
                    //Paint InformationBar
                    InformationBar.main(null);
+                   
+                   //Paint bomb
+                   if (Globals.draw.bomb) StdDraw.picture(Bomb.x ,Bomb.y , "bomb.png",.05,.05);
 
+                   //paint explosion
+                   if (Globals.draw.explosion) StdDraw.picture(Bomb.x, Bomb.y, "explosion.jpg",0.1,.1);
         }
 
         static void player()
@@ -54,7 +60,7 @@ public class Test {
         }
         
         
-        static void isvalid(double x, double y) throws InterruptedException{
+        static void isvalid(double x, double y) throws InterruptedException, IOException{
         	//check out if new position (x,y) is valid, i.e. is wall or enemy touched
         
         	
@@ -87,8 +93,8 @@ public class Test {
         	
         	else if(Math.abs(x-weapon_x)<=0.05 && Math.abs(y-weapon_y)<=0.05)
         	{
-        		if (draw_weapon == true) Globals.weapon++;
-        		draw_weapon = false;
+        		if (draw_package == true) Globals.weapon++;
+        		draw_package = false;
         		Globals.player.x= x;
         		Globals.player.y= y;
         	}
@@ -105,9 +111,12 @@ public class Test {
         
         
 
-   public static void main(String[] args) throws InterruptedException {
+   public static void main(String[] args) throws InterruptedException, IOException {
            {
 
+        	   Globals.draw.bomb=false;
+        	   Globals.draw.packet=true;
+        	   Globals.draw.explosion=false;
         	   
         	   StdDraw.clear();
                   //Paint room
@@ -161,12 +170,19 @@ public class Test {
                                    y_neu = Globals.player.y-Globals.player.step;
 
                            }
-                           if(StdDraw.isKeyPressed(KeyEvent.VK_S)) 
+                           
+                           //actions:
+                           if(StdDraw.isKeyPressed(KeyEvent.VK_S)) //stop enemy
                            {
                         	   Stop.main(null);
                         	   Thread.sleep(100);
                         	  
                         	  
+                           }
+                           else if (StdDraw.isKeyPressed(KeyEvent.VK_B)) //place bomb
+                           {
+                        	   Bomb.main(null);
+                        	   Thread.sleep(100);
                            }
                            
                            //checkout if move is valid

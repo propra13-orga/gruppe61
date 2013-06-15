@@ -8,7 +8,7 @@ public class Wall {
 		
 
 	    // Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
-	    FileReader fr = new FileReader("src/Raum" + Globals.room + ".txt");
+	    FileReader fr = new FileReader("src/Raum" + Globals.level + "-" + Globals.room + ".txt");
 	    int ch;
 	    int j=0;
 	    int k=0;
@@ -69,7 +69,7 @@ public class Wall {
 		
 
 		// Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
-	    FileReader fr = new FileReader("src/Raum" + Globals.room + ".txt");
+	    FileReader fr = new FileReader("src/Raum" + Globals.level + "-" + Globals.room + ".txt");
 	    int ch;
 	    int j=0;
 	    int k=0;
