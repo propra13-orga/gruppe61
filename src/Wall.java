@@ -57,9 +57,20 @@ public class Wall {
 	    	
 	    	j++;
 	    		if (j==21){		//sollte keine Wand im Weg stehen speicher die neue Position, die später gezeichnet wird.
-	    			Globals.x=Globals.xneu;
-	    			Globals.y=Globals.yneu;
 	    			
+	    			
+	    			//Teste, ob im Shop:
+	    			if (Globals.shop.draw && Math.abs(Globals.shop.x-Globals.xneu)<=0.05 && Math.abs(Globals.yneu-Globals.shop.y)<=0.05)
+	    			{
+	    				Shop.main(null);
+	    				break;
+	    			}
+	    			else 
+	    			{
+	    				//Position aktualisieren
+	    				Globals.x=Globals.xneu;
+	    				Globals.y=Globals.yneu;
+	    			}
 	    		}
 	    }
 	    fr.close();

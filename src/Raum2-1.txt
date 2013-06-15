@@ -1,6 +1,6 @@
 xxxxxxxxxxxxxxxxxxxxx
 x              x    x
-x              x    x
+x   e          x    x
 x          S   x    x
 x     x        x     
 x     x        x  B z
@@ -11,12 +11,12 @@ x     x        x    x
 x     xxxxx    x    x
 x     x        x    x
 x     x        x    x
-x     x        x    x
+x  e  x        x    x
 x     x        x    x
 x     x        x    x
       x e xxxxxx    x
 s     x             x
-      x             x
+      x       e     x
 x     x             x
 xxxxxxxxxxxxxxxxxxxxx
 

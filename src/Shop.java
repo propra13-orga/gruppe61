@@ -101,7 +101,7 @@ public class Shop {
 				//Checkout the height to checkout the chosen option
 				if (height%6==0){
 					//return to game
-					Test.main(null);
+					Game.main(null);
 					break;
 				}
 				else if(height%6==1){

@@ -8,8 +8,8 @@ public class Bomb {
 	static boolean death=false;
 	
 	//Read actual position
-		final static double x=Globals.player.x;
-		final static double y=Globals.player.y;
+		final static double x=Globals.x;
+		final static double y=Globals.y;
 
 	/**
 	 * @param args
@@ -52,8 +52,8 @@ public class Bomb {
 								Globals.life--;
 								
 								//Back to start position
-								Globals.player.x=Globals.startx;
-								Globals.player.y=Globals.starty;
+								Globals.x=Globals.startx;
+								Globals.y=Globals.starty;
 							}
 							else //No more lifes 
 							{

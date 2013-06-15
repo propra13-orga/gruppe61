@@ -59,8 +59,9 @@ public class GetRoom {
 	    	    Globals.richtung=richtung;	// Speicher Richtung
 	    		}
 	    	else if(ch==83 && i==0){	//Damit nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
-	    		Globals.shopx=k*0.05;	//Koordinaten für den Shop
-	    		Globals.shopy=1-j*0.05;
+	    		Globals.shop.x=k*0.05;	//Koordinaten für den Shop
+	    		Globals.shop.y=1-j*0.05;
+	    		Globals.shop.draw=true;
 	    		}
 	    	else if(ch==66 && i==0){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		boss[0+2*m]=k*0.05;
@@ -71,11 +72,16 @@ public class GetRoom {
 	    		}
 	    	k++;
 	    	}
-	    j++;}
+	    j++;
+	    }
 	    
 	    
 
-	    fr.close();}
+	    fr.close();
+	    
+	  
+	    
+	    }
 
 
 }

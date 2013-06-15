@@ -12,6 +12,7 @@ public class Globals {
 		public static int weapon;
 		public static int stop;
 		public static boolean wall; //are walls deactivated?
+
 		
 		public static double x;		//Speichert Position vom Spieler
 		public static double y;
@@ -33,20 +34,30 @@ public class Globals {
 		
 		public static String fileName;	//File Name für den Raum
 		
-		public static double shopx;		// Speichert Position vom Shop
-		public static double shopy;
-
+		
 		//Hier wird gespeichert, ob einige Details gezeichnet werden
 		static public class draw{
 			public static boolean bomb;
 			public static boolean explosion;
-			public static boolean packet;
 		}
 		
+		//Options about packages
+		static public class packet{
+			public static boolean draw; //Should a packet be drawn?
+			
+			//coordinates:
+			public static double x;
+			public static double y;
+		}
 		
-		
-		
-		
+		//Information about the shop:
+		public static class shop {
+			public static boolean draw; //Is there a shop in the level?
+			
+			//coordinates:
+			public static double x;
+			public static double y;
+		}
 		
 		
 		//saving enemy's options:

@@ -26,7 +26,7 @@ Paint.player(Globals.startx,Globals.starty);
 public static void main(String[] args) throws IOException, InterruptedException{
 
 		
-	Initialize.main(null);
+	
 
 	int p;	// Laufvariable damit in GetRoom nicht immer die Fallen und so mehrfach ausgelesen werden und die Koordinaten in Globals verändert werden.
 
@@ -45,9 +45,10 @@ public static void main(String[] args) throws IOException, InterruptedException{
 	Globals.money=0;
 	 */
 
+
 	Globals.x=Globals.startx;	// Übergabe von den Startkoordinaten
 	Globals.y=Globals.starty;	
-
+	
 
 
      
@@ -63,7 +64,21 @@ public static void main(String[] args) throws IOException, InterruptedException{
         GetRoom.room(p);	//Hier sollte p irgendwas ungleich 0 sein damit das array in dem die Fallen gespeichert sind nicht überschrieben wird.
      
         InformationBar.main(null);
+        
+        //paint shop symbol
+        if (Globals.shop.draw) StdDraw.picture(Globals.shop.x, Globals.shop.y, "shop.png",.05,.05);
+        
+        //paint packet symbol
+        if (Globals.packet.draw) StdDraw.picture(Globals.packet.x, Globals.packet.y, "package.png", .05,.05);
+        
+        //Paint bomb
+        if (Globals.draw.bomb) StdDraw.picture(Bomb.x ,Bomb.y , "bomb.png",.05,.05);
+
+        //paint explosion
+        if (Globals.draw.explosion) StdDraw.picture(Bomb.x, Bomb.y, "explosion.jpg",0.1,.1);
      
+        
+        
         int i=0;
         while (i<Globals.anzahlfallen){
         	Controller.Falle(i);
@@ -128,9 +143,14 @@ public static void main(String[] args) throws IOException, InterruptedException{
         		Magician.main(null);
         		Thread.sleep(100);
         	}
-        
+        else if(StdDraw.isKeyPressed(KeyEvent.VK_B))
+        {
+        	Bomb.main(null);
+        	Thread.sleep(100);
         }
-        
+        }
+       
+       
         
         //Teste, ob Gegner/Falle berührt
         int j=0;
@@ -160,6 +180,9 @@ public static void main(String[] args) throws IOException, InterruptedException{
         	{
         		Globals.level++;
         		Globals.room=1;
+        		
+        		//Prüfe, ob durchgezockt
+        		if(Globals.level>3) Durchgezockt.main(null);
         	}
         	
         	//Lese neuen Raum aus
