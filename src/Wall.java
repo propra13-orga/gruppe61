@@ -8,7 +8,7 @@ public class Wall {
 		
 
 	    // Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
-	    FileReader fr = new FileReader(Globals.fileName);
+	    FileReader fr = new FileReader("src/Raum" + Globals.room + ".txt");
 	    int ch;
 	    int j=0;
 	    int k=0;
@@ -27,7 +27,7 @@ public class Wall {
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>1.0 || x<0.0 || y<0.0 || y>1.0  ){	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
+	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y) {	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
 	    			j=21;												// Weil sonst nur die 2 Schleife beendet wird
 	    			break;	
 	    		}
@@ -49,7 +49,7 @@ public class Wall {
 		
 
 		// Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
-	    FileReader fr = new FileReader(Globals.fileName);
+	    FileReader fr = new FileReader("src/Raum" + Globals.room + ".txt");
 	    int ch;
 	    int j=0;
 	    int k=0;

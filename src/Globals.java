@@ -35,6 +35,12 @@ public class Globals {
 		public static double shopx;		// Speichert Position vom Shop
 		public static double shopy;
 
+		//Hier wird gespeichert, ob einige Details gezeichnet werden
+		static public class draw{
+			public static boolean bomb;
+			public static boolean explosion;
+			public static boolean packet;
+		}
 		
 		
 		
