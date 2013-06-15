@@ -11,6 +11,7 @@ public class Globals {
 		public static boolean shot;
 		public static int weapon;
 		public static int stop;
+		public static boolean wall; //are walls deactivated?
 		
 		public static double x;		//Speichert Position vom Spieler
 		public static double y;

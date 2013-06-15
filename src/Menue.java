@@ -8,8 +8,9 @@ public class Menue {
 	/**
 	 * @param args
 	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
 		StdDraw.clear();
@@ -34,7 +35,7 @@ public class Menue {
 					//Initialize variables with their defaults:
 					Initialize.main(null);
 					//Start game
-					Level11.main(args);
+					Game.main(args);
 					
 					
 					

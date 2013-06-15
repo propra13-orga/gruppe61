@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Wall {
 
-	public static void checkp() throws IOException{
+	public static void checkp() throws IOException, InterruptedException{
 		
 
 	    // Wie bei GetRoom nur diesmal zum überprüfen ob wir an einer Wand sind
@@ -23,27 +23,47 @@ public class Wall {
 	    		
 	    	
 	    	
-	    	if (ch==120){
+	    	if (ch==120 && Globals.wall){
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 
 	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y) {	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
 	    			j=21;												// Weil sonst nur die 2 Schleife beendet wird
+	    			
+	    			if (s-0.05< Globals.x && Globals.x< s+0.05 && t-0.05<Globals.y && t+0.05>Globals.y)
+	    			{
+	    				//In Mauer eingefroren, als Magician benutzt ->Tot
+	    				Damages.setDamages();
+	    				Globals.x=Globals.startx;
+	            		Globals.y=Globals.starty;
+	            		
+	    			}
+	    			
 	    			break;	
 	    		}
 	    		
-	    			    }
-		
-	    			k++;}
+	    	}
+	    	if (!Globals.wall && (x<=0.05 || y<=0.05 || y>=.95 || x>=.95)) //Verbiete wenigstens Spielfeldrand
+	    	{
+	    		//Verbiete Bewegung
+	    		j=21;
+	    		break;
+	    		
+	    		//Hinweis: Solange Magician aktiv, in ein Raumwechsel NICHT möglich
+	    	}
 	    	
-	    		j++;
+	    	k++;
+	    	}
+	    	
+	    	j++;
 	    		if (j==21){		//sollte keine Wand im Weg stehen speicher die neue Position, die später gezeichnet wird.
 	    			Globals.x=Globals.xneu;
 	    			Globals.y=Globals.yneu;
 	    			
 	    		}
-	    		}
-	fr.close();}
+	    }
+	    fr.close();
+		}
 
 	public static void checkf(int i) throws IOException{
 		

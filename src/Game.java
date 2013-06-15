@@ -2,7 +2,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 
-public class Level11 {
+public class Game {
 	
 private static void intenemy() {
 
@@ -23,7 +23,7 @@ Paint.player(Globals.startx,Globals.starty);
 
 }
 
-public static void main(String[] args) throws IOException{
+public static void main(String[] args) throws IOException, InterruptedException{
 
 		
 	Initialize.main(null);
@@ -73,6 +73,8 @@ public static void main(String[] args) throws IOException{
      
         Paint.player(Globals.x,Globals.y);	// Zeichnet den Spieler.
      
+
+        //Move Player:
         if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) //Move Left
         {	
         	//Neue Koordinaten:
@@ -111,6 +113,24 @@ public static void main(String[] args) throws IOException{
         	Wall.checkp();
         }
         
+        //Actions:
+        if (StdDraw.hasNextKeyTyped())
+        {
+        if(StdDraw.isKeyPressed(KeyEvent.VK_S)) //stop enemy
+        {
+     	   Stop.main(null);
+     	   Thread.sleep(100);
+     	  
+     	  
+        }
+        else if(StdDraw.isKeyPressed(KeyEvent.VK_W)) //deactivates walls for player
+        	{
+        		Magician.main(null);
+        		Thread.sleep(100);
+        	}
+        
+        }
+        
         
         //Teste, ob Gegner/Falle berührt
         int j=0;
@@ -121,8 +141,8 @@ public static void main(String[] args) throws IOException{
         		Damages.setDamages();
              
         		//Zurück zu letzten Checkpoint
-        		Globals.x=0.01;
-        		Globals.y=.15;
+        		Globals.x=Globals.startx;
+        		Globals.y=Globals.starty;
   
         	}
         	j++;
@@ -151,7 +171,7 @@ public static void main(String[] args) throws IOException{
         }
         else if (Globals.x <0 || Globals.y< 0) // Start
         {
-        	if (Globals.room>1) //In Raum 1 geht es nicht zurück. Level down soll nicht möglich sein
+        	if (Globals.room>1) 
         	{
         		//Einen Raum zurück
         		Globals.room--;
@@ -160,6 +180,12 @@ public static void main(String[] args) throws IOException{
             	GetRoom.room(0);
             	Globals.x=Globals.zielx;
             	Globals.y=Globals.ziely;
+        	}
+        	else //Sind in Raum 1. In Raum 1 geht es nicht zurück. Level down soll nicht möglich sein
+        	{
+        		//Verhindere ein Weitergehen:
+        		Globals.x=Globals.startx;
+        		Globals.y=Globals.starty;
         	}
         }
         

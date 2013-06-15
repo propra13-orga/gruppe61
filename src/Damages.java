@@ -14,7 +14,7 @@ public class Damages {
 	}
 		
 		
-	public static void setDamages() throws IOException{
+	public static void setDamages() throws IOException, InterruptedException{
 		
 		
 		

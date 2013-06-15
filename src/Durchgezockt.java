@@ -8,8 +8,9 @@ public class Durchgezockt {
 	/**
 	 * @param args
 	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
 		StdDraw.clear();
@@ -32,7 +33,7 @@ public class Durchgezockt {
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (y>0.5) //Start gedrückt
 				{
-					Level11.main(args);
+					Game.main(args);
 					break;
 				}
 				else System.exit(0);

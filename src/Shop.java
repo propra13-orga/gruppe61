@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
@@ -82,8 +83,9 @@ public class Shop {
 	/**
 	 * @param args
 	 * @throws InterruptedException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
 		
