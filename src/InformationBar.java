@@ -1,7 +1,7 @@
 
 public class  InformationBar {
 
-	public static void main(String[] args) {
+	public static void use() {
 		
 		StdDraw.setPenColor(StdDraw.WHITE);
 		

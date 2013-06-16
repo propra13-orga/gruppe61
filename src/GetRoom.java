@@ -15,13 +15,13 @@ public class GetRoom {
 		  
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
-	    //FileReader fr = new FileReader(Globals.fileName);
-		FileReader fr = new FileReader("src/Raum" + Globals.level + "-" + Globals.room + ".txt");
+	    FileReader fr = new FileReader("src/Raum" + Globals.level + "-" + Globals.room + ".txt");
 		int ch;		
 	    int j=0;
 	    int k=0;
 	    int n=0;
 	    int m=0;
+	    Globals.shop.draw=false; // Nur damit nicht ständig ein shop vorhanden ist.
 	    while( j<21 ){
 	    	k=0;
 	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzelt aus und speicher in Variable ch
@@ -58,7 +58,7 @@ public class GetRoom {
 	    	    Globals.fallen = fallen;	//Speicher Koordinaten Fallen
 	    	    Globals.richtung=richtung;	// Speicher Richtung
 	    		}
-	    	else if(ch==83 && i==0){	//Damit nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
+	    	else if(ch==83 ){	//Damit nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		Globals.shop.x=k*0.05;	//Koordinaten für den Shop
 	    		Globals.shop.y=1-j*0.05;
 	    		Globals.shop.draw=true;

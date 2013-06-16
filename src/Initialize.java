@@ -4,7 +4,7 @@ public class Initialize {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void game() {
 		// TODO Auto-generated method stub
 
 		//Initialize inventory

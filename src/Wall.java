@@ -62,8 +62,8 @@ public class Wall {
 	    			//Teste, ob im Shop:
 	    			if (Globals.shop.draw && Math.abs(Globals.shop.x-Globals.xneu)<=0.05 && Math.abs(Globals.yneu-Globals.shop.y)<=0.05)
 	    			{
-	    				Shop.main(null);
-	    				break;
+	    				Shop.use();
+	    				
 	    			}
 	    			else 
 	    			{

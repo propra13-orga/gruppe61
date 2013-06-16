@@ -24,4 +24,25 @@ public class Paint {
 
 }
 
+	public static void shop(double x, double y) {//Zeichne Shop
+		StdDraw.picture(x, y, "shop.png",.05,.05);
+		
+	}
+
+	public static void packet(double x, double y) {//Zeichne Packet
+		StdDraw.picture(x, y, "package.png", .05,.05);
+		
+	}
+
+	public static void bomb(double x, double y) {//Zeichne Bombe
+		StdDraw.picture(x ,y , "bomb.png",.05,.05);
+		
+	}
+
+	public static void explosion(double x, double y) {//Zeichne Explosion
+		StdDraw.picture(Bomb.x, Bomb.y, "explosion.jpg",0.1,.1);
+		Globals.draw.explosion=false;
+		
+	}
+
 }

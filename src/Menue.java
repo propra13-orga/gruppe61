@@ -33,9 +33,9 @@ public class Menue {
 				if (y>0.5) //Start gedrückt
 				{
 					//Initialize variables with their defaults:
-					Initialize.main(null);
+					Initialize.game();
 					//Start game
-					Game.main(args);
+					Game.start();
 					
 					
 					

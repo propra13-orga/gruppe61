@@ -5,28 +5,28 @@ import java.io.IOException;
 
 public class Controller {	
 
-	public static void playerleft() {	// Bewegt Spieler nach links	
+	public static void playerleft()throws IOException, InterruptedException {	// Bewegt Spieler nach links	
         Globals.xneu = Globals.x-0.005;
         Globals.yneu=Globals.y;
-		
+        Wall.checkp();
 	}
 
-	public static void playerright() {	// Bewegt Spieler nach rechts
+	public static void playerright()throws IOException, InterruptedException {	// Bewegt Spieler nach rechts
         Globals.xneu = Globals.x+0.005;
         Globals.yneu = Globals.y;
-		
+        Wall.checkp();
 	}
 
-	public static void playerup() {	// Bewegt Spieler nach oben
+	public static void playerup()throws IOException, InterruptedException {	// Bewegt Spieler nach oben
 		Globals.xneu = Globals.x;
         Globals.yneu = Globals.y+0.005;
-		
+        Wall.checkp();
 	}
 
-	public static void playerdown() {	// Bewegt Spieler nach unten
+	public static void playerdown()throws IOException, InterruptedException {	// Bewegt Spieler nach unten
 		Globals.xneu = Globals.x;
         Globals.yneu = Globals.y-0.005;
-		
+        Wall.checkp();
 	}
 
 	public static void Falle(int i)throws IOException {// i gibt hier auch jeder Falle eine Nummer		 

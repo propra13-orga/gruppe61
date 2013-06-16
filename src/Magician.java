@@ -8,7 +8,7 @@ public class Magician {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void use() {
 		// TODO Auto-generated method stub
 
 		//class for reactivating walls

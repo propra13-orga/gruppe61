@@ -23,35 +23,20 @@ Paint.player(Globals.startx,Globals.starty);
 
 }
 
-public static void main(String[] args) throws IOException, InterruptedException{
-
-		
-	
+public static void start() throws IOException, InterruptedException{
 
 	int p;	// Laufvariable damit in GetRoom nicht immer die Fallen und so mehrfach ausgelesen werden und die Koordinaten in Globals verändert werden.
-
-
-
 	p=0;
 	GetRoom.room(p);	// Hier sollte p=0 sein alle Daten in GetROom gelesen werden.
+	
 	intplayer();	// Initialisiere Player
 
 	intenemy();	// Initialisiere Fallen und zeichne hiermit auch immer wieder die neue Position
-	/*
-	InformationBar.main(null);
-	Globals.health=100;
-	Globals.life=3;
-	Globals.magician=0;
-	Globals.money=0;
-	 */
 
 
 	Globals.x=Globals.startx;	// Übergabe von den Startkoordinaten
 	Globals.y=Globals.starty;	
-	
 
-
-     
      
       while (true) 
       {	p=1;
@@ -63,19 +48,19 @@ public static void main(String[] args) throws IOException, InterruptedException{
      
         GetRoom.room(p);	//Hier sollte p irgendwas ungleich 0 sein damit das array in dem die Fallen gespeichert sind nicht überschrieben wird.
      
-        InformationBar.main(null);
+        InformationBar.use();
         
         //paint shop symbol
-        if (Globals.shop.draw) StdDraw.picture(Globals.shop.x, Globals.shop.y, "shop.png",.05,.05);
+        if (Globals.shop.draw) {Paint.shop(Globals.shop.x,Globals.shop.y);}
         
         //paint packet symbol
-        if (Globals.packet.draw) StdDraw.picture(Globals.packet.x, Globals.packet.y, "package.png", .05,.05);
+        if (Globals.packet.draw) {Paint.packet(Globals.packet.x,Globals.packet.y);}
         
         //Paint bomb
-        if (Globals.draw.bomb) StdDraw.picture(Bomb.x ,Bomb.y , "bomb.png",.05,.05);
+        if (Globals.draw.bomb) {Paint.bomb(Bomb.x,Bomb.y);}
 
         //paint explosion
-        if (Globals.draw.explosion) StdDraw.picture(Bomb.x, Bomb.y, "explosion.jpg",0.1,.1);
+        if (Globals.draw.explosion) {Paint.explosion(Bomb.x,Bomb.y);}
      
         
         
@@ -94,29 +79,19 @@ public static void main(String[] args) throws IOException, InterruptedException{
         {	
         	//Neue Koordinaten:
         	Controller.playerleft();
-     
-        	//Prüfe ob der neuer Punkt zulässig
-        	Wall.checkp();
-                        
+               
         }
         else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) //Move right
         {
 
         	//Neue Koordinaten:
         	Controller.playerright();
-                
-        	//Prüfe ob neuer Punkt zulässig
-        	Wall.checkp();
-                        
-                  
+        
         }
         else if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) //Move up
         {
         	//Neue Koordinaten:
         	Controller.playerup();
-                
-        	//Prüfe ob neuer Punkt zulässig
-        	Wall.checkp();
 
         }
         else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) //Move Down
@@ -124,8 +99,6 @@ public static void main(String[] args) throws IOException, InterruptedException{
         	//Neue Koordinaten:
         	Controller.playerdown();
 
-        	//Prüfe ob neuer Punkt zulässig
-        	Wall.checkp();
         }
         
         //Actions:
@@ -133,19 +106,19 @@ public static void main(String[] args) throws IOException, InterruptedException{
         {
         if(StdDraw.isKeyPressed(KeyEvent.VK_S)) //stop enemy
         {
-     	   Stop.main(null);
+     	   Stop.use();
      	   Thread.sleep(100);
      	  
      	  
         }
         else if(StdDraw.isKeyPressed(KeyEvent.VK_W)) //deactivates walls for player
         	{
-        		Magician.main(null);
+        		Magician.use();
         		Thread.sleep(100);
         	}
         else if(StdDraw.isKeyPressed(KeyEvent.VK_B))
         {
-        	Bomb.main(null);
+        	Bomb.use();
         	Thread.sleep(100);
         }
         }
@@ -215,10 +188,6 @@ public static void main(String[] args) throws IOException, InterruptedException{
         
       }
 }
-
-
-
-
 
 
 

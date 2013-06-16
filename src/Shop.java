@@ -85,7 +85,7 @@ public class Shop {
 	 * @throws InterruptedException 
 	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws InterruptedException, IOException {
+	public static void use() throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
 		
@@ -101,7 +101,7 @@ public class Shop {
 				//Checkout the height to checkout the chosen option
 				if (height%6==0){
 					//return to game
-					Game.main(null);
+					
 					break;
 				}
 				else if(height%6==1){
@@ -154,13 +154,19 @@ public class Shop {
 					else JOptionPane.showMessageDialog(null, "Du hast zu wenig Geld.");
 				}
 				
+
 			}
 				
 			if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
-				height--;
+				if(height%6==1){}
+				else{
+					height--;}
+				
 			}
 			else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)){
-				height++;
+				if(height%6==0){}
+				else{
+				height++;}
 			}
 			Thread.sleep(100);
 			
