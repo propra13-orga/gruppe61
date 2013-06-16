@@ -5,3 +5,13 @@ Extras:
 s - Stop die Bewegung der Fallen für einige Sekunden
 m - Ermöglicht es dem Spieler kurze Zeit durch Wände zu laufen, verhindert aber den Raumwechsel. Friert der Spieler in einer Wand ein, stirbt er
 b - platziert eine Bombe
+
+Karte erstellen:
+x - Wand
+e - Falle
+s - Start
+z - Ziel
+S - Shop
+B - Boss
+  - leeres Feld
+ Format 21 x 21 Zeichen.
