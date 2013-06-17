@@ -1,5 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Test {
 	
@@ -10,7 +12,6 @@ public class Test {
     static double weapon_y=0.7;
     
     static boolean draw_package = true;
- 
 	
         static void room()
         {
@@ -34,7 +35,7 @@ public class Test {
                    if (draw_package == true) StdDraw.picture(weapon_x, weapon_y, "package.png", .05,.05);
                    
                    //Paint InformationBar
-                   InformationBar.main(null);
+                   InformationBar.use();
                    
                    //Paint bomb
                    if (Globals.draw.bomb) StdDraw.picture(Bomb.x ,Bomb.y , "bomb.png",.05,.05);
@@ -74,21 +75,16 @@ public class Test {
         	//checkout enemy:
         	else if(Math.abs(x-Globals.enemy.x)<=0.05 && Math.abs(y-Globals.enemy.y)<=0.05) 
         	{
-        		//enemy touched
-        		//Damages.setDamages();
-	
-        		Globals.player.x=0.2;
-        		Globals.player.y=0.2;
-        		  		
+        	 	Enemy.use();
+        			
+            }
+        		
         		
 
-        	}
-        	
-        	
         	//checkout shop:
         	else if(Math.abs(x-shop_x)<=0.05 && Math.abs(y-shop_y)<=0.05)
         	{
-        		Shop.main(null);
+        		Shop.use();
         	}
         	
         	else if(Math.abs(x-weapon_x)<=0.05 && Math.abs(y-weapon_y)<=0.05)
@@ -115,7 +111,7 @@ public class Test {
            {
 
         	   Globals.draw.bomb=false;
-        	   Globals.draw.packet=true;
+        	//   Globals.draw.packet=true;
         	   Globals.draw.explosion=false;
         	   
         	   StdDraw.clear();
@@ -174,14 +170,14 @@ public class Test {
                            //actions:
                            if(StdDraw.isKeyPressed(KeyEvent.VK_S)) //stop enemy
                            {
-                        	   Stop.main(null);
+                        	   Stop.use();
                         	   Thread.sleep(100);
                         	  
                         	  
                            }
                            else if (StdDraw.isKeyPressed(KeyEvent.VK_B)) //place bomb
                            {
-                        	   Bomb.main(null);
+                        	   Bomb.use();
                         	   Thread.sleep(100);
                            }
                            

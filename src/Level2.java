@@ -26,7 +26,7 @@ public class Level2 {
                 StdDraw.text(.75, 1, "Ziel");
                 
               //InformationBar
-                InformationBar.main(null);
+                InformationBar.use();
      }
    static void Falle(double i,double j){
                 //bewegene Gegner/Falle
@@ -39,7 +39,7 @@ public class Level2 {
      }
 
 
-public static void main(String[] args) throws IOException {
+public static void main(String[] args) throws IOException, InterruptedException {
         {
 
         	StdDraw.clear();
@@ -263,11 +263,11 @@ public static void main(String[] args) throws IOException {
                         if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
                         {
                         	
-                        	Damages.setDamages();
+                        	Enemy.use();
                         	
                      	//Zurück zu letzten Checkpoint
-                     	   x=0.35;
-                     	   y=.051;
+                     	  // x=0.35;
+                     	  // y=.051;
 
                         }
                         if (y>1)

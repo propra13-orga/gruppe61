@@ -41,7 +41,7 @@ public class Level1 {
                    StdDraw.square(0.15, .5,0.01);
                    
                    //InformationBar
-                   InformationBar.main(null);
+                   InformationBar.use();
                
 
 
@@ -65,7 +65,7 @@ public class Level1 {
 
 
 
-   public static void main(String[] args) throws IOException {
+   public static void main(String[] args) throws IOException, InterruptedException {
            {
         	   
         	   Globals.health=100;
@@ -170,11 +170,11 @@ public class Level1 {
                            if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                            {
                         	  
-                        	   Damages.setDamages();
+                        	  Enemy.use();
                         	   
                         	 //Zurück zu letzten Checkpoint
-                        	   x=0.01;
-                        	   y=.15;
+                        	  // x=0.01;
+                        	  // y=.15;
                         			   
                                    
 

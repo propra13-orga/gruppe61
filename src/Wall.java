@@ -33,7 +33,7 @@ public class Wall {
 	    			if (s-0.05< Globals.x && Globals.x< s+0.05 && t-0.05<Globals.y && t+0.05>Globals.y)
 	    			{
 	    				//In Mauer eingefroren, als Magician benutzt ->Tot
-	    				Damages.setDamages();
+	    				//Damages.setDamages();
 	    				Globals.x=Globals.startx;
 	            		Globals.y=Globals.starty;
 	            		

@@ -11,7 +11,7 @@ public class Start_test {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
-		Initialize.main(null);
+		Initialize.game();
 		Test.main(null);
 	}
 

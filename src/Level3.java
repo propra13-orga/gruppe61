@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class Level3 {
 
-public static void main(String[] args) throws IOException {
+public static void main(String[] args) throws IOException, InterruptedException {
         {
 
         	StdDraw.clear();
@@ -224,7 +224,7 @@ public static void main(String[] args) throws IOException {
                         if ((x<=i+0.04 && x>=i-0.04 && y<=j+0.04 && y>=j-0.04)|| x<=k+0.04 && x>=k-0.04 && y<=l+0.04 && y>=l-0.04 || x<=n+0.04 && x>=n-0.04 && y<=m+0.04 && y>=m-0.04)
                         {
                         	
-                        	Damages.setDamages();
+                        	//Damages.setDamages();
                                 
 
                         }
@@ -232,18 +232,18 @@ public static void main(String[] args) throws IOException {
                         if ((0.55<=x && 0.65 >=x && 0.55<=y && 0.66 >=y)|| 0.10<=x && x<=0.2 && 0.45<=y && y<=0.55)
                         {
                         	
-                        	Damages.setDamages();
+                        	Enemy.use();
                         	
                      	   //Zurück zu letzten Checkpoint
-                     	   x=0.01;
-                     	   y=.15;  
+                     	  // x=0.01;
+                     	  // y=.15;  
                                 
 
                         }
                         //Teste, ob im Ziel
                         if (x>1)
                         {
-                        	Durchgezockt.main(args);
+                        	//Durchgezockt.main(args);
                         	break;
                      
                      

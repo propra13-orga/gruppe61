@@ -131,11 +131,11 @@ public static void start() throws IOException, InterruptedException{
         	
         	if (Globals.fallen[0+2*j]-0.05< Globals.x && Globals.x<Globals.fallen[0+2*j] +0.05 && Globals.fallen[1+2*j]-0.05<Globals.y && Globals.fallen[1+2*j]+0.05>Globals.y)
         	{
-        		Damages.setDamages();
+        		Enemy.use();
              
         		//Zurück zu letzten Checkpoint
-        		Globals.x=Globals.startx;
-        		Globals.y=Globals.starty;
+        		//Globals.x=x;
+        		//Globals.y=Globals.starty;
   
         	}
         	j++;
