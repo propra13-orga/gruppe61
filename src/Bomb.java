@@ -64,8 +64,7 @@ public class Bomb {
 						}
 						//checking boss
 						if (Globals.boss!=null && Math.abs(x-Globals.boss[0])<=0.1 && Math.abs(y-Globals.boss[1])<=0.1){
-							Globals.health_boss--;
-							if (Globals.health_boss==0) Globals.boss=null;
+							Globals.boss=null;
 						}
 					}
 					

@@ -1,23 +1,23 @@
 xxxxxxxxxxxxxxxxxxxxx
 x     x     x       x
-x     x     x   xxxxx
-x     x e    x       
+x     x         xxxxx
+x     x e            
 x           x       z
-x    xxxx   x        
-     x      x   xxxxx
+x    xxxx   x    x   
+     x      x    xxxx
 s    x      x       x
-     x      x       x
-x    x      xxxxx   x
+     x      xxx  x  x
 x    x              x
-x          xxxxxxx  x
+x    xxxx  xxxxxxx  x
+x                   x
 x      x            x
 x      x      xxxxx x
-x      x            x
+x  P   x    e       x
 x      xS           x
 x   xxxxxxxxxxxxx   x
 x          x        x
-x          x        x
 x                   x
+x   x  e       x    x
 xxxxxxxxxxxxxxxxxxxxx
 
 x= Wand

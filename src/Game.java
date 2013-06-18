@@ -168,7 +168,7 @@ public static void start() throws IOException, InterruptedException{
         			//Verbiete Bewgung manuell:
         			Globals.x=Globals.zielx; 
         			Globals.y=Globals.ziely;
-        			break;
+        			//break;
         		}
         		
         	}

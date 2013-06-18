@@ -165,8 +165,8 @@ public class Wall {
 	    		j++;
 	    		if (j==21){
 	    			
-	    			Globals.boss[0]=Globals.falleneu[0];		// wenn die Falle in keiner Wand landet ändert sich die Richtung nicht und die neue Position wird gespeichert und später gezeichnet.
-	    			Globals.boss[1]=Globals.falleneu[1];
+	    			Globals.boss[0]=Globals.boss_neu[0];		// wenn die Falle in keiner Wand landet ändert sich die Richtung nicht und die neue Position wird gespeichert und später gezeichnet.
+	    			Globals.boss[1]=Globals.boss_neu[1];
 	    			
 	    			
 	    		}

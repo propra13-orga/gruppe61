@@ -9,11 +9,11 @@ public class Initialize {
 
 		//Initialize inventory
 		Globals.health=100;
-		Globals.life=3;
+		Globals.life=300;
 		Globals.magician=50;
 		Globals.money=20;
 		Globals.stop=30;
-		Globals.weapon=15;
+		Globals.weapon=150;
 		
 		//activate walls
 		Globals.wall=true;

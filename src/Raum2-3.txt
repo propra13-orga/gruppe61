@@ -7,7 +7,7 @@ x           x
             x   xxxxx
 s           x       x
             x       x
-x           xxxxx b x
+x           xxxxx B x
 x                   x
 x                   x
 x                   x
