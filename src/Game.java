@@ -50,6 +50,8 @@ public static void start() throws IOException, InterruptedException{
      
         InformationBar.use();
         
+        NPC.main(null);
+        
         //paint shop symbol
         if (Globals.shop.draw) {Paint.shop(Globals.shop.x,Globals.shop.y);}
         
@@ -151,30 +153,31 @@ public static void start() throws IOException, InterruptedException{
         		}
         	else // Schon in Raum3 -> Level up
         	{
-        		//if(Globals.boss==null){ //Wenn Boss tot, dann Level up
-        		Globals.level++;
+        		if(Globals.boss!=null){ //Wenn Boss tot, dann Level up
+        		//Verbiete Bewgung manuell:
+        			Globals.x=Globals.zielx; 
+        			Globals.y=Globals.ziely;
+        			break;
+        		}
+        		else 
+        		{
+        			Globals.level++;
         		Globals.room=1;
         		Globals.health_boss=3;
         		
         		//Prüfe, ob durchgezockt
         		if(Globals.level>3) Durchgezockt.main(null);
         		
-        		//Lese neuen Raum aus
+        		
+        		}
+        		
+        	}
+        	//Lese neuen Raum aus
         		GetRoom.room(0);
         		
         		//Setze Spieler auf neue Position
         		Globals.x=Globals.startx;
         		Globals.y=Globals.starty;	
-        		//}
-        		/*else 
-        		{
-        			//Verbiete Bewgung manuell:
-        			Globals.x=Globals.zielx; 
-        			Globals.y=Globals.ziely;
-        		}*/
-        		
-        	}
-        	
         	
         }
         else if (Globals.x <0 || Globals.y< 0) // Start
