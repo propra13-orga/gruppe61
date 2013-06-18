@@ -188,7 +188,7 @@ public static void start() throws IOException, InterruptedException{
         		Globals.room--;
 	        		
         		//Lese neuen Raum aus
-        		GetRoom.room(0);
+        		GetRoom.room(2);
             	Globals.x=Globals.zielx;
             	Globals.y=Globals.ziely;
         	}

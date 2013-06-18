@@ -49,7 +49,7 @@ public class GetRoom {
 	    		StdDraw.text(0.05*k,1- 0.05*j, "Ziel");
 	    		StdDraw.setPenColor(StdDraw.BLACK);
 	    		}
-	    	else if(ch==101 && i==0){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
+	    	else if(ch==101 && i!=1){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		richtung[n]=1;	//Richtung in die sich die Falle bewegt (ändert sich in Wall)
 	    		fallen[0+2*n]=k*0.05;	//Speichert die Koordinaten von den Gegnern
 	    		fallen[1+2*n]=1-j*0.05;	
@@ -63,13 +63,19 @@ public class GetRoom {
 	    		Globals.shop.y=1-j*0.05;
 	    		Globals.shop.draw=true;
 	    		}
-	    	else if(ch==66 && i==0){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
+	    	else if(ch==66 && i!=1){		//Damit das Array nicht ständig überschrieben wird nur beim ersten Mal die Koordinaten speichern
 	    		boss[0+2*m]=k*0.05;
 	    		boss[1+2*m]=1-j*0.05;
 	    		m++;
 	    		Globals.anzahlboss=m;		
 	    		Globals.boss=boss;			//Speicher Koordinanten Boss
 	    		}
+	    	else if (ch==80 && i==0) //Keycode 80=p ->package
+	    	{
+	    		Globals.packet.x=k*0.05;
+	    		Globals.packet.y=1-j*0.05;
+	    		Globals.packet.draw=true;
+	    	}
 	    	k++;
 	    	}
 	    j++;

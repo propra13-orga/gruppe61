@@ -16,11 +16,14 @@ public class Damages {
 		
 	public static void setDamages() throws IOException, InterruptedException{
 		
-		
+		int damage;
+		if(Globals.ruestung) damage=20;
+		else damage=50;
 		
 		if ( Globals.life > 0 ){
 			
-			Globals.health = Globals.health - 50;
+			Globals.health = Math.max(Globals.health - damage, 0);
+			
 			
 			if(Globals.health == 0){
 				Globals.life--;

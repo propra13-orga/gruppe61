@@ -65,6 +65,15 @@ public class Wall {
 	    				Shop.use();
 	    				
 	    			}
+	    			//Teste, ob Paket aufgnemommen
+	    			else if(Globals.packet.draw && Math.abs(Globals.xneu-Globals.packet.x)<=0.05 && Math.abs(Globals.yneu-Globals.packet.y)<=0.05){
+	    				Globals.packet.draw = false;
+	    				Globals.player.x= Globals.xneu;
+	            		Globals.player.y=Globals.yneu;
+	            		Protection.on();
+	            		
+	            			
+	    			}
 	    			else 
 	    			{
 	    				//Position aktualisieren

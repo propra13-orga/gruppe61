@@ -46,29 +46,31 @@ public class Enemy {
 	public static void setDamages() throws IOException, InterruptedException
 	{
 	
+		int damage;
+		if(Globals.ruestung) damage=20;
+		else damage=50;
+		
 		if ( Globals.life > 0 ){
 			
-			Globals.health = Globals.health - 50;
+			Globals.health = Math.max(Globals.health - damage, 0);
+			
 			
 			if(Globals.health == 0){
 				Globals.life--;
 				Globals.health = 100;
-				
-				//Back to start
-				Globals.x=Globals.startx;
-				Globals.y=Globals.starty;
 			}
+			
 
 		}
-	
+		
 		if ( Globals.life <= 0 ){
 			
-			Globals.x=Globals.startx;
-			Globals.y=Globals.starty;
 			
     	   	StdDraw.clear();
     	   	Menue.main(null);
-    	}
+
+		
+	}
 	
 		
    }

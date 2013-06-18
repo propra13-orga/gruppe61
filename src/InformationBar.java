@@ -27,6 +27,8 @@ public class  InformationBar {
 		StdDraw.picture(0.75, -0.03, "money.png", 0.05,0.05);
 		StdDraw.textLeft(0.78, -0.03, ""+Globals.money);
 		
+		if (Globals.ruestung) StdDraw.picture(0.9, -.03, "ruestung.png",.05,.05);
+		
 		
 		
 	}

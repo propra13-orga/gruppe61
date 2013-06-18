@@ -14,6 +14,7 @@ public class Globals {
 		public static boolean wall; //are walls deactivated?
 		public static int damages = 30; // amount of enemies damages
 	    public static boolean shout_now;
+	    public static boolean ruestung;
 
 		
 		public static double x;		//Speichert Position vom Spieler
