@@ -153,7 +153,7 @@ public class Wall {
 	    		t=1-j*0.05;
 	    		int r = (int) (Math.random()*8+1);
 	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
-	    			Globals.richtung[1]=r;
+	    			Globals.boss_richtung=r;
 	    			j=21;
 	    			break;	
 	    		}

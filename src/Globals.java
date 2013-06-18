@@ -39,6 +39,7 @@ public class Globals {
 		public static double ziely;
 		
 		public static String fileName;	//File Name für den Raum
+		public static int boss_richtung;
 		
 		
 		//Hier wird gespeichert, ob einige Details gezeichnet werden
