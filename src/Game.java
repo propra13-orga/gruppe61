@@ -162,22 +162,22 @@ public static void start() throws IOException, InterruptedException{
         		else 
         		{
         			Globals.level++;
-        		Globals.room=1;
-        		Globals.health_boss=3;
+        			Globals.room=1;
+        			Globals.health_boss=3;
+        			
+        			//Prüfe, ob durchgezockt
+        			if(Globals.level>3) Durchgezockt.main(null);
         		
-        		//Prüfe, ob durchgezockt
-        		if(Globals.level>3) Durchgezockt.main(null);
-        		
-        		
+        			
         		}
         		
         	}
         	//Lese neuen Raum aus
-        		GetRoom.room(0);
-        		
-        		//Setze Spieler auf neue Position
-        		Globals.x=Globals.startx;
-        		Globals.y=Globals.starty;	
+        	GetRoom.room(0);
+        	
+        	//Setze Spieler auf neue Position
+        	Globals.x=Globals.startx;
+        	Globals.y=Globals.starty;	
         	
         }
         else if (Globals.x <0 || Globals.y< 0) // Start
@@ -186,9 +186,9 @@ public static void start() throws IOException, InterruptedException{
         	{
         		//Einen Raum zurück
         		Globals.room--;
-        		
+	        		
         		//Lese neuen Raum aus
-            	GetRoom.room(0);
+        		GetRoom.room(0);
             	Globals.x=Globals.zielx;
             	Globals.y=Globals.ziely;
         	}
