@@ -28,6 +28,9 @@ public class Globals {
 		
 		public static int anzahlboss;	// Speichert Position vom Boss
 		public static double[] boss;
+		public static double[] boss_neu;
+		public static boolean bombing; //is boss bombing?
+		public static int health_boss; 
 		
 		public static double startx; 	// Speichert Startpunkt
 		public static double starty;

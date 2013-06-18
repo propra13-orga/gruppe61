@@ -62,7 +62,7 @@ public static void start() throws IOException, InterruptedException{
         //paint explosion
         if (Globals.draw.explosion) {Paint.explosion(Bomb.x,Bomb.y);}
      
-        
+        Boss.main(null);
         
         int i=0;
         while (i<Globals.anzahlfallen){
@@ -151,19 +151,31 @@ public static void start() throws IOException, InterruptedException{
         		}
         	else // Schon in Raum3 -> Level up
         	{
+        		//if(Globals.boss==null){ //Wenn Boss tot, dann Level up
         		Globals.level++;
         		Globals.room=1;
+        		Globals.health_boss=3;
         		
         		//Prüfe, ob durchgezockt
         		if(Globals.level>3) Durchgezockt.main(null);
+        		
+        		//Lese neuen Raum aus
+        		GetRoom.room(0);
+        		
+        		//Setze Spieler auf neue Position
+        		Globals.x=Globals.startx;
+        		Globals.y=Globals.starty;	
+        		//}
+        		/*else 
+        		{
+        			//Verbiete Bewgung manuell:
+        			Globals.x=Globals.zielx; 
+        			Globals.y=Globals.ziely;
+        		}*/
+        		
         	}
         	
-        	//Lese neuen Raum aus
-        	GetRoom.room(0);
-        		
-        	//Setze Spieler auf neue Position
-        	Globals.x=Globals.startx;
-        	Globals.y=Globals.starty;
+        	
         }
         else if (Globals.x <0 || Globals.y< 0) // Start
         {

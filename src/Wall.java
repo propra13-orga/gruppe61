@@ -120,6 +120,49 @@ public class Wall {
 	    		}
 	    		}
 	fr.close();}
+	
+	public static void checkb() throws IOException{ //boss
+		
+		FileReader fr = new FileReader("src/Raum" + Globals.level + "-" + Globals.room + ".txt");
+	    int ch;
+	    int j=0;
+	    int k=0;
+	    double x=Globals.boss_neu[0];
+	    double y=Globals.boss_neu[1];
+	   
+	    double s;
+	    double t;
+	   
+	    while( j<21 ){
+	    	k=0;
+	    	while ((ch=fr.read()) != -1 &&k<22){
+	    		
+	    	
+	    	
+	    	if (ch==120){
+	    		s=k*0.05;
+	    		t=1-j*0.05;
+	    		int r = (int) (Math.random()*8+1);
+	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
+	    			Globals.richtung[1]=r;
+	    			j=21;
+	    			break;	
+	    		}
+	    		
+	    			    }
+		
+	    			k++;}
+	    	
+	    		j++;
+	    		if (j==21){
+	    			
+	    			Globals.boss[0]=Globals.falleneu[0];		// wenn die Falle in keiner Wand landet ändert sich die Richtung nicht und die neue Position wird gespeichert und später gezeichnet.
+	    			Globals.boss[1]=Globals.falleneu[1];
+	    			
+	    			
+	    		}
+	    		}
+	fr.close();}
 
 }
 
