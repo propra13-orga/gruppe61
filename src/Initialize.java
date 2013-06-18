@@ -13,6 +13,7 @@ public class Initialize {
 		Globals.magician=50;
 		Globals.money=20;
 		Globals.stop=30;
+		Globals.weapon=15;
 		
 		//activate walls
 		Globals.wall=true;

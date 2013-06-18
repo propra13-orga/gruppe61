@@ -53,6 +53,10 @@ public class Enemy {
 			if(Globals.health == 0){
 				Globals.life--;
 				Globals.health = 100;
+				
+				//Back to start
+				Globals.x=Globals.startx;
+				Globals.y=Globals.starty;
 			}
 
 		}

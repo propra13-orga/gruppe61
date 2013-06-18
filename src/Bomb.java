@@ -8,8 +8,8 @@ public class Bomb {
 	static boolean death=false;
 	
 	//Read actual position
-		final static double x=Globals.x;
-		final static double y=Globals.y;
+	static double x;
+	static double y;
 
 	/**
 	 * @param args
@@ -19,8 +19,10 @@ public class Bomb {
 	public static void use() throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 
-		
-			
+		//final double x=Globals.x;
+		//final double y=Globals.y;
+		x=Globals.x;
+		y=Globals.y;
 		
 		if (Globals.weapon>0)
 		{
@@ -61,6 +63,7 @@ public class Bomb {
 							}
 						}
 					}
+					
 				}
 				
 				//class for ending explosion
@@ -87,7 +90,7 @@ public class Bomb {
 	    		timer.schedule(new end(), 100 );
 	    		
 	    		
-	}
+		}
 
 	}
 	
