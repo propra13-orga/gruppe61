@@ -6,7 +6,7 @@ public class NPC {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void go() {
 		// TODO Auto-generated method stub
 
 		

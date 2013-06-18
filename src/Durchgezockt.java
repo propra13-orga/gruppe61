@@ -10,7 +10,7 @@ public class Durchgezockt {
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void go() throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		
 		StdDraw.clear();

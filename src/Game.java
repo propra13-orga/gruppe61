@@ -50,7 +50,7 @@ public static void start() throws IOException, InterruptedException{
      
         InformationBar.use();
         
-        NPC.main(null);
+        NPC.go();
         
         //paint shop symbol
         if (Globals.shop.draw) {Paint.shop(Globals.shop.x,Globals.shop.y);}
@@ -64,7 +64,7 @@ public static void start() throws IOException, InterruptedException{
         //paint explosion
         if (Globals.draw.explosion) {Paint.explosion(Bomb.x,Bomb.y);}
      
-        Boss.main(null);
+        Boss.go();
         
         int i=0;
         while (i<Globals.anzahlfallen){
@@ -153,22 +153,22 @@ public static void start() throws IOException, InterruptedException{
         		}
         	else // Schon in Raum3 -> Level up
         	{
-        		if(Globals.boss!=null){ //Wenn Boss tot, dann Level up
-        		//Verbiete Bewgung manuell:
-        			Globals.x=Globals.zielx; 
-        			Globals.y=Globals.ziely;
-        			break;
-        		}
-        		else 
-        		{
-        			Globals.level++;
+        		if(Globals.boss==null){ //Wenn Boss tot, dann Level up
+        		Globals.level++;
         			Globals.room=1;
         			Globals.health_boss=3;
         			
         			//Prüfe, ob durchgezockt
-        			if(Globals.level>3) Durchgezockt.main(null);
+        			if(Globals.level>3) Durchgezockt.go();
         		
         			
+        		}
+        		else 
+        		{
+        			//Verbiete Bewgung manuell:
+        			Globals.x=Globals.zielx; 
+        			Globals.y=Globals.ziely;
+        			break;
         		}
         		
         	}

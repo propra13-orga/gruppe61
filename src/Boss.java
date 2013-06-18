@@ -1,6 +1,4 @@
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class Boss {
@@ -10,7 +8,7 @@ public class Boss {
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void go() throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 
 		
