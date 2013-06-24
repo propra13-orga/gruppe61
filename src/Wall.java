@@ -27,10 +27,10 @@ public class Wall {
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y) {	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
+	    		if(Math.abs(s-x)<0.047 && Math.abs(t-y)<0.047) {	// Wenn wir eine Wand erreichen dürfen wir in dieswe Richtung nicht weiter laufen.
 	    			j=21;												// Weil sonst nur die 2 Schleife beendet wird
 	    			
-	    			if (s-0.05< Globals.x && Globals.x< s+0.05 && t-0.05<Globals.y && t+0.05>Globals.y)
+	    			if (Math.abs(s-Globals.x)<0.047 && Math.abs(t-Globals.y)<0.047)
 	    			{
 	    				//In Mauer eingefroren, als Magician benutzt ->Tot
 	    				//Damages.setDamages();
@@ -60,13 +60,13 @@ public class Wall {
 	    			
 	    			
 	    			//Teste, ob im Shop:
-	    			if (Globals.shop.draw && Math.abs(Globals.shop.x-Globals.xneu)<=0.05 && Math.abs(Globals.yneu-Globals.shop.y)<=0.05)
+	    			if (Globals.shop.draw && Math.abs(Globals.shop.x-Globals.xneu)<=0.048 && Math.abs(Globals.yneu-Globals.shop.y)<=0.048)
 	    			{
 	    				Shop.use();
 	    				
 	    			}
 	    			//Teste, ob Paket aufgnemommen
-	    			else if(Globals.packet.draw && Math.abs(Globals.xneu-Globals.packet.x)<=0.05 && Math.abs(Globals.yneu-Globals.packet.y)<=0.05){
+	    			else if(Globals.packet.draw && Math.abs(Globals.xneu-Globals.packet.x)<=0.048 && Math.abs(Globals.yneu-Globals.packet.y)<=0.048){
 	    				Globals.packet.draw = false;
 	    				Globals.player.x= Globals.xneu;
 	            		Globals.player.y=Globals.yneu;
@@ -109,7 +109,7 @@ public class Wall {
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 	    		int r = (int) (Math.random()*8+1);
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
+	    		if(Math.abs(s-x)<0.047 && Math.abs(t-y)<0.047 || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
 	    			Globals.richtung[i]=r;
 	    			j=21;
 	    			break;	
@@ -152,7 +152,7 @@ public class Wall {
 	    		s=k*0.05;
 	    		t=1-j*0.05;
 	    		int r = (int) (Math.random()*8+1);
-	    		if(s-0.05< x && x< s+0.05 && t-0.05<y && t+0.05>y || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
+	    		if(Math.abs(s-x)<0.047 && Math.abs(t-y)<0.047 || x>0.99 || x<0.01 || y<0.01 || y>0.99 ){	// Wenn wir eine Wand erreichen dann soll die Falle ihre Richtung ändern
 	    			Globals.boss_richtung=r;
 	    			j=21;
 	    			break;	
@@ -172,6 +172,8 @@ public class Wall {
 	    		}
 	    		}
 	fr.close();}
+
+	
 
 }
 

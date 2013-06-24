@@ -131,7 +131,7 @@ public static void start() throws IOException, InterruptedException{
         int j=0;
         while (j<Globals.anzahlfallen){
         	
-        	if (Globals.fallen[0+2*j]-0.05< Globals.x && Globals.x<Globals.fallen[0+2*j] +0.05 && Globals.fallen[1+2*j]-0.05<Globals.y && Globals.fallen[1+2*j]+0.05>Globals.y)
+        	if (Math.abs(Globals.fallen[0+2*j]- Globals.x)<0.049  && Math.abs(Globals.fallen[1+2*j]-Globals.y)<0.049)
         	{
         		Enemy.use();
              

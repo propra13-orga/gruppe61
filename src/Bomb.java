@@ -45,7 +45,7 @@ public class Bomb {
 						
 						//checking potential damages
 						//checking player:
-						if (Math.abs(x-Globals.x)<=0.1 && Math.abs(y-Globals.y)<=0.1);
+						if (Math.abs(x-Globals.x)<=0.1 && Math.abs(y-Globals.y)<=0.1)
 						{
 							//Death
 							if (Globals.life>0)
