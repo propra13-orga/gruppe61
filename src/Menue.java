@@ -1,5 +1,14 @@
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.io.IOException;
+
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 
 public class Menue {
@@ -9,13 +18,28 @@ public class Menue {
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws LineUnavailableException 
 	 */
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 		
 		StdDraw.clear();
 		StdDraw.setPenRadius(.01);
 		StdDraw.setPenColor();
+		
+		File file = new File("src/Menusound.wav");
+		AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+		AudioFormat format = stream.getFormat();
+		
+		// specify what kind of line we want to create
+		DataLine.Info info = new DataLine.Info(Clip.class, format);
+		// create the line
+		Clip clip = (Clip)AudioSystem.getLine(info);
+		// load the samples from the stream
+		clip.open(stream);
+		// begin playback of the sound clip
+		clip.start();
 		
 		double x=0.75;
 		double y=0.75;
@@ -34,6 +58,8 @@ public class Menue {
 				{
 					//Initialize variables with their defaults:
 					Initialize.game();
+					// Stop the music
+					clip.stop();
 					//Start game
 					Game.start();
 					

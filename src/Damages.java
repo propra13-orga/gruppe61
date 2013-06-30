@@ -1,5 +1,8 @@
 import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 public class Damages {
 
@@ -14,7 +17,7 @@ public class Damages {
 	}
 		
 		
-	public static void setDamages() throws IOException, InterruptedException{
+	public static void setDamages() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException{
 		
 		int damage;
 		if(Globals.ruestung) damage=20;

@@ -2,6 +2,9 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 public class Enemy {
 
@@ -11,8 +14,10 @@ public class Enemy {
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
+	 * @throws LineUnavailableException 
+	 * @throws UnsupportedAudioFileException 
 	 */
-	public static void use() throws IOException, InterruptedException {
+	public static void use() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 		
 		// enemy is shouting
@@ -43,7 +48,7 @@ public class Enemy {
 	}
 	
 	
-	public static void setDamages() throws IOException, InterruptedException
+	public static void setDamages() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException
 	{
 	
 		int damage;

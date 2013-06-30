@@ -2,6 +2,9 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 public class Bomb {
 	
@@ -15,8 +18,10 @@ public class Bomb {
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
+	 * @throws LineUnavailableException 
+	 * @throws UnsupportedAudioFileException 
 	 */
-	public static void use() throws IOException, InterruptedException {
+	public static void use() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 
 		//final double x=Globals.x;

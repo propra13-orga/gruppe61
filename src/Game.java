@@ -1,6 +1,9 @@
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 public class Game {
 	
@@ -23,7 +26,7 @@ Paint.player(Globals.startx,Globals.starty);
 
 }
 
-public static void start() throws IOException, InterruptedException{
+public static void start() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException{
 
 	int p;	// Laufvariable damit in GetRoom nicht immer die Fallen und so mehrfach ausgelesen werden und die Koordinaten in Globals verändert werden.
 	p=0;

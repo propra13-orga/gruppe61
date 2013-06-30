@@ -1,6 +1,9 @@
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 public class Level2 {
 	 static void room()
      {
@@ -39,7 +42,7 @@ public class Level2 {
      }
 
 
-public static void main(String[] args) throws IOException, InterruptedException {
+public static void main(String[] args) throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
         {
 
         	StdDraw.clear();

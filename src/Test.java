@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 public class Test {
 	
 	static double shop_x=0.8;
@@ -61,7 +64,7 @@ public class Test {
         }
         
         
-        static void isvalid(double x, double y) throws InterruptedException, IOException{
+        static void isvalid(double x, double y) throws InterruptedException, IOException, UnsupportedAudioFileException, LineUnavailableException{
         	//check out if new position (x,y) is valid, i.e. is wall or enemy touched
         
         	
@@ -107,7 +110,7 @@ public class Test {
         
         
 
-   public static void main(String[] args) throws InterruptedException, IOException {
+   public static void main(String[] args) throws InterruptedException, IOException, UnsupportedAudioFileException, LineUnavailableException {
            {
 
         	   Globals.draw.bomb=false;

@@ -1,5 +1,8 @@
 import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 public class Boss {
 
@@ -7,8 +10,10 @@ public class Boss {
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
+	 * @throws LineUnavailableException 
+	 * @throws UnsupportedAudioFileException 
 	 */
-	public static void go() throws IOException, InterruptedException {
+	public static void go() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 
 		

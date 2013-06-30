@@ -1,9 +1,12 @@
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 public class Level3 {
 
-public static void main(String[] args) throws IOException, InterruptedException {
+public static void main(String[] args) throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
         {
 
         	StdDraw.clear();
