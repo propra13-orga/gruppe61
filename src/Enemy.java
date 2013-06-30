@@ -1,7 +1,7 @@
+
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -29,6 +29,7 @@ public class Enemy {
 			}
 		}
 		
+		
 		if (shout == true){
 			shout=false;
 			
@@ -44,6 +45,7 @@ public class Enemy {
 			timer.schedule(new activate(), 5000 );
 		}
 		}
+
 			
 	}
 	
