@@ -19,7 +19,7 @@ public class Wall {
 	   
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){
+	    	while ((ch=fr.read()) != 13 ){
 	    		
 	    	
 	    	
@@ -101,7 +101,7 @@ public class Wall {
 	   
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){
+	    	while ((ch=fr.read()) != 13 ){
 	    		
 	    	
 	    	
@@ -144,7 +144,7 @@ public class Wall {
 	   
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){
+	    	while ((ch=fr.read()) != 13){
 	    		
 	    	
 	    	

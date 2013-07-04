@@ -1,26 +1,1 @@
-xxxxxxxxxxxxxxxxxxxxx
-x              x    x
-x         e    x  S x
-x              x    x
-x      e       x     
-x              x    z
-x       e      x     
-x              x    x
-x       e      x    x
-x              x    x
-x              x    x
-x     x        x    x
-x     x        x    x
-x     x        x    x
-x     x    P   x    x
-x     x        x    x
-      x             x
-s     x             x
-      x       e     x
-x     x             x
-xxxxxxxxxxxxxxxxxxxxx
-
-x= Wand
-s= Start
-z= Ziel
-Format: 21x21
+xxxxxxxxxxxxxxxxxxxxxx              x    xx         e    x  S xx              x    xx      e       x     x              x    zx       e      x     x              x    xx       e      x    xx              x    xx              x    xx     x        x    xx     x        x    xx     x        x    xx     x    P   x    xx     x        x    x      x             xs     x             x      x       e     xx     x             xxxxxxxxxxxxxxxxxxxxxxx= Wands= Startz= ZielFormat: 21x21
