@@ -70,9 +70,12 @@ public class Wall {
 	    				Globals.packet.draw = false;
 	    				Globals.player.x= Globals.xneu;
 	            		Globals.player.y=Globals.yneu;
-	            		Protection.on();
-	            		
-	            			
+	            		Protection.on();			
+	    			}
+	    			else if (Globals.npc.npc && Math.abs(Globals.xneu-Globals.npc.x)<=.048 && Math.abs(Globals.yneu-Globals.npc.y)<=.048)
+	    			{	
+	    				Quest.start();
+	    				GetRoom.room(0);
 	    			}
 	    			else 
 	    			{

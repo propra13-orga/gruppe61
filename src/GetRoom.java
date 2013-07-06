@@ -11,6 +11,11 @@ public class GetRoom {
 		  double[] fallen = new double [11];
 		  int[] richtung= new int [5];
 		  double[] boss= new double [10];
+		  int[] gegenstaende= new int [9];
+		  double[] gegenstaendepos= new double [18];
+		  
+		  
+		  Globals.npc.npc=false;
 	    
 		  
 		StdDraw.setPenColor(StdDraw.BLACK);
@@ -21,13 +26,14 @@ public class GetRoom {
 	    int k=0;
 	    int n=0;
 	    int m=0;
+	    int r=0;
 	    Globals.shop.draw=false; // Nur damit nicht ständig ein shop vorhanden ist.
 	    while( j<21 ){
 	    	k=0;
-	    	while ((ch=fr.read()) != -1 &&k<22){//lese jede Ziffer einzelt aus und speicher in Variable ch
+	    	while ((ch=fr.read()) != 13 ){//lese jede Ziffer einzelt aus und speicher in Variable ch
 	    		
 	    	
-	    	
+	    		
 	    	if (ch==120){//Erstelle Hier eine Wand weil char(ch)=x 
 
 	    		StdDraw.filledSquare(0.05*k,1- 0.05*j, 0.026);
@@ -76,6 +82,31 @@ public class GetRoom {
 	    		Globals.packet.y=1-j*0.05;
 	    		Globals.packet.draw=true;
 	    	}
+	    	else if (ch==78 )
+	    	{
+	    		Globals.npc.x=k*0.05;
+	    		Globals.npc.y=1-j*0.05;
+	    		Globals.npc.npc=true;
+	    	}
+	    	
+	    		
+	    	else if(ch==113&& Globals.quest.level==1&& i!=1){
+	    			
+
+	    			int p = (int) (Math.random()*9+1);
+	    			gegenstaende[r]=p;
+	    			gegenstaendepos[0+2*r]=k*0.05;
+	    			gegenstaendepos[1+2*r]=1-j*0.05;
+	    			//System.out.println(""+gegenstaendepos[1+2*r]+"");
+	    			Globals.quest.zahlen=gegenstaende;
+	    			Globals.quest.position=gegenstaendepos;
+	    			Globals.quest.length=r;
+	    			//System.out.println(Globals.quest.length);
+	    			r++;
+	    			
+	    		}
+	    	
+	    	
 	    	k++;
 	    	}
 	    j++;

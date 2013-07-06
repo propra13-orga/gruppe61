@@ -40,8 +40,24 @@ public class Paint {
 	}
 
 	public static void explosion(double x, double y) {//Zeichne Explosion
-		StdDraw.picture(Bomb.x, Bomb.y, "explosion.jpg",0.1,.1);
+		StdDraw.picture(x, y, "explosion.jpg",0.1,.1);
 		Globals.draw.explosion=false;
+		
+	}
+
+	public static void npc(double x, double y) {
+		StdDraw.picture(x,y, "professor.png", 0.05,0.05);
+		
+	}
+
+	public static void quest() {
+		int i=0;
+		while (i<=Globals.quest.length){
+		StdDraw.setPenColor(StdDraw.RED);//schreibe Ziel
+		StdDraw.text(Globals.quest.position[0+2*i],Globals.quest.position[1+2*i], ""+Globals.quest.zahlen[i]+"");
+		StdDraw.setPenColor(StdDraw.BLACK);
+		i++;
+		}
 		
 	}
 

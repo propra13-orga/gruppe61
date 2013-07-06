@@ -80,6 +80,12 @@ public static void start() throws IOException, InterruptedException, Unsupported
 
         //paint explosion
         if (Globals.draw.explosion) {Paint.explosion(Bomb.x,Bomb.y);}
+        
+        // paint NPC Prof
+        if (Globals.npc.npc) {Paint.npc(Globals.npc.x, Globals.npc.y);}
+        
+        //paint Gegenstände
+        if(Globals.quest.draw){Paint.quest();}
      
         Boss.go();
         
@@ -171,7 +177,7 @@ public static void start() throws IOException, InterruptedException, Unsupported
         	else // Schon in Raum3 -> Level up
         	{
         		if(Globals.boss==null){ //Wenn Boss tot, dann Level up
-        		Globals.level++;
+        			Globals.level++;
         			Globals.room=1;
         			Globals.health_boss=3;
         			

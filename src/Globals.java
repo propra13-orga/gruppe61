@@ -5,12 +5,16 @@ public class Globals {
 		public static int health;
 		public static int life;
 		public static int magician;
+		public static int weapon;
+		public static int ep;
+		public static int stop;
 		public static int money;
+		
 		public static int level;
 		public static int room;
 		public static boolean shot;
-		public static int weapon;
-		public static int stop;
+		
+		
 		public static boolean wall; //are walls deactivated?
 		public static int damages = 30; // amount of enemies damages
 	    public static boolean shout_now;
@@ -40,6 +44,32 @@ public class Globals {
 		
 		public static String fileName;	//File Name für den Raum
 		public static int boss_richtung;
+		
+		
+		
+		// Hier alle Globalen Variablen fürs Quest
+		public static class quest{
+
+			public static int level;
+			public static boolean draw;
+			public static int[] array;	// Um Quest Gegenstände zusammeln		
+			public static int[] zahlen;	// Um sich zu merken welche Zahlen ausgegeben werden.
+			public static double[] position; // für die Position
+			public static int length;
+			
+			
+		}
+		
+		
+		
+		// Hier wird der NPC gespeichert.
+		public static class npc{
+			public static double x;
+			public static double y;
+			public static boolean npc;
+		}
+		
+		
 		
 		
 		//Hier wird gespeichert, ob einige Details gezeichnet werden

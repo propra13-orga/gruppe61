@@ -14,6 +14,7 @@ public class Initialize {
 		Globals.money=20;
 		Globals.stop=30;
 		Globals.weapon=150;
+		Globals.ep=0;
 		
 		//activate walls
 		Globals.wall=true;
@@ -34,6 +35,10 @@ public class Initialize {
 		Globals.level=1;
 		
 		StdDraw.setCanvasSize(600, 600);
+		
+		//Initialisiere Quest
+		int[] gegenstaende= new int [9];
+		Globals.quest.array=gegenstaende;
 		
 		
 	
