@@ -15,8 +15,8 @@ public class GetRoom {
 		  double[] gegenstaendepos= new double [18];
 		  
 		  
-		  Globals.npc.npc=false;
-	    
+		  
+		  
 		  
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.setPenRadius(0.01);
@@ -82,7 +82,7 @@ public class GetRoom {
 	    		Globals.packet.y=1-j*0.05;
 	    		Globals.packet.draw=true;
 	    	}
-	    	else if (ch==78 )
+	    	else if (ch==78 && i==0 )
 	    	{
 	    		Globals.npc.x=k*0.05;
 	    		Globals.npc.y=1-j*0.05;

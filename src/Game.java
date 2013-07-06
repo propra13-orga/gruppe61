@@ -129,6 +129,7 @@ public static void start() throws IOException, InterruptedException, Unsupported
         //Actions:
         if (StdDraw.hasNextKeyTyped())
         {
+        	
         if(StdDraw.isKeyPressed(KeyEvent.VK_S)) //stop enemy
         {
      	   Stop.use();
@@ -145,6 +146,11 @@ public static void start() throws IOException, InterruptedException, Unsupported
         {
         	Bomb.use();
         	Thread.sleep(100);
+        }
+        else if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)&& Globals.quest.draw){
+        	Sammeln.use();
+        	Thread.sleep(100);
+        	
         }
         }
        
@@ -196,6 +202,8 @@ public static void start() throws IOException, InterruptedException, Unsupported
         		
         	}
         	//Lese neuen Raum aus
+        	Globals.packet.draw=false;
+        	Globals.npc.npc=false;
         	GetRoom.room(0);
         	
         	//Setze Spieler auf neue Position
@@ -211,7 +219,9 @@ public static void start() throws IOException, InterruptedException, Unsupported
         		Globals.room--;
 	        		
         		//Lese neuen Raum aus
-        		GetRoom.room(2);
+            	Globals.packet.draw=false;
+            	Globals.npc.npc=false;
+        		GetRoom.room(0);
             	Globals.x=Globals.zielx;
             	Globals.y=Globals.ziely;
         	}

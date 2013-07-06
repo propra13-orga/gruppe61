@@ -53,7 +53,7 @@ public class Paint {
 	public static void quest() {
 		int i=0;
 		while (i<=Globals.quest.length){
-		StdDraw.setPenColor(StdDraw.RED);//schreibe Ziel
+		StdDraw.setPenColor(StdDraw.RED);//Zeichne Questgegenstände ein.
 		StdDraw.text(Globals.quest.position[0+2*i],Globals.quest.position[1+2*i], ""+Globals.quest.zahlen[i]+"");
 		StdDraw.setPenColor(StdDraw.BLACK);
 		i++;

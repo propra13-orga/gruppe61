@@ -75,7 +75,7 @@ public class Wall {
 	    			else if (Globals.npc.npc && Math.abs(Globals.xneu-Globals.npc.x)<=.048 && Math.abs(Globals.yneu-Globals.npc.y)<=.048)
 	    			{	
 	    				Quest.start();
-	    				GetRoom.room(0);
+	    				GetRoom.room(2);
 	    			}
 	    			else 
 	    			{

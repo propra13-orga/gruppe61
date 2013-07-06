@@ -20,27 +20,31 @@ public class Quest {
 				
 				if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 					if (height%2==0){
+						Globals.quest.zeiger=0;
 						Globals.quest.draw=true;
 						break;
 					}
 					else if (height%2==1){
 						while(true){
 							
-						if (Globals.quest.array[1]==3 && Globals.quest.array[2]==1 && Globals.quest.array[3]==4 && Globals.quest.array[4]==1 ){
+						if (Globals.quest.array[0]==3 && Globals.quest.array[1]==1 && Globals.quest.array[2]==4 && Globals.quest.array[3]==1 ){
 							i=2;
 							paint();
+							Globals.quest.zeiger=0;
 							Globals.quest.draw=false;
+							Globals.npc.npc=false;
 							//if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 							//	break;
 							//}
 							StdDraw.show(5000);
+							
 							break;
 
 						}
 						else {
 							i=3;
 							paint();
-							
+							Globals.quest.zeiger=0;
 							Globals.quest.draw=true;
 							
 							//boolean hasNextKeyTyped=StdDraw.hasNextKeyTyped();

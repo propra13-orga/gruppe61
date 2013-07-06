@@ -56,6 +56,8 @@ public class Globals {
 			public static int[] zahlen;	// Um sich zu merken welche Zahlen ausgegeben werden.
 			public static double[] position; // für die Position
 			public static int length;
+			public static int zeiger;		// ein Zeiger für die Reihenfolge
+			
 			
 			
 		}

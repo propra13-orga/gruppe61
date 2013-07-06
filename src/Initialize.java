@@ -37,6 +37,7 @@ public class Initialize {
 		StdDraw.setCanvasSize(600, 600);
 		
 		//Initialisiere Quest
+		
 		int[] gegenstaende= new int [9];
 		Globals.quest.array=gegenstaende;
 		
