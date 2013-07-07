@@ -4,11 +4,17 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * Wenn das Spiel erfolgreich absolviert wurde, wird diese Klasse aufgerufen.
+ * Inhalt: Menüe mit frage ob noch einmal spielen oder nicht
+ * @author jan
+ *
+ */
 public class Durchgezockt {
 	
 
 	/**
+	 * Hierüber erfolgt der Aufruf aus dem Spiel
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 

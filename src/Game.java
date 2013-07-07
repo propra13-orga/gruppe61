@@ -10,9 +10,18 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * Hauptklasse
+ * Hier ist das Spiel implementiert, d.h. alles was während des Spiels geschieht und alle Klassen, die währenddessen aufgerufen werden, werden von hier aus gesteuert
+ * 
+ *
+ */
 public class Game {
-	
+
+/**
+ * Diese Klasse initiert die Fallen
+ * Dazu wird in GetRoom ausgelesen, wie viele Fallen Raum vorhanden sind, diese werden dann nacheinander an ihrer Position gezeichnet	
+ */
 private static void intenemy() {
 
 int n=Globals.anzahlfallen;	//Gehe alle Fallen durch und zeichne sie mit Hilfe der Globalen Variablen.
@@ -25,6 +34,9 @@ i++;
 }
 }	
 
+/**
+ * Initialisiert den Spieler an der STartposition des jeweiligen Raumes
+ */
 private static void intplayer() {
 
 
@@ -32,6 +44,13 @@ Paint.player(Globals.startx,Globals.starty);
 
 }
 
+/**
+ * Startet das eigentliche Spiel
+ * @throws IOException
+ * @throws InterruptedException
+ * @throws UnsupportedAudioFileException
+ * @throws LineUnavailableException
+ */
 public static void start() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException{
 
 	File file = new File("src/level.wav");

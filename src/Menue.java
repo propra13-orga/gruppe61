@@ -10,11 +10,16 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * Menü
+ * Hierüber wird das Spiel gestartet. Es beginnt mit dem hier implementierten Menü, welches den Spieler fragt, ob er das Spiel starten oder beenden möchte
+ *
+ */
 public class Menue {
 	
 
 	/**
+	 * Startet das Programm
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 

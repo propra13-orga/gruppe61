@@ -5,7 +5,10 @@ import java.util.TimerTask;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * Feind
+ *
+ */
 public class Enemy {
 
     static boolean shout = true;

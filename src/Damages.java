@@ -3,7 +3,11 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * setzt den Schaden
+ * 
+ *
+ */
 public class Damages {
 
 	/**

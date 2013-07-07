@@ -1,8 +1,13 @@
-
+/**
+ * Hier werden einige Variablen gespeichert, auf die im Laufe des Spiels von verschiedenen Klassen zugegriffen werden.
+ * 
+ *
+ */
 public class Globals {
 	
 	//Saving variables:
-		public static int health;
+	
+	public static int health;
 		public static int life;
 		public static int magician;
 		public static int weapon;

@@ -1,9 +1,19 @@
 import java.io.FileReader;
 import java.io.IOException;
 
-
+/**
+ * Kollissionsabfrage
+ * Fragt ab, ob Spieler oder Falle die Wand berühren
+ *
+ */
 public class Wall {
 
+	/**
+	 * Kollissionsabfrage des Spielers
+	 * Unterbindet ggf. die Bewegung
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
 	public static void checkp() throws IOException, InterruptedException{
 		
 
@@ -88,6 +98,12 @@ public class Wall {
 	    fr.close();
 		}
 
+	/**
+	 * Kollissionsabfrage der Fallen
+	 * Ändert ggf. die Bewgungsrichtung der Fallen
+	 * @param i
+	 * @throws IOException
+	 */
 	public static void checkf(int i) throws IOException{
 		
 

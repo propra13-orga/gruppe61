@@ -1,9 +1,15 @@
 
 
-
+/**
+ * Klasse für den NPC
+ * Der NPC hat pro Raum eine Zeile Text, die oberhalb des Spielfelds angezeigt wird. Der Text richtet sich nach Raum und Level
+ * Diese Daten werden aus den Globals gelesen.
+ *
+ */
 public class NPC {
 
 	/**
+	 * Hierüber erfolgt der Aufruf aus dem Spiel
 	 * @param args
 	 */
 	public static void go() {

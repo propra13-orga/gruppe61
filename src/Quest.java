@@ -1,10 +1,18 @@
 import java.awt.event.KeyEvent;
 
-
+/**
+ * Die Quests
+ * Abhängig vom Level
+ *
+ */
 public class Quest {
 	private static int height=1;
 	private static int i=1;
 
+	/**
+	 * Hierüber geschieht der Aufruf aus dem Spiel
+	 * @throws InterruptedException
+	 */
 	public static void start() throws InterruptedException {
 		Globals.quest.level=Globals.level;
 		i=1;
@@ -130,6 +138,11 @@ public class Quest {
 		
 	}
 
+	/**
+	 * Auf welche Höhe soll der Pfeil gezeichnet werden?
+	 * Oben oder unten?
+	 * @param height
+	 */
 	private static void arrow(int height) {
 		if (height%2==1)
 		{
@@ -144,6 +157,9 @@ public class Quest {
 		
 	}
 
+	/**
+	 * Zeichnet Text des Professors
+	 */
 	private static void paint() {
 		//paint Text für Quest
 		StdDraw.setPenColor(StdDraw.YELLOW);

@@ -3,10 +3,14 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * Endgegner
+ * Diese Klasse stellt den Endgegner dar und steuert seine Bewegung (ab Level3)
+ */
 public class Boss {
 
 	/**
+	 * Über diese Subklasse geschieht der Aufruf aus dem Programm
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
@@ -16,7 +20,9 @@ public class Boss {
 	public static void go() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 
-		
+		/**
+		 * Diese Subklasse arbeitet nur, wenn ein Boss existiert, dies wird in Getroom ausgelesen
+		 */
 		if(Globals.boss!=null){
 			//Only active if "Boss" exists
 			
@@ -28,6 +34,9 @@ public class Boss {
 			
 			
 			//Move Boss (only in Level 2 an higher):
+			/**
+			 * Wenn Level hoch genug (>2) =>Bewegung des Bosses ermöglichen. Diese funktioniert, wie die Bewegung der Fallen
+			 */
 			if (Globals.level>2){
 				
 			
@@ -124,6 +133,10 @@ public class Boss {
 			}
 			*/
 			//check if player touches boss:
+			/**
+			 * Abfrage, ob Spieler den Boss berührt.
+			 * Falls der Gegner den Boss berührt, stirbt der Spieler und wird an den letzten Checkpoint gesetzt
+			 */
 			if (!Globals.bombing){ //Our cheating (see above) causes this exception
 				if (Math.abs(Globals.x-Globals.boss[0])<=0.05 && Math.abs(Globals.y-Globals.boss[1])<0.05){
 					if (Globals.life>0) {

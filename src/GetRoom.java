@@ -2,10 +2,17 @@
 import java.io.FileReader;
 import java.io.IOException;
 
-
+/**
+ * Liest den Raum aus der Textdatei aus. Dazu wird die Texgdatei Zeile für Zeile nach wichtigen Symbolen geparst, d.h. nach Symbolen für Fallen, Shop, Wände etc
+ *
+ */
 public class GetRoom {
 
-	 
+	 /**
+	  * Hierüber geschieht der Aufruf aus dem Spiel
+	  * @param i
+	  * @throws IOException
+	  */
 	  public static void room(int i) throws IOException
 	  {
 		  double[] fallen = new double [11];

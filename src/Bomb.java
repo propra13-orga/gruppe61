@@ -5,7 +5,11 @@ import java.util.TimerTask;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
+/**
+ * Diese Klasse ist für den Abwurf und die Zündung der Bomben da
+ * Zuerst wird die aktuelle Position des Spielers gelsen, um dort die Bombe zu platzieren. Dann wird sie dort gezeichnet und ein Countdown gestartet.
+ * Danach erfolgt die Explosion. Schaden nehmen können durch die Explosion nur Spieler und Endgegner, die Fallen sind davon unberührt.
+ */
 public class Bomb {
 	
 	static boolean death=false;
@@ -15,11 +19,15 @@ public class Bomb {
 	static double y;
 
 	/**
+	 * 
+	 * Diese Klasse wird aufgerufen, um den Vorgang zu starten
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 * @throws LineUnavailableException 
 	 * @throws UnsupportedAudioFileException 
+	 *
+	 * 
 	 */
 	public static void use() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
@@ -38,6 +46,9 @@ public class Bomb {
 		Globals.draw.bomb=true;
 		
 		//class for explosion
+		/**
+		 * Diese Klasse simuliert den Countdown bis die Bombe explodiert.
+		 */
 				class explode extends TimerTask 
 				{
 					@Override public void run()
@@ -76,6 +87,9 @@ public class Bomb {
 				}
 				
 				//class for ending explosion
+				/**
+				 * Diese Klasse beendet die Zeichnung der Explosion nach wenigen Sekunden. Auch dies geschieht5 implizit durch einen Countdown
+				 */
 				class end extends TimerTask 
 				{
 					@Override public void run()

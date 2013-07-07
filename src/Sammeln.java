@@ -1,6 +1,12 @@
-
+/**
+ * steuert das Einsammeln der Zahlen für das Quest
+ *
+ */
 public class Sammeln {
 
+	/**
+	 * Hierüber erfolgt der Aufruf aus dem Spiel heraus
+	 */
 	public static void use() {
 		int i=0;
 		while (i<=Globals.quest.length){

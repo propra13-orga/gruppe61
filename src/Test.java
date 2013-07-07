@@ -5,7 +5,11 @@ import java.util.TimerTask;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
+/**
+ * Testlevel
+ * @author jan
+ *
+ */
 public class Test {
 	
 	static double shop_x=0.8;
@@ -16,6 +20,9 @@ public class Test {
     
     static boolean draw_package = true;
 	
+    /**
+     * Zeichnet einen einfachen Raum fdür das Testlevel
+     */
         static void room()
         {
                 //StdDraw.setCanvasSize(512,512);
@@ -47,12 +54,18 @@ public class Test {
                    if (Globals.draw.explosion) StdDraw.picture(Bomb.x, Bomb.y, "explosion.jpg",0.1,.1);
         }
 
+        /**
+         * Zeichnet den Spieler
+         */
         static void player()
         {
         	//Paint player at his position
         	StdDraw.picture(Globals.player.x, Globals.player.y,"pi.png",.08,.08);
         }
         
+        /**
+         * Zeichnet eine Falle
+         */
         static void enemy()
         {
         	//Paint enemy at his position
@@ -63,7 +76,15 @@ public class Test {
         	
         }
         
-        
+        /**
+         * Kollissionsabfrage
+         * @param x
+         * @param y
+         * @throws InterruptedException
+         * @throws IOException
+         * @throws UnsupportedAudioFileException
+         * @throws LineUnavailableException
+         */
         static void isvalid(double x, double y) throws InterruptedException, IOException, UnsupportedAudioFileException, LineUnavailableException{
         	//check out if new position (x,y) is valid, i.e. is wall or enemy touched
         
@@ -109,7 +130,14 @@ public class Test {
 
         
         
-
+/**
+ * Hauptprogramm
+ * @param args
+ * @throws InterruptedException
+ * @throws IOException
+ * @throws UnsupportedAudioFileException
+ * @throws LineUnavailableException
+ */
    public static void main(String[] args) throws InterruptedException, IOException, UnsupportedAudioFileException, LineUnavailableException {
            {
 

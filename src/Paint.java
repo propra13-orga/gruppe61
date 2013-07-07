@@ -1,5 +1,14 @@
-
+/**
+ * Zeichnet alle wichtigen Inhalte
+ * Hier werden Spieler, fallen und co gezeichnet. Die Position wird dafür jeweils aus den Globals ausgelesen
+ *
+ */
 public class Paint {
+	/**
+	 * Zeichnet den Spieler an seine Koordinaten
+	 * @param x
+	 * @param y
+	 */
 	static void player(double x,double y)
     {
 
@@ -14,6 +23,11 @@ public class Paint {
 
     }
 
+	/**
+	 * Zeichnet eine Falle
+	 * @param i
+	 * @param j
+	 */
 	   static void Falle(double i,double j){
         //bewegene Gegner/Falle
         StdDraw.setPenColor(StdDraw.YELLOW);
@@ -24,32 +38,60 @@ public class Paint {
 
 }
 
+	   /**
+	    * Zeichnet das Shopsymbol in den Raum
+	    * @param x
+	    * @param y
+	    */
 	public static void shop(double x, double y) {//Zeichne Shop
 		StdDraw.picture(x, y, "shop.png",.05,.05);
 		
 	}
 
+	/**
+	 * Zeichnet ein Paket, in welchem sich Boni verstecken, die auch im Shop gekauft werden können
+	 * @param x
+	 * @param y
+	 */
 	public static void packet(double x, double y) {//Zeichne Packet
 		StdDraw.picture(x, y, "package.png", .05,.05);
 		
 	}
 
+	/**
+	 * Zeichnet eine Bombe
+	 * @param x
+	 * @param y
+	 */
 	public static void bomb(double x, double y) {//Zeichne Bombe
 		StdDraw.picture(x ,y , "bomb.png",.05,.05);
 		
 	}
 
+	/**
+	 * Zeichnet die Explosion der Bombe
+	 * @param x
+	 * @param y
+	 */
 	public static void explosion(double x, double y) {//Zeichne Explosion
 		StdDraw.picture(x, y, "explosion.jpg",0.1,.1);
 		Globals.draw.explosion=false;
 		
 	}
 
+	/**
+	 * Zeichnet den Professor (NPC)
+	 * @param x
+	 * @param y
+	 */
 	public static void npc(double x, double y) {
 		StdDraw.picture(x,y, "professor.png", 0.05,0.05);
 		
 	}
 
+	/**
+	 * Zeichnet die Gegenstände, die für das quest benötigt werden. D.h. beim ersten Quest die Zahlen
+	 */
 	public static void quest() {
 		int i=0;
 		while (i<=Globals.quest.length){

@@ -1,10 +1,15 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+/**
+ * Rüstung
+ * Falls Spieler Rüstung trägt, reduziert sich der Schaden, den er durch die Fallen nimmt
+ *
+ */
 public class Protection {
 
 	/**
+	 * Hierüber erfolgt der Aufruf aus dem Spiel heraus
 	 * @param args
 	 */
 	public static void on() {
@@ -13,6 +18,11 @@ public class Protection {
 		Globals.ruestung=true;
 		
 		//class for ending protection
+		/**
+		 * Countdown bis die Rüstung ihre Funktion verliert
+		 * 
+		 *
+		 */
 		class end extends TimerTask 
 		{
 			@Override public void run()

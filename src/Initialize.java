@@ -1,4 +1,9 @@
-
+/**
+ * Initialisiert die wichtigesten Daten für das Spiel. 
+ * Das bedeutet insbesondere das Grundinventar des Spielers
+ * @author jan
+ *
+ */
 public class Initialize {
 
 	/**

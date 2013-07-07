@@ -1,4 +1,10 @@
-
+/**
+ * Infoleiste
+ * Diese Klasse zeichnet eine Infoleiste am unteren Spielfeldrand. 
+ * Dazu werden die Daten (das Inventar des Spielers) aus den Globals gelesen und angezeigt. 
+ * @author jan
+ *
+ */
 public class  InformationBar {
 
 	public static void use() {

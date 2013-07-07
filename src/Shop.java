@@ -3,11 +3,19 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-
+/**
+ * Shopsystem
+ * Hier kann der Spieler sein Inventar erhöhen
+ * @author jan
+ *
+ */
 public class Shop {
 	static int price=5;
 	static int height=1;
 
+	/**
+	 * Zeichnet die Objekte, die zum verkauf stehen, samt Preis
+	 */
 	static void paint() {
 		//Paint the Shop
 		StdDraw.setPenColor(StdDraw.YELLOW);
@@ -49,6 +57,10 @@ public class Shop {
 	
 	}
 	
+	/**
+	 * Zeichnet den Pfeil, der die aktuelle Wahl des Spielers anzeigt an die richtige Position
+	 * @param height
+	 */
 	static void arrow(int height) {
 		//Painting the right arrow. Height is descending by rising value
 		
@@ -81,6 +93,7 @@ public class Shop {
 	}
 	
 	/**
+	 * Hierüber geschieht der Aufruf aus dem Spiel heraus
 	 * @param args
 	 * @throws InterruptedException 
 	 * @throws IOException 
