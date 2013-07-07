@@ -1,18 +1,18 @@
 import java.awt.event.KeyEvent;
-
 /**
  * Die Quests
  * Abhängig vom Level
  *
  */
+
 public class Quest {
 	private static int height=1;
 	private static int i=1;
-
 	/**
 	 * Hierüber geschieht der Aufruf aus dem Spiel
 	 * @throws InterruptedException
 	 */
+
 	public static void start() throws InterruptedException {
 		Globals.quest.level=Globals.level;
 		i=1;
@@ -41,8 +41,12 @@ public class Quest {
 							Globals.quest.zeiger=0;
 							Globals.quest.draw=false;
 							Globals.npc.npc=false;
+							Globals.quest.ready=true;
+
+							//if (StdDraw.hasNextKeyTyped()){
 							//if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
-							//	break;
+								//break;
+							//}
 							//}
 							StdDraw.show(5000);
 							
@@ -55,10 +59,12 @@ public class Quest {
 							Globals.quest.zeiger=0;
 							Globals.quest.draw=true;
 							
-							//boolean hasNextKeyTyped=StdDraw.hasNextKeyTyped();
-							//if (hasNextKeyTyped){
-							//	break;
+							//if (StdDraw.hasNextKeyTyped()){
+							//if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+								//break;
 							//}
+							//}
+							
 							StdDraw.show(5000);
 							break;
 						}
@@ -94,6 +100,48 @@ public class Quest {
 				paint();
 				arrow(height);
 				
+				if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					if (height%2==0){
+						Globals.quest.zeiger=0;
+						Globals.quest.draw=true;
+						break;
+					}
+					else if (height%2==1){
+						while(true){
+							
+						if (Globals.quest.array[0]==5  ){
+							i=2;
+							paint();
+							Globals.quest.zeiger=0;
+							Globals.quest.draw=false;
+							Globals.npc.npc=false;
+							//if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+							//	break;
+							//}
+							StdDraw.show(5000);
+							
+							break;
+
+						}
+						else {
+							i=3;
+							paint();
+							Globals.quest.zeiger=0;
+							Globals.quest.draw=true;
+							
+							//boolean hasNextKeyTyped=StdDraw.hasNextKeyTyped();
+							//if (hasNextKeyTyped){
+							//	break;
+							//}
+							StdDraw.show(5000);
+							break;
+						}
+						}
+						
+					break;	
+					}
+				}
+				
 				
 				
 				if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
@@ -115,21 +163,17 @@ public class Quest {
 		{
 			while(true){
 				//Buffering:
-				StdDraw.show(10);
-				paint();
-				arrow(height);
 				
-				if (StdDraw.isKeyPressed(KeyEvent.VK_UP)){
-					if(height%2==1){}
-					else{
-						height--;}
+				paint();
+				
+				
+				
+				
+				if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					break;
 					
 				}
-				else if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)){
-					if(height%2==0){}
-					else{
-					height++;}
-				}
+				
 				Thread.sleep(100);
 				
 			}
@@ -144,6 +188,7 @@ public class Quest {
 	 * @param height
 	 */
 	private static void arrow(int height) {
+
 		if (height%2==1)
 		{
 			//Life is chosen
@@ -156,7 +201,6 @@ public class Quest {
 		
 		
 	}
-
 	/**
 	 * Zeichnet Text des Professors
 	 */
@@ -191,12 +235,43 @@ public class Quest {
 			
 		}
 		else if (Globals.quest.level==2){
+			if(i==1){
+				StdDraw.text(0.5, .9, "Du hast das erste Level geschafft. Sehr gut!");
+				StdDraw.textLeft(0, .85, "Aber ich brauche erneut deine Hilfe.");
+				StdDraw.textLeft(0, .8, "Ich habe versucht cos(pi)*5 zulösen.");
+				StdDraw.textLeft(0, .75, "Wenn du mir die richtige Lösung bringst,");
+				StdDraw.textLeft(0, .7, "kannst du gegen den Boss von Level 2 kämpfen.");
+				
+				
+				StdDraw.text(0.5, 0.3, "Ich habe die Lösung bereits gefunden, hier ist sie.");
+				StdDraw.text(0.5, 0.2, "Ok ich werde versuchen die Aufgabe zulösen und Ihnen das Ergebnis bringen.");
+				}
+				else if(i==2){
+					StdDraw.textLeft(0, .85, "Deine Lösung ist richtig.");
+					StdDraw.textLeft(0, .8, "Level 3 wartet auf dich, aber zuerst muss du den Boss besiegen.");
+				}
+				else if(i==3){
+					StdDraw.textLeft(0, .85, "Das ist falsch.");
+					StdDraw.textLeft(0, .8, "Geh nochmal los und suche das richtige Ergebnis.");
+					
+				}
 			
 		}
 		else if (Globals.quest.level==3){
+			if(i==1){
+				StdDraw.text(0.5, .9, "Verdammt ich habe den Schlüssel zu Raum 3 verloren.");
+				StdDraw.textLeft(0, .85, "Aber irgendwo gab es einen geheimen Schalter.");
+				StdDraw.textLeft(0, .8, "Finde den Schalter und du wirst in den 3 Raum gelangen,");
+				StdDraw.textLeft(0, .75, "um gegen den letzten Boss zukämpfen.");
+
+				
+				
+
 			
 		}
 	}
 	
 
-}
+	}
+	
+	}

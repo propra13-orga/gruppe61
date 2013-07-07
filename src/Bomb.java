@@ -79,7 +79,7 @@ public class Bomb {
 							}
 						}
 						//checking boss
-						if (Globals.boss!=null && Math.abs(x-Globals.boss[0])<=0.1 && Math.abs(y-Globals.boss[1])<=0.1){
+						if (Globals.quest.ready && Globals.boss!=null && Math.abs(x-Globals.boss[0])<=0.1 && Math.abs(y-Globals.boss[1])<=0.1){
 							Globals.boss=null;
 						}
 					}

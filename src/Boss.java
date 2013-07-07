@@ -21,9 +21,9 @@ public class Boss {
 		// TODO Auto-generated method stub
 
 		/**
-		 * Diese Subklasse arbeitet nur, wenn ein Boss existiert, dies wird in Getroom ausgelesen
+		 * Diese Subklasse arbeitet nur, wenn ein Boss existiert und das Quest abgeschlossen ist, dies wird in Getroom ausgelesen 
 		 */
-		if(Globals.boss!=null){
+		if(Globals.boss!=null&& Globals.quest.ready){
 			//Only active if "Boss" exists
 			
 			//Read position position

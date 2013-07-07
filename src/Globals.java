@@ -6,8 +6,7 @@
 public class Globals {
 	
 	//Saving variables:
-	
-	public static int health;
+		public static int health;
 		public static int life;
 		public static int magician;
 		public static int weapon;
@@ -62,6 +61,7 @@ public class Globals {
 			public static double[] position; // für die Position
 			public static int length;
 			public static int zeiger;		// ein Zeiger für die Reihenfolge
+			public static boolean ready;
 			
 			
 			

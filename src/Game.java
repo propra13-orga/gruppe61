@@ -202,6 +202,7 @@ public static void start() throws IOException, InterruptedException, Unsupported
         	else // Schon in Raum3 -> Level up
         	{
         		if(Globals.boss==null){ //Wenn Boss tot, dann Level up
+        			Globals.quest.ready=false;
         			Globals.level++;
         			Globals.room=1;
         			Globals.health_boss=3;
