@@ -115,6 +115,7 @@ public class Quest {
 							Globals.quest.zeiger=0;
 							Globals.quest.draw=false;
 							Globals.npc.npc=false;
+							Globals.quest.ready=true;
 							//if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
 							//	break;
 							//}
@@ -163,10 +164,11 @@ public class Quest {
 		{
 			while(true){
 				//Buffering:
-				
+				StdDraw.show(10);
 				paint();
-				
-				
+				Globals.quest.zeiger=0;
+				Globals.quest.draw=true;
+				Globals.quest.schalter=true;
 				
 				
 				if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
@@ -259,7 +261,7 @@ public class Quest {
 		}
 		else if (Globals.quest.level==3){
 			if(i==1){
-				StdDraw.text(0.5, .9, "Verdammt ich habe den Schlüssel zu Raum 3 verloren.");
+				StdDraw.textLeft(0, .9, "Verdammt ich habe den Schlüssel zu Raum 3 verloren.");
 				StdDraw.textLeft(0, .85, "Aber irgendwo gab es einen geheimen Schalter.");
 				StdDraw.textLeft(0, .8, "Finde den Schalter und du wirst in den 3 Raum gelangen,");
 				StdDraw.textLeft(0, .75, "um gegen den letzten Boss zukämpfen.");

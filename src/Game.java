@@ -103,8 +103,11 @@ public static void start() throws IOException, InterruptedException, Unsupported
         // paint NPC Prof
         if (Globals.npc.npc) {Paint.npc(Globals.npc.x, Globals.npc.y);}
         
-        //paint Gegenstände
+        //paint Gegenstände und Schalter
         if(Globals.quest.draw){Paint.quest();}
+        
+       
+        
      
         Boss.go();
         
@@ -168,7 +171,7 @@ public static void start() throws IOException, InterruptedException, Unsupported
         }
         else if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)&& Globals.quest.draw){
         	Sammeln.use();
-        	Thread.sleep(100);
+        	Thread.sleep(300);
         	
         }
         }
@@ -196,12 +199,18 @@ public static void start() throws IOException, InterruptedException, Unsupported
         {
         	if (Globals.room<3)
         		{
+        		Globals.quest.length=0; //Damit wenn ein Raum ohne Questgegenstände ist auch keine Questgegenstände gezeichnet werden.
         		//Einen Raum weiter gehen
         		Globals.room++;
         		}
+        	else if (Globals.room==3&& Globals.level==3){
+        		Globals.quest.length=0;
+        		Globals.room++;
+        	}
         	else // Schon in Raum3 -> Level up
         	{
         		if(Globals.boss==null){ //Wenn Boss tot, dann Level up
+        			Globals.quest.length=0;
         			Globals.quest.ready=false;
         			Globals.level++;
         			Globals.room=1;
@@ -234,7 +243,7 @@ public static void start() throws IOException, InterruptedException, Unsupported
         else if (Globals.x <0 || Globals.y< 0) // Start
         {
         	if (Globals.room>1) 
-        	{
+        	{	Globals.quest.length=0;
         		//Einen Raum zurück
         		Globals.room--;
 	        		

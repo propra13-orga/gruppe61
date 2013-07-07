@@ -93,6 +93,7 @@ public class Paint {
 	 * Zeichnet die Gegenstände, die für das quest benötigt werden. D.h. beim ersten Quest die Zahlen
 	 */
 	public static void quest() {
+		if(Globals.quest.level==1 || Globals.quest.level==2){
 		int i=0;
 		while (i<=Globals.quest.length){
 		StdDraw.setPenColor(StdDraw.RED);//Zeichne Questgegenstände ein.
@@ -100,7 +101,17 @@ public class Paint {
 		StdDraw.setPenColor(StdDraw.BLACK);
 		i++;
 		}
-		
+		}
+		else if(Globals.quest.level==3 && Globals.quest.length>0){
+			if(Globals.quest.schalter){
+			StdDraw.picture(Globals.quest.position[0] ,Globals.quest.position[1] , "Schalteroff.jpg",.05,.05);
+			
+			}
+			else{
+			StdDraw.picture(Globals.quest.position[0] ,Globals.quest.position[1] , "Schalteron.jpg",.05,.05);
+			}
+			
+		}
 	}
 
 }

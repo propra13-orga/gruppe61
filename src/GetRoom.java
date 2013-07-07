@@ -97,9 +97,9 @@ public class GetRoom {
 	    	}
 	    	
 	    		
-	    	else if(ch==113&& Globals.quest.level==1&& i!=1){
+	    	else if(ch==113 && i!=1){
 	    			
-
+	    			if (Globals.level==1 || Globals.level==2){
 	    			int p = (int) (Math.random()*9+1);
 	    			gegenstaende[r]=p;
 	    			gegenstaendepos[0+2*r]=k*0.05;
@@ -110,7 +110,13 @@ public class GetRoom {
 	    			Globals.quest.length=r;
 	    			//System.out.println(Globals.quest.length);
 	    			r++;
-	    			
+	    			}
+	    			else if( Globals.level==3){
+	    				gegenstaendepos[0]=k*0.05;
+		    			gegenstaendepos[1]=1-j*0.05;
+		    			Globals.quest.position=gegenstaendepos;
+		    			Globals.quest.length=1;
+	    			}
 	    		}
 	    	
 	    	

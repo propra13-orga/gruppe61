@@ -54,14 +54,18 @@ public class Globals {
 		// Hier alle Globalen Variablen fürs Quest
 		public static class quest{
 
-			public static int level;
-			public static boolean draw;
+
+			public static boolean schalter;	//Ob Schalter auf on oder off steht.
+			public static int level;		// Fürs Level eigentlich unwichtig da man nur das Level vom Level nimmt, aber falls man da was anderes haben will.
+			public static boolean draw;		// Ob das Quest gestartet ist oder nicht.
 			public static int[] array;	// Um Quest Gegenstände zusammeln		
 			public static int[] zahlen;	// Um sich zu merken welche Zahlen ausgegeben werden.
 			public static double[] position; // für die Position
-			public static int length;
+			public static int length;		//nur die Anzahl der Questgegenstände
 			public static int zeiger;		// ein Zeiger für die Reihenfolge
-			public static boolean ready;
+			public static boolean ready;	// wenn das Quest abgeschlossen ist um irgendwelche sachen freizuschalten.
+			
+			
 			
 			
 			
@@ -73,7 +77,7 @@ public class Globals {
 		public static class npc{
 			public static double x;
 			public static double y;
-			public static boolean npc;
+			public static boolean npc;		// Ob der NPC gezeichnet werden soll oder nicht steht immer nur im ersten Level bzw kann man auch woanders hinsetzten.
 		}
 		
 		
