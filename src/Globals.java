@@ -49,7 +49,10 @@ public class Globals {
 		public static String fileName;	//File Name für den Raum
 		public static int boss_richtung;
 		
-		
+		//Hier Variablen fürs Netzwerk
+		public boolean server; //ist der Server online?
+		public boolean client1; //ist Client1 verbunden?
+		public boolean client2; //ist Client2 verbunden?
 		
 		// Hier alle Globalen Variablen fürs Quest
 		public static class quest{

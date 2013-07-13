@@ -91,7 +91,7 @@ public class Server {
 					while (client2.isConnected()) {
 						String nachricht;
 						nachricht = leseNachricht(client2);
-						System.out.println("Client2 says: " + nachricht);
+						System.out.println("Client2 says: " + nachricht+"\n");
 						if (true /* nachricht=="ping" */) {
 
 							pong(client2);

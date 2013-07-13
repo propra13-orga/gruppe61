@@ -4,7 +4,7 @@
 import java.io.*;
 import java.net.Socket;
 
-public class Client {
+public class Client2 {
 	private static void schreibeNachricht(Socket socket, String nachricht)
 			throws IOException {
 		PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(
@@ -47,7 +47,7 @@ public class Client {
 					System.out.println(empfangeneNachricht);
 				ping(server);
 				System.out
-						.println("Client1 reads: " + empfangeneNachricht);
+						.println("Client2 reads: " + empfangeneNachricht);
 			}
 
 		} catch (IOException e) {
