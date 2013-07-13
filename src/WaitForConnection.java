@@ -1,7 +1,12 @@
-
+/**
+ * Ladebildschirm
+ * Dieser Bildschirm soll angezeigt werden, wen ein Spieler sich für das Netzwerkspiel angemeldet hat, aber noch kein zweiter verbunden ist
+ * @author jan
+ *
+ */
 public class WaitForConnection {
 
-	/**
+	/**Hierüber wird er aufgerufen
 	 * @param args
 	 */
 	public static void execute() {

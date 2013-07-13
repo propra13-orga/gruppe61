@@ -66,8 +66,10 @@ public class SpielMenue {
 			StdDraw.show(0);
 			StdDraw.clear();
 
+			// Drei Optionen möglich:
 			height = Math.abs(height % 3);
 
+			// Zeichne Menü:
 			StdDraw.square(.5, .5, .5);
 			StdDraw.line(0, .33, 1, .33);
 			StdDraw.line(0, .66, 1, 0.66);
@@ -75,8 +77,10 @@ public class SpielMenue {
 			StdDraw.text(0.5, 0.48, "Ich hab Freunde");
 			StdDraw.text(0.5, 0.15, "Hab mich verklickt, will zurück");
 
+			// Zeichnet Pfeil, der Auswahl anzeigt
 			StdDraw.picture(x, y(height), "pfeil_rechts.png", 0.05, 0.05);
 
+			// Änderung der Auswahl:
 			if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) {
 				if (height == 1) {
 				} else if (height == 0)
@@ -93,6 +97,7 @@ public class SpielMenue {
 			}
 			Thread.sleep(100);
 
+			// Bestätigen
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (height == 1) // Start gedrückt
 				{
@@ -104,8 +109,9 @@ public class SpielMenue {
 					Game.start();
 
 					break;
-				} else if (height == 2) {
-					
+				} else if (height == 2) // Netzwerk gewählt
+				{
+					// Netzwerk in eigenem Thread starten
 					class startNetzwerk implements Runnable {
 
 						@Override
@@ -113,16 +119,17 @@ public class SpielMenue {
 							// TODO Auto-generated method stub
 							Netzwerk.main(null);
 						}
-						
+
 					}
-					
-					Thread t= new Thread (new startNetzwerk());
+
+					Thread t = new Thread(new startNetzwerk());
 					t.start();
-					
+
 					WaitForConnection.execute();
-					
+
 					break;
-				} else {
+				} else // Zurück gewählt
+				{
 					Menue.main(null);
 					break;
 				}

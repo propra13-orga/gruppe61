@@ -3,7 +3,17 @@
 // import java.net.Socket;
 import java.io.*;
 import java.net.Socket;
-
+/**
+ * Client für den ersten Spieler
+ * Dieser Client simuliert Spieler1.
+ * Derzeit sendet er ein "ping" an den Server und druckt in der Konsole, die Nachricht, die er vom Server liest ("pong")
+ * 
+ * Geplant ist: Der Client sendet Bewegungsanweisungen an den Server, d.h. Kommandos wie "up", "down" etc. Diese können als String gelesen werden.
+ * Der Server soll dann die Neuen Koordinaten berechnen und dem Client senden. Damit der Cient anhand der Koordinaten beider Spieler den Raum zeichnet.
+ * 
+ * @author jan
+ *
+ */
 public class Client1 {
 	private static void schreibeNachricht(Socket socket, String nachricht)
 			throws IOException {
@@ -45,7 +55,7 @@ public class Client1 {
 
 	public static void go() {
 		Client1 client = new Client1();
-		int port = 1234;
+		int port = 1234; //willkür, wichtig ist nur >1024 und bei Server und Clients identisch
 
 		try {
 			Socket server = new Socket("localhost", port); // verbindet sich mit
@@ -61,12 +71,11 @@ public class Client1 {
 				if (empfangeneNachricht == "pong")
 					System.out.println(empfangeneNachricht);
 				ping(server);
-				System.out.println("Client1 reads: " + empfangeneNachricht);
+				System.out.println("Client1 reads: " + empfangeneNachricht); //Druckt das gelesene
 			}
 
-		} catch (IOException e) {
+		} catch (IOException e) { //Notwendig, sonst geht nix
 			e.printStackTrace();
-			System.out.println("Fehler bei Client1");
 		}
 
 	}

@@ -5,7 +5,16 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+/**
+ * Server.
+ * Derzeitige Arbeit: Akzeptiere zwei Clients und empfange deren Pings und sende Pongs zurück.
+ * Es wird in der Konsole ausgedruckt, von wem  der Server das Ping empfangen hat
+ * 
+ * Geplant: Server soll Bewegungsanweisungen ("down", "right", etc) vom Client empfangen und daraufhin die neuen Koordinaten berechnen. Diese sollen an die Clients gesendet werden, damit diese damit den Raum zeichnen können
+ * 
+ * @author jan
+ *
+ */
 public class Server {
 	static String leseNachricht(Socket socket) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(

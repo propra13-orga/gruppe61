@@ -38,13 +38,13 @@ public class Client2 {
 
 	public static void go() {
 		Client1 client = new Client1();
-		int port = 1234;
+		int port = 1234; //willkür, wichtig ist nur >1024 und bei Server und Clients identisch
 
 		try {
 			Socket server = new Socket("localhost", port); // verbindet sich mit
 															// Server
 
-			ping(server);
+			ping(server); //sendet das Ping
 			while (server.isConnected()) {
 				String empfangeneNachricht = leseNachricht(server);
 
@@ -52,10 +52,10 @@ public class Client2 {
 					System.out.println(empfangeneNachricht);
 				ping(server);
 				System.out
-						.println("Client2 reads: " + empfangeneNachricht);
+						.println("Client2 reads: " + empfangeneNachricht); //Druckt das gelesene
 			}
 
-		} catch (IOException e) {
+		} catch (IOException e) { //Notwendig, sonst geht nix
 			e.printStackTrace();
 		}
 
