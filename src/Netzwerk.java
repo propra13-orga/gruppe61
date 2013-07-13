@@ -16,7 +16,7 @@ public class Netzwerk {
 
 		}
 
-		class startClient implements Runnable {
+		class startClient1 implements Runnable {
 
 			@Override
 			public void run() {
@@ -25,11 +25,26 @@ public class Netzwerk {
 			}
 
 		}
+		
+		class startClient2 implements Runnable {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Client2.go();
+			}
+
+		}
+		
+		//Server.client.isBound();
+		
 		Thread t1 = new Thread(new startServer());
-		Thread t2 = new Thread(new startClient());
+		Thread t2 = new Thread(new startClient1());
+		Thread t3 = new Thread(new startClient2());
 
 		t1.start();
 		t2.start();
+		t3.start();
 
 	}
 
