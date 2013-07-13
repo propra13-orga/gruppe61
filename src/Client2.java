@@ -3,7 +3,12 @@
 // import java.net.Socket;
 import java.io.*;
 import java.net.Socket;
-
+/**
+ * Client für Spieler 2
+ * Arbeitet genauso, wie Client, nur soll hierüber Spieler2 laufen.
+ * @author jan
+ *
+ */
 public class Client2 {
 	private static void schreibeNachricht(Socket socket, String nachricht)
 			throws IOException {
@@ -32,7 +37,7 @@ public class Client2 {
 	}
 
 	public static void go() {
-		Client client = new Client();
+		Client1 client = new Client1();
 		int port = 1234;
 
 		try {

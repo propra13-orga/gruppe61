@@ -1,6 +1,6 @@
 public class Netzwerk {
 
-	/**
+	/**Diese Methode soll das Netzwerk starten. Dazu wird zuerst in einem Thread der Server gestartet und dann in jeweils einem eigenen Thread die beiden Clients, die sich an den Server anmelden.
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Netzwerk {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				Client.go();
+				Client1.go();
 			}
 
 		}

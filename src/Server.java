@@ -19,29 +19,24 @@ public class Server {
 		return nachricht;
 	}
 
+	static double leseDouble(Socket socket) throws IOException {
+		ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+		return ois.readDouble();
+	}
+
+	static void schreibeDouble(Socket socket, double x) throws IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(
+				socket.getOutputStream());
+		oos.writeDouble(x);
+		oos.flush();
+	}
+
 	static void schreibeNachricht(Socket socket, String nachricht)
 			throws IOException {
 		PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(
 				socket.getOutputStream()));
 		printWriter.print(nachricht);
 		printWriter.flush();
-	}
-
-	private class ponger implements Runnable {
-		public void run() {
-			while (client.isConnected()) {
-				try {
-					String nachricht = leseNachricht(client);
-					System.out.println("client says: " + nachricht + " \n ");
-					pong(client);
-					if (nachricht == "ping")
-						pong(client);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
 	}
 
 	static void pong(Socket socket) throws IOException {
@@ -52,11 +47,11 @@ public class Server {
 
 	static Socket client = null;
 	static Socket client2 = null;
+
 	public static void go() {
 		Server server = new Server();
 		int port = 1234;
-		
-		
+
 		class startClient1 implements Runnable {
 
 			@Override
@@ -80,7 +75,7 @@ public class Server {
 				}
 			}
 		}
-		
+
 		class startClient2 implements Runnable {
 
 			@Override
@@ -91,7 +86,7 @@ public class Server {
 					while (client2.isConnected()) {
 						String nachricht;
 						nachricht = leseNachricht(client2);
-						System.out.println("Client2 says: " + nachricht+"\n");
+						System.out.println("Client2 says: " + nachricht + "\n");
 						if (true /* nachricht=="ping" */) {
 
 							pong(client2);
@@ -104,15 +99,14 @@ public class Server {
 				}
 			}
 		}
-		
-		
+
 		try {
 			ServerSocket serverSocket = new ServerSocket(port);
 			client = serverSocket.accept();
-			client2=serverSocket.accept();
-			Thread t1=new Thread(new startClient1());
+			client2 = serverSocket.accept();
+			Thread t1 = new Thread(new startClient1());
 			t1.start();
-			Thread t2=new Thread(new startClient2());
+			Thread t2 = new Thread(new startClient2());
 			t2.start();
 
 		} catch (IOException e) {

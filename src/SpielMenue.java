@@ -105,7 +105,22 @@ public class SpielMenue {
 
 					break;
 				} else if (height == 2) {
-					Netzwerk.main(null);
+					
+					class startNetzwerk implements Runnable {
+
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							Netzwerk.main(null);
+						}
+						
+					}
+					
+					Thread t= new Thread (new startNetzwerk());
+					t.start();
+					
+					WaitForConnection.execute();
+					
 					break;
 				} else {
 					Menue.main(null);
