@@ -61,20 +61,8 @@ public class Menue {
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (y>0.5) //Start gedrückt
 				{
-					//Initialize variables with their defaults:
-					Initialize.game();
-					// Stop the music
-					clip.stop();
-					//Start game
-					Game.start();
-					
-					
-					
-					/*
-					//Saving checkpoints:
-					Globals.level=1;
-					Globals.room=1;
-					*/
+					//Gehe ins Untermenü (Wahl ob Single oder Multiplayer:
+					SpielMenue.execute();
 					
 					break;
 				}
