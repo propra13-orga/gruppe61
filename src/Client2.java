@@ -57,8 +57,8 @@ public class Client2 {
 				StdDraw.text(ziel[0], ziel[1], "Ziel");
 
 				// Prüfe, ob im Ziel
-				if (Math.abs(player1[0] - ziel[0]) < 0.03
-						&& Math.abs(player1[1] - ziel[1]) < 0.03) {
+				if (Math.abs(player2[0] - ziel[0]) < 0.03
+						&& Math.abs(player2[1] - ziel[1]) < 0.03) {
 					Durchgezockt.go();
 				}
 			}
