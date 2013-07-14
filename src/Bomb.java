@@ -1,7 +1,13 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -37,8 +43,23 @@ public class Bomb {
 		x=Globals.x;
 		y=Globals.y;
 		
+		File file = new File("src/bomb.wav");
+		AudioInputStream stream = AudioSystem.getAudioInputStream(file);
+		AudioFormat format = stream.getFormat();
+
+		// specify what kind of line we want to create
+		DataLine.Info info = new DataLine.Info(Clip.class, format);
+		// create the line
+		final Clip clip = (Clip) AudioSystem.getLine(info);
+		// load the samples from the stream
+		clip.open(stream);
+		// begin playback of the sound clip
+		
+		
+		
 		if (Globals.weapon>0)
 		{
+			
 			Globals.weapon--;
 		
 	
@@ -53,10 +74,13 @@ public class Bomb {
 				{
 					@Override public void run()
 					{
+						clip.start();
+						
 						//stop painting the bomb
 						Globals.draw.bomb=false;
 						
 						//paint explosion
+						
 						Globals.draw.explosion=true;
 						
 						//checking potential damages

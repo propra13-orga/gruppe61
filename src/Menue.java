@@ -18,6 +18,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Menue {
 	
 
+	public static final Clip clip = null;
+
 	/**
 	 * Startet das Programm
 	 * @param args
@@ -26,6 +28,8 @@ public class Menue {
 	 * @throws UnsupportedAudioFileException 
 	 * @throws LineUnavailableException 
 	 */
+	
+
 	public static void execute() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 		
@@ -33,7 +37,7 @@ public class Menue {
 		StdDraw.setPenRadius(.01);
 		StdDraw.setPenColor();
 		
-		File file = new File("src/Menusound.wav");
+	/*	File file = new File("src/Menusound.wav");
 		AudioInputStream stream = AudioSystem.getAudioInputStream(file);
 		AudioFormat format = stream.getFormat();
 		
@@ -44,7 +48,7 @@ public class Menue {
 		// load the samples from the stream
 		clip.open(stream);
 		// begin playback of the sound clip
-		clip.start();
+		clip.start(); */
 		
 		double x=0.75;
 		double y=0.75;
@@ -61,9 +65,9 @@ public class Menue {
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (y>0.5) //Start gedrückt
 				{
-					//Gehe ins Untermenü (Wahl ob Single oder Multiplayer:
+					//Gehe ins Untermenü (Wahl ob Single oder Multiplayer)
 					SpielMenue.execute();
-					
+					//clip.stop();
 					break;
 				}
 				else System.exit(0);

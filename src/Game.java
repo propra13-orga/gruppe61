@@ -63,7 +63,8 @@ public class Game {
 		Clip clip = (Clip) AudioSystem.getLine(info);
 		clip.open(stream);
 		clip.start();
-
+		clip.loop(1000);//music repeat 1000x
+		
 		int p; // Laufvariable damit in GetRoom nicht immer die Fallen und so
 				// mehrfach ausgelesen werden und die Koordinaten in Globals
 				// verändert werden.
@@ -191,7 +192,9 @@ public class Game {
 
 				if (Math.abs(Globals.fallen[0 + 2 * j] - Globals.x) < 0.049
 						&& Math.abs(Globals.fallen[1 + 2 * j] - Globals.y) < 0.049) {
+
 					Enemy.use();
+
 
 					// Zurück zu letzten Checkpoint
 					// Globals.x=x;

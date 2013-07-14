@@ -1,5 +1,11 @@
+import java.io.File;
 import java.io.IOException;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -31,7 +37,6 @@ public class Damages {
 			
 			Globals.health = Math.max(Globals.health - damage, 0);
 			
-			
 			if(Globals.health == 0){
 				Globals.life--;
 				Globals.health = 100;
@@ -49,36 +54,6 @@ public class Damages {
 		
 	}
 		
-		/* if (Globals.weapon != 0){
-			
-			for(int i = 0; i < Globals.weapon ; i++){
-				
-				if ( Globals.shot == true ){
-					
-					Globals.health = Globals.health - 20; // every shot - 20%
-					 if(Globals.health == 0) Globals.life--;
-					
-				}
-	
-				
-			}
-			
-			
-		}
-		
-		
-		if ( Globals.magician != 0 ){
-			
-			for(int i = 0; i < Globals.magician; i++){
-				Globals.health = Globals.health + 40; //every magician + 40%
-				
-			}
-			
-				
-
-
-	}
-		*/
 		
 	}
 
