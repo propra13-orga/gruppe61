@@ -106,7 +106,7 @@ public class Bomb {
 	    		if (death)
 	    		{
 	    			//Back to menu
-	    			Menue.main(null);
+	    			Menue.execute();
 	    		}
 	    		
 	    		//display explosion for 1 second

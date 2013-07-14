@@ -130,7 +130,7 @@ public class SpielMenue {
 					break;
 				} else // Zurück gewählt
 				{
-					Menue.main(null);
+					Menue.execute();
 					break;
 				}
 

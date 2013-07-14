@@ -44,7 +44,7 @@ public class Durchgezockt {
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (y>0.5) //Start gedrückt
 				{
-					Game.start();
+					Menue.execute();
 					break;
 				}
 				else System.exit(0);

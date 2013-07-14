@@ -235,7 +235,8 @@ public class Quest {
 				StdDraw.text(0.5, .9,
 						"Du hast das erste Level geschafft. Sehr gut!");
 				StdDraw.textLeft(0, .85, "Aber ich brauche erneut deine Hilfe.");
-				StdDraw.textLeft(0, .8, "Ich habe versucht |cos(pi)*5| zulösen.");
+				StdDraw.textLeft(0, .8,
+						"Ich habe versucht |cos(pi)*5| zulösen.");
 				StdDraw.textLeft(0, .75,
 						"Wenn du mir die richtige Lösung bringst,");
 				StdDraw.textLeft(0, .7,

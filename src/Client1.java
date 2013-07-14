@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.Socket;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 /**
  * Client für den ersten Spieler Dieser Client simuliert Spieler1. Derzeit
  * sendet er ein "ping" an den Server und druckt in der Konsole, die Nachricht,
@@ -25,15 +28,19 @@ public class Client1 {
 	 * Zeichnet den Raum, indem das Netzwerk-Spiel stattfindet
 	 * 
 	 * @param args
+	 * @throws LineUnavailableException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws InterruptedException 
+	 * @throws IOException 
 	 */
-	public static void paintRoom(String[] args) {
+	public static void paintRoom(String[] args) throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 
 		double[] player1 = { Double.valueOf(args[0]), Double.valueOf(args[1]) };
 		double[] player2 = { Double.valueOf(args[2]), Double.valueOf(args[3]) };
 		boolean IsDoorOpen = Boolean.valueOf(args[4]);
 		boolean connected = Boolean.valueOf(args[5]); // Ist der zweite Spieler
-														// auch verbunden?
+		// auch verbunden?
 
 		double[] ziel = { 1, .3 };
 
@@ -52,8 +59,15 @@ public class Client1 {
 			StdDraw.setPenColor(StdDraw.BLACK);
 
 			// Ziel bzw Tür zeichnen:
-			if (IsDoorOpen)
+			if (IsDoorOpen){
 				StdDraw.text(ziel[0], ziel[1], "Ziel");
+				
+				//Prüfe, ob im Ziel
+				if (Math.abs(player1[0]-ziel[0])<0.03 && Math.abs(player1[1]-ziel[1])<0.03){
+					Durchgezockt.go();
+				}
+			}
+				
 			else {
 				Color braun = new Color(139, 69, 19);
 				StdDraw.setPenColor(braun);
@@ -111,10 +125,10 @@ public class Client1 {
 		printWriter.flush();
 	}
 
-	public static void go() {
+	public static void go() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		Client1 client = new Client1();
 		int port = 1234; // willkür, wichtig ist nur >1024 und bei Server und
-							// Clients identisch
+		// Clients identisch
 
 		try {
 			Socket server = new Socket("localhost", port); // verbindet sich mit
@@ -124,8 +138,8 @@ public class Client1 {
 			while (server.isConnected()) {
 				String empfangeneNachricht = leseNachricht(server);
 				System.out.println("Client1 reads: " + empfangeneNachricht); // Druckt
-																				// das
-																				// gelesene
+				// das
+				// gelesene
 				// double x=leseDouble(server);
 				// System.out.println("bla \n"+ x + "\n");
 
@@ -145,7 +159,7 @@ public class Client1 {
 					move = "left";
 
 				} else if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) // Move
-																	// right
+				// right
 				{
 					move = "right";
 

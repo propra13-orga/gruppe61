@@ -146,7 +146,7 @@ public class Boss {
 						//Set player back to Start
 						Globals.x=Globals.startx;
 						Globals.y=Globals.starty;
-					}else Menue.main(null);
+					}else Menue.execute();
 					}
 				}
 			}

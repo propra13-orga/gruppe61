@@ -77,7 +77,7 @@ public class Enemy {
 			
 			
     	   	StdDraw.clear();
-    	   	Menue.main(null);
+    	   	Menue.execute();
 
 		
 	}

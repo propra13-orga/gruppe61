@@ -26,7 +26,7 @@ public class Menue {
 	 * @throws UnsupportedAudioFileException 
 	 * @throws LineUnavailableException 
 	 */
-	public static void main(String[] args) throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
+	public static void execute() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 		
 		StdDraw.clear();

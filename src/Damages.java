@@ -44,7 +44,7 @@ public class Damages {
 			
 			
     	   	StdDraw.clear();
-    	   	Menue.main(null);
+    	   	Menue.execute();
 
 		
 	}

@@ -6,6 +6,9 @@ import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.Socket;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 /**
  * Client für Spieler 2 Arbeitet genauso, wie Client, nur soll hierüber Spieler2
  * laufen.
@@ -19,8 +22,12 @@ public class Client2 {
 	 * Zeichnet den Raum, indem das Netzwerk-Spiel stattfindet
 	 * 
 	 * @param args
+	 * @throws LineUnavailableException 
+	 * @throws UnsupportedAudioFileException 
+	 * @throws InterruptedException 
+	 * @throws IOException 
 	 */
-	public static void paintRoom(String[] args) {
+	public static void paintRoom(String[] args) throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		// TODO Auto-generated method stub
 
 		double[] player1 = { Double.valueOf(args[0]), Double.valueOf(args[1]) };
@@ -46,8 +53,16 @@ public class Client2 {
 			StdDraw.setPenColor(StdDraw.BLACK);
 
 			// Ziel bzw Tür zeichnen:
-			if (IsDoorOpen)
+			if (IsDoorOpen) {
 				StdDraw.text(ziel[0], ziel[1], "Ziel");
+
+				// Prüfe, ob im Ziel
+				if (Math.abs(player1[0] - ziel[0]) < 0.03
+						&& Math.abs(player1[1] - ziel[1]) < 0.03) {
+					Durchgezockt.go();
+				}
+			}
+
 			else {
 				Color braun = new Color(139, 69, 19);
 				StdDraw.setPenColor(braun);
@@ -105,7 +120,7 @@ public class Client2 {
 		printWriter.flush();
 	}
 
-	public static void go() {
+	public static void go() throws InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
 		Client1 client = new Client1();
 		int port = 1234; // willkür, wichtig ist nur >1024 und bei Server und
 							// Clients identisch

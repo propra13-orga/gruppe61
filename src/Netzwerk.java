@@ -1,3 +1,6 @@
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 public class Netzwerk {
 
 	/**Diese Methode soll das Netzwerk starten. Dazu wird zuerst in einem Thread der Server gestartet und dann in jeweils einem eigenen Thread die beiden Clients, die sich an den Server anmelden.
@@ -24,7 +27,13 @@ public class Netzwerk {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				Client1.go();
+				try {
+					Client1.go();
+				} catch (InterruptedException | UnsupportedAudioFileException
+						| LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		}
@@ -35,7 +44,13 @@ public class Netzwerk {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				Client2.go();
+				try {
+					Client2.go();
+				} catch (InterruptedException | UnsupportedAudioFileException
+						| LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 		}
