@@ -43,11 +43,11 @@ public class Netzwerk {
 		//Starte Server und beide Clients 
 		Thread t1 = new Thread(new startServer());
 		Thread t2 = new Thread(new startClient1());
-		Thread t3 = new Thread(new startClient2());
+		//Thread t3 = new Thread(new startClient2());
 
 		t1.start();
 		t2.start();
-		t3.start();
+		//t3.start();
 
 	}
 
