@@ -36,7 +36,9 @@ public class Menue {
 		StdDraw.clear();
 		StdDraw.setPenRadius(.01);
 		StdDraw.setPenColor();
-		
+	
+
+
 	/*	File file = new File("src/Menusound.wav");
 		AudioInputStream stream = AudioSystem.getAudioInputStream(file);
 		AudioFormat format = stream.getFormat();

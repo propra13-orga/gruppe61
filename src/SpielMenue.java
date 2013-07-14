@@ -59,6 +59,7 @@ public class SpielMenue {
 		clip.open(stream);
 		// begin playback of the sound clip
 		clip.start();
+		clip.loop(1000);
 
 		double x = 0.15;
 

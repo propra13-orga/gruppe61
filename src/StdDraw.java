@@ -210,7 +210,7 @@ public final class StdDraw implements ActionListener, MouseListener,
 																// windows
 		// frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // closes
 		// only current window
-		frame.setTitle("Standard Draw");
+		frame.setTitle("Dungeon crawl");
 		frame.setJMenuBar(createMenuBar());
 		frame.pack();
 		frame.requestFocusInWindow();
@@ -1336,5 +1336,6 @@ public final class StdDraw implements ActionListener, MouseListener,
 			keysDown.remove(e.getKeyCode());
 		}
 	}
+
 
 }
