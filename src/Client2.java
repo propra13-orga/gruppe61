@@ -26,37 +26,44 @@ public class Client2 {
 		double[] player1 = { Double.valueOf(args[0]), Double.valueOf(args[1]) };
 		double[] player2 = { Double.valueOf(args[2]), Double.valueOf(args[3]) };
 		boolean IsDoorOpen = Boolean.valueOf(args[4]);
+		boolean connected = Boolean.valueOf(args[5]); // Ist der zweite Spieler
+														// auch verbunden?
 
 		double[] ziel = { 1, .3 };
 
-		// Zeichne Raum
-		StdDraw.clear();
-		// StdDraw.show(0);
-		StdDraw.setPenColor();
-		StdDraw.setPenRadius(.035);
-		StdDraw.square(0.5, 0.5, 0.55);
-		StdDraw.setPenColor(Color.WHITE);
-		StdDraw.filledSquare(ziel[0], ziel[1], 0.1);
-		StdDraw.setPenColor(StdDraw.BLACK);
-
-		// Ziel bzw Tür zeichnen:
-		if (IsDoorOpen)
-			StdDraw.text(ziel[0], ziel[1], "Ziel");
+		if (!connected)
+			WaitForConnection.execute();
 		else {
-			Color braun = new Color(139, 69, 19);
-			StdDraw.setPenColor(braun);
-			StdDraw.line(ziel[0] + .045, ziel[1] + .1, ziel[0] + .045,
-					ziel[1] - 0.1);
+
+			// Zeichne Raum
+			StdDraw.clear();
+			// StdDraw.show(0);
+			StdDraw.setPenColor();
+			StdDraw.setPenRadius(.035);
+			StdDraw.square(0.5, 0.5, 0.55);
+			StdDraw.setPenColor(Color.WHITE);
+			StdDraw.filledSquare(ziel[0], ziel[1], 0.1);
+			StdDraw.setPenColor(StdDraw.BLACK);
+
+			// Ziel bzw Tür zeichnen:
+			if (IsDoorOpen)
+				StdDraw.text(ziel[0], ziel[1], "Ziel");
+			else {
+				Color braun = new Color(139, 69, 19);
+				StdDraw.setPenColor(braun);
+				StdDraw.line(ziel[0] + .045, ziel[1] + .1, ziel[0] + .045,
+						ziel[1] - 0.1);
+			}
+
+			// Zeichne Schalter
+			StdDraw.setPenColor(StdDraw.GRAY);
+			StdDraw.filledSquare(.1, 0.3, .08);
+			StdDraw.filledSquare(.9, 0.8, 0.08);
+
+			// Zeichne Spieler:
+			StdDraw.picture(player1[0], player1[1], "pi.png", .1, .1);
+			StdDraw.picture(player2[0], player2[1], "sigma.png", .07, .07);
 		}
-
-		// Zeichne Schalter
-		StdDraw.setPenColor(StdDraw.GRAY);
-		StdDraw.filledSquare(.1, 0.3, .08);
-		StdDraw.filledSquare(.9, 0.8, 0.08);
-
-		// Zeichne Spieler:
-		StdDraw.picture(player1[0], player1[1], "pi.png", .1, .1);
-		StdDraw.picture(player2[0], player2[1], "sigma.png", .07, .07);
 	}
 
 	/**

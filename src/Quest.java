@@ -207,7 +207,7 @@ public class Quest {
 				StdDraw.textLeft(0, .85,
 						"Ich habe schon auf jemanden, wie dich gewartet.");
 				StdDraw.textLeft(0, .8,
-						"Ich kann mich einfach nicht mehr an die ersten 4 Zahlen von PI erinnern.");
+						"Ich kann mich einfach nicht mehr an die ersten 4 Ziffern von PI erinnern.");
 				StdDraw.textLeft(0, .75,
 						"Leider sind sie hier überall verteilt.");
 				StdDraw.textLeft(0, .7, "Such sie bitte für mich und");
@@ -235,7 +235,7 @@ public class Quest {
 				StdDraw.text(0.5, .9,
 						"Du hast das erste Level geschafft. Sehr gut!");
 				StdDraw.textLeft(0, .85, "Aber ich brauche erneut deine Hilfe.");
-				StdDraw.textLeft(0, .8, "Ich habe versucht cos(pi)*5 zulösen.");
+				StdDraw.textLeft(0, .8, "Ich habe versucht |cos(pi)*5| zulösen.");
 				StdDraw.textLeft(0, .75,
 						"Wenn du mir die richtige Lösung bringst,");
 				StdDraw.textLeft(0, .7,

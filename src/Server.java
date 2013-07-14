@@ -26,13 +26,10 @@ public class Server {
 	private static boolean openDoor = false; // ist Tür schon offen?
 	private static boolean schalter1 = false; // ist Schalter1 aktiv?
 	private static boolean schalter2 = false; // ist Schalter2 aktiv?
-	private static double[] Schalter1 = { .1, 0.3 }; // Koordinaten des ersten
-	// Schalters (dieselben
-	// wie im NetzwerkRaum)
-	private static double[] Schalter2 = { .9, 0.8, }; // Koordinaten des zweiten
-	// Schalters (dieselben
-	// wie im NetzwerkRaum)
-
+	private static double[] Schalter1 = { .1, 0.3 }; // Koordinaten des ersten Schalters (dieselben  wie im NetzwerkRaum)
+	private static double[] Schalter2 = { .9, 0.8, }; // Koordinaten des zweiten Schalters (dieselben wie im NetzwerkRaum)
+private static boolean Client1=false; //ist client1 verbunden?
+private static boolean Client2=false; //ist Client2 verbunden?
 	/**
 	 * Steuert die Bewegung der beiden Spieler. Es wird die Bewegungsrichtung
 	 * ausgelesen und entsprechend die neue position der Spieler berechnet.
@@ -192,7 +189,7 @@ public class Server {
 								+ String.valueOf(player1[1]) + " "
 								+ String.valueOf(player2[0]) + " "
 								+ String.valueOf(player2[1]) + " "
-								+ String.valueOf(openDoor);
+								+ String.valueOf(openDoor)+" "+String.valueOf(Client2);
 						schreibeNachricht(client, string);
 
 					}
@@ -234,7 +231,7 @@ public class Server {
 								+ String.valueOf(player1[1]) + " "
 								+ String.valueOf(player2[0]) + " "
 								+ String.valueOf(player2[1]) + " "
-								+ String.valueOf(openDoor);
+								+ String.valueOf(openDoor)+" "+String.valueOf(Client1);
 						schreibeNachricht(client, string);
 
 					}
@@ -248,7 +245,9 @@ public class Server {
 		try {
 			ServerSocket serverSocket = new ServerSocket(port);
 			client = serverSocket.accept();
-			// client2 = serverSocket.accept();
+			Client1=client.isBound();
+			//client2 = serverSocket.accept();  
+			//Client2=client2.isBound();
 			Thread t1 = new Thread(new startClient1());
 			t1.start();
 			// Thread t2 = new Thread(new startClient2());
