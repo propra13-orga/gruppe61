@@ -117,7 +117,7 @@ public class SpielMenue {
 						@Override
 						public void run() {
 							// TODO Auto-generated method stub
-							Netzwerk.main(null);
+							Netzwerk.execute();
 						}
 
 					}
@@ -125,7 +125,7 @@ public class SpielMenue {
 					Thread t = new Thread(new startNetzwerk());
 					t.start();
 
-					WaitForConnection.execute();
+					// WaitForConnection.execute();
 
 					break;
 				} else // Zurück gewählt

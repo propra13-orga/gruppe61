@@ -113,6 +113,7 @@ public class Client1 {
 			Socket server = new Socket("localhost", port); // verbindet sich mit
 			// Server
 
+			schreibeNachricht(server, "Bin bereit");
 			while (server.isConnected()) {
 				String empfangeneNachricht = leseNachricht(server);
 				System.out.println("Client1 reads: " + empfangeneNachricht); // Druckt

@@ -5,14 +5,15 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.Socket;
+
 /**
- * Client für Spieler 2
- * Arbeitet genauso, wie Client, nur soll hierüber Spieler2 laufen.
+ * Client für Spieler 2 Arbeitet genauso, wie Client, nur soll hierüber Spieler2
+ * laufen.
+ * 
  * @author jan
- *
+ * 
  */
 public class Client2 {
-	
 
 	/**
 	 * Zeichnet den Raum, indem das Netzwerk-Spiel stattfindet
@@ -99,12 +100,14 @@ public class Client2 {
 
 	public static void go() {
 		Client1 client = new Client1();
-		int port = 1234; //willkür, wichtig ist nur >1024 und bei Server und Clients identisch
+		int port = 1234; // willkür, wichtig ist nur >1024 und bei Server und
+							// Clients identisch
 
 		try {
 			Socket server = new Socket("localhost", port); // verbindet sich mit
 			// Server
 
+			schreibeNachricht(server, "Bin soweit");
 			while (server.isConnected()) {
 				String empfangeneNachricht = leseNachricht(server);
 				System.out.println("Client1 reads: " + empfangeneNachricht); // Druckt

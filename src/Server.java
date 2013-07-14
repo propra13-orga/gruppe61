@@ -27,11 +27,11 @@ public class Server {
 	private static boolean schalter1 = false; // ist Schalter1 aktiv?
 	private static boolean schalter2 = false; // ist Schalter2 aktiv?
 	private static double[] Schalter1 = { .1, 0.3 }; // Koordinaten des ersten
-														// Schalters (dieselben
-														// wie im NetzwerkRaum)
+	// Schalters (dieselben
+	// wie im NetzwerkRaum)
 	private static double[] Schalter2 = { .9, 0.8, }; // Koordinaten des zweiten
-														// Schalters (dieselben
-														// wie im NetzwerkRaum)
+	// Schalters (dieselben
+	// wie im NetzwerkRaum)
 
 	/**
 	 * Steuert die Bewegung der beiden Spieler. Es wird die Bewegungsrichtung
@@ -163,8 +163,9 @@ public class Server {
 
 		/**
 		 * Startet Client1, der Spieler1 steuert
+		 * 
 		 * @author jan
-		 *
+		 * 
 		 */
 		class startClient1 implements Runnable {
 
@@ -194,7 +195,6 @@ public class Server {
 								+ String.valueOf(openDoor);
 						schreibeNachricht(client, string);
 
-						
 					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -205,8 +205,9 @@ public class Server {
 
 		/**
 		 * Startet den zweiten Client, der Spieler2 steuert
+		 * 
 		 * @author jan
-		 *
+		 * 
 		 */
 		class startClient2 implements Runnable {
 
@@ -222,7 +223,7 @@ public class Server {
 						System.out.println("Client1 says: " + direction);
 
 						// player1=Schalter2;
-						//player1 = Schalter1;
+						// player1 = Schalter1;
 
 						// Führe Bewegung aus und prüfe Schalter
 						move(direction, 1);
