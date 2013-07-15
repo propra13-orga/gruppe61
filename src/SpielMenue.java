@@ -76,7 +76,12 @@ public class SpielMenue {
 			StdDraw.line(0, .66, 1, 0.66);
 			StdDraw.text(0.5, 0.8, "Ich spiel lieber alleine");
 			StdDraw.text(0.5, 0.48, "Ich hab Freunde");
-			StdDraw.text(0.5, 0.15, "Hab mich verklickt, will zurück");
+			if(Speicher.xneu!=0){
+			StdDraw.text(0.5, 0.15, "Ich will meinen letzten Spielstand laden.");
+			}
+			else{
+				StdDraw.text(0.5, 0.15, "Hab mich verklickt, will zurück");
+			}
 
 			// Zeichnet Pfeil, der Auswahl anzeigt
 			StdDraw.picture(x, y(height), "pfeil_rechts.png", 0.05, 0.05);
@@ -107,7 +112,7 @@ public class SpielMenue {
 					// Stop the music
 					clip.stop();
 					// Start game
-					Game.start();
+					Game.start(1);
 
 					break;
 				} else if (height == 2) // Netzwerk gewählt
@@ -131,7 +136,13 @@ public class SpielMenue {
 					break;
 				} else // Zurück gewählt
 				{
-					Menue.execute();
+					// Stop the music
+					clip.stop();
+					//Lade altes Spiel
+					Speicher.load();
+					Thread.sleep(300);
+					Game.start(2);
+					
 					break;
 				}
 

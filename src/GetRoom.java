@@ -95,6 +95,12 @@ public class GetRoom {
 	    		Globals.npc.y=1-j*0.05;
 	    		Globals.npc.npc=true;
 	    	}
+	    	else if (ch==76 && i==0){
+	    		
+	    		Globals.speicher.x=k*0.05;
+	    		Globals.speicher.y=1-j*0.05;
+	    		Globals.speicher.draw=true;
+	    	}
 	    	
 	    		
 	    	else if(ch==113 && i!=1){

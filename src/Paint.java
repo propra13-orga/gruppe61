@@ -114,4 +114,9 @@ public class Paint {
 		}
 	}
 
+	public static void speicher() {
+		StdDraw.picture(Globals.speicher.x,Globals.speicher.y, "Speicherpunkt.png", 0.05,0.05);
+		
+	}
+
 }

@@ -5,7 +5,8 @@ Extras:
 s - Stop die Bewegung der Fallen für einige Sekunden
 w - Ermöglicht es dem Spieler kurze Zeit durch Wände zu laufen, verhindert aber den Raumwechsel. Friert der Spieler in einer Wand ein, stirbt er
 b - platziert eine Bombe
-
+Enter - Sammeln/Aktivieren von Gegenständen.
+Escape - Spiel beenden und zurück zum Menü
 Karte erstellen:
 x - Wand
 e - Falle
@@ -14,5 +15,8 @@ z - Ziel
 S - Shop
 B - Boss
 P - Paket
+N= NPC
+q= Questgegenstand
+L= Savepoint
   - leeres Feld
  Format 21 x 21 Zeichen.

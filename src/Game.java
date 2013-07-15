@@ -53,9 +53,9 @@ public class Game {
 	 * @throws UnsupportedAudioFileException
 	 * @throws LineUnavailableException
 	 */
-	public static void start() throws IOException, InterruptedException,
+	public static void start(int n) throws IOException, InterruptedException,
 			UnsupportedAudioFileException, LineUnavailableException {
-
+		
 		File file = new File("src/level.wav");
 		AudioInputStream stream = AudioSystem.getAudioInputStream(file);
 		AudioFormat format = stream.getFormat();
@@ -66,8 +66,11 @@ public class Game {
 		clip.loop(1000);//music repeat 1000x
 		
 		int p; // Laufvariable damit in GetRoom nicht immer die Fallen und so
-				// mehrfach ausgelesen werden und die Koordinaten in Globals
-				// verändert werden.
+		// mehrfach ausgelesen werden und die Koordinaten in Globals
+		// verändert werden.
+		if (n==1){
+			
+				
 		p = 0;
 		GetRoom.room(p); // Hier sollte p=0 sein alle Daten in GetROom gelesen
 							// werden.
@@ -79,7 +82,8 @@ public class Game {
 
 		Globals.x = Globals.startx; // Übergabe von den Startkoordinaten
 		Globals.y = Globals.starty;
-
+		}
+		
 		while (true) {
 			p = 1;
 
@@ -124,6 +128,10 @@ public class Game {
 			// paint Gegenstände und Schalter
 			if (Globals.quest.draw) {
 				Paint.quest();
+			}
+			//paint Speicherpunkt
+			if(Globals.speicher.draw){
+				Paint.speicher();
 			}
 
 			Boss.go();
@@ -178,11 +186,21 @@ public class Game {
 				} else if (StdDraw.isKeyPressed(KeyEvent.VK_B)) {
 					Bomb.use();
 					Thread.sleep(100);
-				} else if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)
-						&& Globals.quest.draw) {
+				} else if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+					
+					if( Globals.quest.draw) {
 					Sammeln.use();
 					Thread.sleep(300);
 
+				}
+					 if (Globals.speicher.draw){
+						Speicher.save();
+						Thread.sleep(300);
+						
+					}
+				}
+				else if (StdDraw.isKeyPressed(KeyEvent.VK_ESCAPE)){
+					Menue.execute();
 				}
 			}
 
@@ -243,6 +261,7 @@ public class Game {
 				// Lese neuen Raum aus
 				Globals.packet.draw = false;
 				Globals.npc.npc = false;
+				Globals.speicher.draw = false;
 				GetRoom.room(0);
 
 				// Setze Spieler auf neue Position
@@ -259,6 +278,7 @@ public class Game {
 					// Lese neuen Raum aus
 					Globals.packet.draw = false;
 					Globals.npc.npc = false;
+					Globals.speicher.draw = false;
 					GetRoom.room(0);
 					Globals.x = Globals.zielx;
 					Globals.y = Globals.ziely;
@@ -270,8 +290,8 @@ public class Game {
 					Globals.y = Globals.starty;
 				}
 			}
-
 		}
+		
 	}
 
 }

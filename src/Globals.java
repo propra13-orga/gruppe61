@@ -5,7 +5,8 @@
  */
 public class Globals {
 	
-	//Saving variables:
+	
+		//Saving variables:
 		public static int health;
 		public static int life;
 		public static int magician;
@@ -48,6 +49,18 @@ public class Globals {
 		
 		public static String fileName;	//File Name für den Raum
 		public static int boss_richtung;
+		
+		
+		
+		//Variablen fürs Speichern
+		public static class speicher{
+
+			public static boolean draw;
+			public static double x;
+			public static double y;
+			
+		}
+		
 		
 		//Hier Variablen fürs Netzwerk
 		public boolean server; //ist der Server online?
