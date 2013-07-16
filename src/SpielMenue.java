@@ -109,6 +109,7 @@ public class SpielMenue {
 				{
 					// Initialize variables with their defaults:
 					Initialize.game();
+					Thread.sleep(100);
 					// Stop the music
 					clip.stop();
 					// Start game
@@ -134,14 +135,21 @@ public class SpielMenue {
 					// WaitForConnection.execute();
 
 					break;
-				} else // Zurück gewählt
+				} else if (Speicher.xneu!=0) // Zurück gewählt
 				{
 					// Stop the music
 					clip.stop();
 					//Lade altes Spiel
 					Speicher.load();
-					Thread.sleep(300);
+					Thread.sleep(200);
 					Game.start(2);
+					
+					break;
+				}
+				else{
+					clip.stop();
+					Thread.sleep(100);
+					Menue.execute();
 					
 					break;
 				}

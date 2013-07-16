@@ -66,7 +66,7 @@ public class Menue {
 			StdDraw.point(x, y);
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (y>0.5) //Start gedrückt
-				{
+				{	Thread.sleep(100);
 					//Gehe ins Untermenü (Wahl ob Single oder Multiplayer)
 					SpielMenue.execute();
 					//clip.stop();
