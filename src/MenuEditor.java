@@ -4,9 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -270,7 +267,7 @@ public class MenuEditor extends JPanel {
 		}
 		
 
-		public void upload() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException
+		public void upload() throws IOException
 		{
 			Object[] possibilities = {"1.1", "1.2", "1.3","2.1", "2.2", "2.3","3.1", "3.2", "3.3"};
 			String s = (String)JOptionPane.showInputDialog(
@@ -322,7 +319,6 @@ public class MenuEditor extends JPanel {
 				System.out.println(Globals.room);
 				//GetRoom room = new GetRoom();
 				GetRoom.room(1);
-				Game.start(1);
 				
 			}
 
