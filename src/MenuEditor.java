@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 /**
- *
+ *Hier gibt's einen Menu-Editor, wo man waehlen kann wie man die Level/Raum bauen will.
  */
 
 public class MenuEditor extends JPanel {
@@ -145,7 +145,7 @@ public class MenuEditor extends JPanel {
             	        public void actionPerformed(ActionEvent e) {
             	        	
             	        	//System.out.println(action(LevelEditor.check(karte)));
-            	        	//save(1,1);
+            	        	save(1,1);
             	        	
             	        	if ((e.getActionCommand() == onea) && (e.getActionCommand() == oneb) )
             			    {
@@ -345,7 +345,7 @@ public class MenuEditor extends JPanel {
 				
 				//System.out.println(LevelEditor.check(karte));
 				
-				//karte = action(LevelEditor.check(a, b));
+				karte = action(LevelEditor.check());
 			
 			    for(int j=0; j<21; j++){
 					bw.write(karte[0][j]);

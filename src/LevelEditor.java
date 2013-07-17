@@ -1,12 +1,13 @@
 import javax.swing.JFrame; //imports JFrame library
 import javax.swing.JButton; //imports JButton library
 import java.awt.GridLayout; //imports GridLayout library
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
-*
+*Hier gib'ts eine Karte mit JButtons(21x21), wo man zeichen kann, in welchem Platz sollen die Waende, Boss etc. stehen.
 */
 
 public class LevelEditor extends JFrame implements ActionListener{
@@ -42,8 +43,9 @@ public class LevelEditor extends JFrame implements ActionListener{
 					
            }
         
-
-		public static void check(){
+      
+            
+		public static String[][] check(){
 			
 			for(int j=0; j<21;j++) 
 			{
@@ -61,9 +63,7 @@ public class LevelEditor extends JFrame implements ActionListener{
 			
 			}
 			}
-			//return karte;
-				
-
+			return karte;
 			
 		}
 		
