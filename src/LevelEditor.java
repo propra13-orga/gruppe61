@@ -33,7 +33,7 @@ public class LevelEditor extends JFrame implements ActionListener{
                 }
    
                 
-                
+                frame.setTitle("Level Editor");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack(); //sets appropriate size for frame
                 frame.setVisible(true); //makes frame visible
@@ -90,19 +90,6 @@ public class LevelEditor extends JFrame implements ActionListener{
 		
 
 		
-		/*public void actionPerformed(ActionEvent e) 
-		{
-			// TODO Auto-generated method stub
-			for(int j=0; j<21;j++) {
-				for(int i=0;i<21;i++){
-					
-					grid(i,j);
-				}
-			}
-		
-			
-		}*/
-		
 		
 		public void grid(final int i, final int j){
 			
@@ -119,21 +106,16 @@ public class LevelEditor extends JFrame implements ActionListener{
             	    	
             	    });
 			
-     
-			
+  
 		}
 
-
-
+		
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
-
-
-
-		
+	
 
 }

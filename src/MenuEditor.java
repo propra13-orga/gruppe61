@@ -1,4 +1,6 @@
 import java.awt.Component;
+import java.awt.FileDialog;
+import java.awt.Frame;
 import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,7 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-
+import javax.swing.JOptionPane;
+import javax.swing.JDialog;
+import javax.swing.JTextField;
+import java.beans.*; //property change stuff
+import java.awt.*;
+import java.awt.event.*;
 
 public class MenuEditor extends JPanel {
 
@@ -113,13 +120,6 @@ public class MenuEditor extends JPanel {
 		B.addActionListener(myListener);
 		Q.addActionListener(myListener);
 		NP.addActionListener(myListener);
-		
-		one.addActionListener(myListener);
-		two.addActionListener(myListener);
-		three.addActionListener(myListener);
-		one1.addActionListener(myListener);
-		two1.addActionListener(myListener);
-		three.addActionListener(myListener);
 
 		add(X);
 		add(S);
@@ -129,12 +129,14 @@ public class MenuEditor extends JPanel {
 		add(NP);
 		add(save);
 		add(cancel);
+		add(upload);
 		add(one);
 		add(two);
 		add(three);
 		add(one1);
 		add(two1);
 		add(three1);
+		
 		
 		
 	    }
@@ -149,7 +151,7 @@ public class MenuEditor extends JPanel {
             	    new ActionListener() {
             	        public void actionPerformed(ActionEvent e) {
             	        	
-            	        	//save(1,1);
+            	        	save(1,1);
             	        	
             	        	if ((e.getActionCommand() == onea) && (e.getActionCommand() == oneb) )
             			    {
@@ -215,8 +217,11 @@ public class MenuEditor extends JPanel {
             	    new ActionListener() {
             	        public void actionPerformed(ActionEvent e) {
             	      
-            	        	System.exit(0);
+            	        	frame.setVisible(false);
+            	        	upload();
             	        }
+            	        
+            	       
 
             	    });
 		    
@@ -263,14 +268,65 @@ public class MenuEditor extends JPanel {
 		}
 		
 
-		public static void read()
+		public void upload()
 		{
+			Object[] possibilities = {"1.1", "1.2", "1.3","2.1", "2.2", "2.3","3.1", "3.2", "3.3"};
+			String s = (String)JOptionPane.showInputDialog(
+			                    frame,
+			                    "Gespeicherte Karten...",
+			                    "Level.Raum",
+			                    JOptionPane.PLAIN_MESSAGE,
+			                    null,
+			                    possibilities,
+			                    "1.1");
+
+			//If a string was returned, say so.
+			if (s == "1.1") {
+			    Globals.level=1;
+			    Globals.room=1;
+			}
+			else if (s == "1.2"){
+				Globals.level=1;
+			    Globals.room=2;
+			}
+			else if (s == "1.3"){
+				Globals.level=1;
+			    Globals.room=3;
+			}
+			else if (s == "2.1"){
+				Globals.level=2;
+			    Globals.room=1;
+			}
+			else if (s == "2.2"){
+				Globals.level=2;
+			    Globals.room=2;
+			}
+			else if (s == "2.3"){
+				Globals.level=2;
+			    Globals.room=3;
+			}
+			else if (s == "3.1"){
+				Globals.level=3;
+			    Globals.room=1;
+			}
+			else if (s == "3.2"){
+				Globals.level=3;
+			    Globals.room=2;
+			}
+			else if (s == "3.3"){
+				Globals.level=3;
+			    Globals.room=3;
+			}	    
+				System.out.println(Globals.level);
+				System.out.println(Globals.room);
+			    new GetRoom();
+			    new Game();
+			}
+
 			
 
-		}
-		
-		
-	    public void save(int a, int b ){
+
+		public void save(int a, int b ){
 	    	
 	    	try {
 
