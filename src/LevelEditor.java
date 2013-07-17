@@ -5,12 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
- 
+/**
+*
+*/
+
 public class LevelEditor extends JFrame implements ActionListener{
  
-        /**
-	 * 
-	 */
+       /** * */
 	private static final long serialVersionUID = 1L;
 		JFrame frame=new JFrame(); //creates frame
         static JButton[][] grid; //names the grid of buttons
@@ -41,40 +42,26 @@ public class LevelEditor extends JFrame implements ActionListener{
 					
            }
         
-        ArrayList<String> liste = new ArrayList<String>();
 
-        public ArrayList<String> liste(){
-        	
-        	for(int j=0; j<21;j++) 
-    			{
-    				for(int i=0;i<21;i++)
-    				{
-        	          liste.add(grid[i][j].getText());
-    				}
-    			}
-        	
-			return liste;
-        	
-        }
-
-		public static String[][] check(int i, int j){
+		public static void check(){
 			
-			//for(int j=0; j<21;j++) 
-			//{
-			//	for(int i=0;i<21;i++)
-			//	{
+			for(int j=0; j<21;j++) 
+			{
+				for(int i=0;i<21;i++)
+				{
+					
 					if (grid[i][j].getText() == "x") karte[i][j] ="x";
-					else if (grid[i][j].getText() == "s") karte[i][j] ="s";
-					else if (grid[i][j].getText() == "z") karte[i][j] ="z";
-				    else if (grid[i][j].getText() == "B") karte[i][j] ="B";
-				    else if (grid[i][j].getText() == "NP")karte[i][j] ="NP";
-				    else if (grid[i][j].getText() == "q") karte[i][j] ="q";
-				    else if (grid[i][j].getText() == "empty") karte[i][j] =" ";
-
-			   //  }
-				
-		//	}
-			return karte;
+					if (grid[i][j].getText() == "s") karte[i][j] ="s";
+				    if (grid[i][j].getText() == "z") karte[i][j] ="z";
+				    if (grid[i][j].getText() == "B") karte[i][j] ="B";
+				    if (grid[i][j].getText() == "NP")karte[i][j] ="NP";
+				    if (grid[i][j].getText() == "q") karte[i][j] ="q";
+				    if (grid[i][j].getText() == "empty") karte[i][j] =" ";
+			     
+			
+			}
+			}
+			//return karte;
 				
 
 			

@@ -1,30 +1,26 @@
 import java.awt.Component;
-import java.awt.FileDialog;
-import java.awt.Frame;
 import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JOptionPane;
-import javax.swing.JDialog;
-import javax.swing.JTextField;
-import java.beans.*; //property change stuff
-import java.awt.*;
-import java.awt.event.*;
+
+/**
+ *
+ */
 
 public class MenuEditor extends JPanel {
 
-	
-	 /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	static JFrame frame;
 	    static String wand = new String("Wand");
@@ -33,12 +29,12 @@ public class MenuEditor extends JPanel {
 	    static String boss = new String("Boss");
 	    static String q = new String("Questgegenstand");
 	    static String np = new String("NP");
-	    static String onea = new String("1a");
-	    static String twoa = new String("2a");
-	    static String threea = new String("3a");
-	    static String oneb = new String("1b");
-	    static String twob = new String("3b");
-	    static String threeb = new String("3b");
+	    static String onea = new String("Level 1");
+	    static String twoa = new String("Level 2");
+	    static String threea = new String("Level 3");
+	    static String oneb = new String("Raum 1");
+	    static String twob = new String("Raum 2");
+	    static String threeb = new String("Raum 3");
 	    JButton save, cancel, upload;
 	    static String[][] karte;
 	   
@@ -74,22 +70,22 @@ public class MenuEditor extends JPanel {
 		
 		
 
-		JRadioButton one = new JRadioButton("Level 1");
+		JRadioButton one = new JRadioButton(onea);
 		one.setActionCommand(onea);
 		
-		JRadioButton two = new JRadioButton("Level 2");
+		JRadioButton two = new JRadioButton(twoa);
 		two.setActionCommand(twoa);
 		
-		JRadioButton three = new JRadioButton("Level 3");
+		JRadioButton three = new JRadioButton(threea);
 		three.setActionCommand(threea);
 		
-		JRadioButton one1 = new JRadioButton("Raum 1");
+		JRadioButton one1 = new JRadioButton(oneb);
 		one1.setActionCommand(oneb);
 		
-		JRadioButton two1 = new JRadioButton("Raum 2");
+		JRadioButton two1 = new JRadioButton(twob);
 		two1.setActionCommand(twob);
 		
-		JRadioButton three1 = new JRadioButton("Raum 3");
+		JRadioButton three1 = new JRadioButton(threeb);
 		three1.setActionCommand(threeb);
 
 		// Group the radio buttons.
@@ -151,7 +147,8 @@ public class MenuEditor extends JPanel {
             	    new ActionListener() {
             	        public void actionPerformed(ActionEvent e) {
             	        	
-            	        	save(1,1);
+            	        	//System.out.println(action(LevelEditor.check(karte)));
+            	        	//save(1,1);
             	        	
             	        	if ((e.getActionCommand() == onea) && (e.getActionCommand() == oneb) )
             			    {
@@ -218,7 +215,12 @@ public class MenuEditor extends JPanel {
             	        public void actionPerformed(ActionEvent e) {
             	      
             	        	frame.setVisible(false);
-            	        	upload();
+            	        	try {
+								upload();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
             	        }
             	        
             	       
@@ -268,7 +270,7 @@ public class MenuEditor extends JPanel {
 		}
 		
 
-		public void upload()
+		public void upload() throws IOException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException
 		{
 			Object[] possibilities = {"1.1", "1.2", "1.3","2.1", "2.2", "2.3","3.1", "3.2", "3.3"};
 			String s = (String)JOptionPane.showInputDialog(
@@ -280,7 +282,6 @@ public class MenuEditor extends JPanel {
 			                    possibilities,
 			                    "1.1");
 
-			//If a string was returned, say so.
 			if (s == "1.1") {
 			    Globals.level=1;
 			    Globals.room=1;
@@ -319,8 +320,10 @@ public class MenuEditor extends JPanel {
 			}	    
 				System.out.println(Globals.level);
 				System.out.println(Globals.room);
-			    new GetRoom();
-			    new Game();
+				//GetRoom room = new GetRoom();
+				GetRoom.room(1);
+				Game.start(1);
+				
 			}
 
 			
@@ -344,7 +347,7 @@ public class MenuEditor extends JPanel {
 				BufferedWriter bw = new BufferedWriter(fw);
 		
 				
-				System.out.println(LevelEditor.check(a,b));
+				//System.out.println(LevelEditor.check(karte));
 				
 				//karte = action(LevelEditor.check(a, b));
 			
@@ -405,7 +408,7 @@ public class MenuEditor extends JPanel {
 	    }
 	 
 	    
-	    public static void main(String s[]) {
+	    public void main() {
 	         WindowListener l = new WindowAdapter() {
 	             public void windowClosing(WindowEvent e) {System.exit(0);}
 	         };

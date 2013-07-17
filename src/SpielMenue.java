@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JOptionPane;
 
 /**
  * Dieses Untermenü stellt den Spieler zwischen die Wahl, ob er alleine oder zu
@@ -107,6 +109,26 @@ public class SpielMenue {
 			if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER))
 				if (height == 1) // Start gedrückt
 				{
+					
+					Object[] options = {"Ja",
+                    "Nein"};
+					Component frame = null;
+					int n = JOptionPane.showOptionDialog(frame,
+					    "Willst du neue Level/Raum bauen?",
+					    null,
+					    JOptionPane.YES_NO_OPTION,
+					    JOptionPane.QUESTION_MESSAGE,
+					    null,     //do not use a custom Icon
+					    options,  //the titles of buttons
+					    options[0]); //default button title
+					if (n == JOptionPane.YES_OPTION)
+					{ MenuEditor editor = new MenuEditor();
+					  editor.main();
+					  Thread.sleep(200);
+					  
+					}
+					if (n == JOptionPane.NO_OPTION) 
+					{
 					// Initialize variables with their defaults:
 					Initialize.game();
 					Thread.sleep(100);
@@ -116,6 +138,7 @@ public class SpielMenue {
 					Game.start(1);
 
 					break;
+					//}
 				} else if (height == 2) // Netzwerk gewählt
 				{
 					// Netzwerk in eigenem Thread starten
@@ -156,4 +179,5 @@ public class SpielMenue {
 
 		}
 	}
+}
 }
